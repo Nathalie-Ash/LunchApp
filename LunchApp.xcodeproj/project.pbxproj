@@ -23,7 +23,7 @@
 		F677E41A2A6EE0C0009C85C0 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F677E4192A6EE0C0009C85C0 /* SignUpViewController.swift */; };
 		F677E41E2A6F110C009C85C0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F677E41D2A6F110C009C85C0 /* GoogleService-Info.plist */; };
 		F677E4202A6FE929009C85C0 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F677E41F2A6FE929009C85C0 /* UserProfileViewController.swift */; };
-		F677E4652A70095A009C85C0 /* user.swift in Sources */ = {isa = PBXBuildFile; fileRef = F677E4642A70095A009C85C0 /* user.swift */; };
+		F677E4652A70095A009C85C0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F677E4642A70095A009C85C0 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,7 +69,7 @@
 		F677E4192A6EE0C0009C85C0 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		F677E41D2A6F110C009C85C0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F677E41F2A6FE929009C85C0 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
-		F677E4642A70095A009C85C0 /* user.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = user.swift; sourceTree = "<group>"; };
+		F677E4642A70095A009C85C0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FED8962FCD8B68F0CA47A828 /* Pods_LunchApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LunchApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -160,7 +160,7 @@
 				F677E4172A6EE0A8009C85C0 /* LogInViewController.swift */,
 				F677E4192A6EE0C0009C85C0 /* SignUpViewController.swift */,
 				F677E41F2A6FE929009C85C0 /* UserProfileViewController.swift */,
-				F677E4642A70095A009C85C0 /* user.swift */,
+				F677E4642A70095A009C85C0 /* User.swift */,
 			);
 			path = LunchApp;
 			sourceTree = "<group>";
@@ -426,7 +426,7 @@
 				F677E4202A6FE929009C85C0 /* UserProfileViewController.swift in Sources */,
 				F677E3EC2A6EDF9E009C85C0 /* ViewController.swift in Sources */,
 				F677E3E82A6EDF9E009C85C0 /* AppDelegate.swift in Sources */,
-				F677E4652A70095A009C85C0 /* user.swift in Sources */,
+				F677E4652A70095A009C85C0 /* User.swift in Sources */,
 				F677E3EA2A6EDF9E009C85C0 /* SceneDelegate.swift in Sources */,
 				F677E41A2A6EE0C0009C85C0 /* SignUpViewController.swift in Sources */,
 			);

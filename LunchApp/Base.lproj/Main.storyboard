@@ -162,12 +162,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cLf-Eb-ACW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1563" y="4"/>
+            <point key="canvasLocation" x="2399" y="4"/>
         </scene>
         <!--User Profile View Controller-->
         <scene sceneID="fpr-H2-DPD">
             <objects>
-                <viewController id="fTs-aV-HB6" customClass="UserProfileViewController" customModule="LunchApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="userProfile" id="fTs-aV-HB6" customClass="UserProfileViewController" customModule="LunchApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="88R-SL-b1C">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -236,6 +236,9 @@
                                 <buttonConfiguration key="configuration" style="gray" title="+">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="16"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="foodPlusButtonPressed:" destination="fTs-aV-HB6" eventType="touchUpInside" id="MzN-mh-KRQ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YnA-HQ-WcX">
                                 <rect key="frame" x="139" y="734" width="133" height="35"/>
@@ -267,8 +270,8 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="16"/>
                                 </buttonConfiguration>
                             </button>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="4ep-4V-Q1C">
-                                <rect key="frame" x="109" y="315" width="256" height="39"/>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="4ep-4V-Q1C">
+                                <rect key="frame" x="109" y="315" width="193" height="39"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </datePicker>
                         </subviews>
@@ -277,6 +280,7 @@
                     </view>
                     <connections>
                         <outlet property="datePicker" destination="4ep-4V-Q1C" id="aYr-GX-5Ar"/>
+                        <outlet property="foodButton" destination="Qij-qr-pOo" id="Ftb-7g-ZJX"/>
                         <outlet property="foodLabel" destination="5hT-Nh-EA2" id="eqL-nc-uuE"/>
                         <outlet property="nameLabel" destination="IRB-ba-PY7" id="NBW-VD-e1f"/>
                         <outlet property="officeLabel" destination="bTc-ag-AmW" id="wNc-yx-lhZ"/>
@@ -285,7 +289,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cg7-G4-zsD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2347.3282442748091" y="4.9295774647887329"/>
+            <point key="canvasLocation" x="1651" y="4"/>
         </scene>
     </scenes>
     <resources>

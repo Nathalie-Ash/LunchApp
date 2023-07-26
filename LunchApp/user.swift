@@ -23,60 +23,59 @@
 
 import Foundation
 import Firebase
+import FirebaseFirestore
 
 struct User {
-
-  var name: String
-  var birthday: Date
+    
+    var name: String
+    var birthday: String
     var office: String
-  var food: String
-  var restaurant: String
-
-
-  var dictionary: [String: Any] {
-    return [
-      "name": name,
-      "birthday": birthday,
-      "office": office,
-      "food": food,
-      "restaurant": restaurant
-      
-    ]
-  }
-
+    var food: [String]
+    var restaurant: [String]
+    
+    var dictionary: [String: Any] {
+        return [
+            "name": name,
+            "birthday": birthday,
+            "office": office,
+            "food": food,
+            "restaurant": restaurant
+        ]
+    }
+    
 }
 
-extension User: DocumentSerializable {
-
-  static let restaurants = [
-    "Roadsted",
-    "Zaatar w Zeit",
-    "Kabaji",
-    "Deek Duke",
-    "Roselane",
-    "Al Abdullah",
-    "Malak El Tawouk"
-  ]
-
-  static let food = [
-    "Brunch", "Burgers", "Coffee", "Deli", "Dim Sum", "Indian", "Italian",
-    "Mediterranean", "Mexican", "Pizza", "Ramen", "Sushi"
-  ]
-
-  init?(dictionary: [String : Any]) {
-    guard let name = dictionary["name"] as? String,
-        let birthday = dictionary["birthday"] as? Date,
-          let office = dictionary["office"] as? String,
-        let food = dictionary["food"] as? String,
-          let restaurant = dictionary["restaurant"] as? String else { return nil }
-
-    self.init(name: name,
-              birthday: birthday,
-              office: office,
-              food: food,
-              restaurant: restaurant)
-  }
-
+extension User {
+    
+    static let restaurants = [
+        "Roadsted",
+        "Zaatar w Zeit",
+        "Kabaji",
+        "Deek Duke",
+        "Roselane",
+        "Al Abdullah",
+        "Malak El Tawouk"
+    ]
+    
+    static let food = [
+        "Brunch", "Burgers", "Coffee", "Deli", "Dim Sum", "Indian", "Italian",
+        "Mediterranean", "Mexican", "Pizza", "Ramen", "Sushi"
+    ]
+    
+    init?(dictionary: [String : Any]) {
+        guard let name = dictionary["name"] as? String,
+              let birthday = dictionary["birthday"] as? String,
+              let office = dictionary["office"] as? String,
+              let food = dictionary["food"] as? [String],
+              let restaurant = dictionary["restaurant"] as? [String] else { return nil }
+        
+        self.init(name: name,
+                  birthday: birthday,
+                  office: office,
+                  food: food,
+                  restaurant: restaurant)
+    }
+    
 }
 
 
