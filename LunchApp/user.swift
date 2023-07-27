@@ -42,7 +42,6 @@ struct User {
             "restaurant": restaurant
         ]
     }
-    
 }
 
 extension User {

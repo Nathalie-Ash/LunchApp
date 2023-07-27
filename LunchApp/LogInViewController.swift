@@ -122,11 +122,16 @@ class LogInViewController: UIViewController {
         if Auth.auth().currentUser != nil {
             print(Auth.auth().currentUser?.uid)
         }
-        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(identifier: "mainHome")
-        vc.modalPresentationStyle = .overFullScreen
-        self.present(vc, animated: true)
-    }
+            guard let mainTabBarController = storyboard.instantiateViewController(identifier: "mainHome") as? UITabBarController else {
+                // Handle the case where the storyboard ID is incorrect or the cast fails
+                return
+            }
+            
+            mainTabBarController.modalPresentationStyle = .fullScreen
+            mainTabBarController.selectedIndex = 1 //index of the "Home" tab
+            self.present(mainTabBarController, animated: true, completion: nil)
+    
+}
     
 }
