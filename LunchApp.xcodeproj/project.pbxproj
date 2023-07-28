@@ -25,6 +25,10 @@
 		F677E4202A6FE929009C85C0 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F677E41F2A6FE929009C85C0 /* UserProfileViewController.swift */; };
 		F677E4652A70095A009C85C0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F677E4642A70095A009C85C0 /* User.swift */; };
 		F677E4672A70FC97009C85C0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F677E4662A70FC97009C85C0 /* HomeViewController.swift */; };
+		F6A1235D2A739A0A00D43BA3 /* AvailableUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A1235C2A739A0A00D43BA3 /* AvailableUserViewController.swift */; };
+		F6E306AA2A729A51004DFEAA /* UserLunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E306A92A729A51004DFEAA /* UserLunch.swift */; };
+		F6E306AC2A72A178004DFEAA /* LunchLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E306AB2A72A178004DFEAA /* LunchLocation.swift */; };
+		F6E306AE2A72B5AF004DFEAA /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E306AD2A72B5AF004DFEAA /* Restaurant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +76,10 @@
 		F677E41F2A6FE929009C85C0 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		F677E4642A70095A009C85C0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F677E4662A70FC97009C85C0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		F6A1235C2A739A0A00D43BA3 /* AvailableUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableUserViewController.swift; sourceTree = "<group>"; };
+		F6E306A92A729A51004DFEAA /* UserLunch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLunch.swift; sourceTree = "<group>"; };
+		F6E306AB2A72A178004DFEAA /* LunchLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchLocation.swift; sourceTree = "<group>"; };
+		F6E306AD2A72B5AF004DFEAA /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		FED8962FCD8B68F0CA47A828 /* Pods_LunchApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LunchApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -162,8 +170,12 @@
 				F677E4172A6EE0A8009C85C0 /* LogInViewController.swift */,
 				F677E4192A6EE0C0009C85C0 /* SignUpViewController.swift */,
 				F677E41F2A6FE929009C85C0 /* UserProfileViewController.swift */,
-				F677E4642A70095A009C85C0 /* User.swift */,
 				F677E4662A70FC97009C85C0 /* HomeViewController.swift */,
+				F6A1235C2A739A0A00D43BA3 /* AvailableUserViewController.swift */,
+				F677E4642A70095A009C85C0 /* User.swift */,
+				F6E306A92A729A51004DFEAA /* UserLunch.swift */,
+				F6E306AB2A72A178004DFEAA /* LunchLocation.swift */,
+				F6E306AD2A72B5AF004DFEAA /* Restaurant.swift */,
 			);
 			path = LunchApp;
 			sourceTree = "<group>";
@@ -425,14 +437,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6E306AE2A72B5AF004DFEAA /* Restaurant.swift in Sources */,
+				F6A1235D2A739A0A00D43BA3 /* AvailableUserViewController.swift in Sources */,
 				F677E4182A6EE0A8009C85C0 /* LogInViewController.swift in Sources */,
 				F677E4202A6FE929009C85C0 /* UserProfileViewController.swift in Sources */,
 				F677E3EC2A6EDF9E009C85C0 /* ViewController.swift in Sources */,
 				F677E4672A70FC97009C85C0 /* HomeViewController.swift in Sources */,
 				F677E3E82A6EDF9E009C85C0 /* AppDelegate.swift in Sources */,
+				F6E306AA2A729A51004DFEAA /* UserLunch.swift in Sources */,
 				F677E4652A70095A009C85C0 /* User.swift in Sources */,
 				F677E3EA2A6EDF9E009C85C0 /* SceneDelegate.swift in Sources */,
 				F677E41A2A6EE0C0009C85C0 /* SignUpViewController.swift in Sources */,
+				F6E306AC2A72A178004DFEAA /* LunchLocation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -47,7 +47,7 @@ struct User {
 extension User {
     
     static let restaurants = [
-        "Roadsted",
+        "Roadster",
         "Zaatar w Zeit",
         "Kabaji",
         "Deek Duke",

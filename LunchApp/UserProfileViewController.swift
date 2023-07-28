@@ -70,7 +70,7 @@ class UserProfileViewController: UIViewController {
         }
         
         
-      /*  @IBAction func foodPlusButtonPressed(_ sender: UIButton) {
+        @IBAction func foodPlusButtonPressed(_ sender: UIButton) {
             choice += 1
             let newFoodLabel = createNewLabel()
             foodLabels.append(newFoodLabel)
@@ -87,7 +87,7 @@ class UserProfileViewController: UIViewController {
             }
             
             newFoodLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20).isActive = true
-        }*/
+        }
         
          func createNewLabel() -> UITextField {
             let newLabel = UITextField()
