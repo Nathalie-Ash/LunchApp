@@ -6,30 +6,23 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class AvailableUserViewController: UIViewController {
 
     @IBOutlet weak var textLabel: UILabel!
-    
-    @IBOutlet weak var backButton: UINavigationItem!
-    
     var userId: String?
+    let database = Firestore.firestore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.isNavigationBarHidden = false
-        let backButton = UIBarButtonItem.init(barButtonSystemItem: .cancel, target: self, action: nil)
-        self.navigationItem.leftBarButtonItem = backButton
-       
-            displayUserInfo()
-       
+        textLabel.text = userId
+        displayUserInfo()
     }
-    
 
-    func displayUserInfo(){
+    func displayUserInfo() {
         
        // textLabel.text = "\(selectedUserName) is having food today at "
         
     }
-
 }

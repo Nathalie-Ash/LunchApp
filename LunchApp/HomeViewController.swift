@@ -35,14 +35,11 @@ class HomeViewController: UIViewController {
         return location
     } ()
     
-    
     var restaurants: [Restaurant] = []
     var location : [LunchLocation] = []
     var availableUsers: [String: String] = [:]
    
-    
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         setupRestaurantDropDownMenu()
         setupLocationDropDownMenu()
@@ -89,7 +86,6 @@ class HomeViewController: UIViewController {
     }
 
     func setupRestaurantDropDownMenu() {
-        
         restaurantDropDown.anchorView = restaurantDropDownMenu
         restaurantDropDown.dataSource = Restaurant.restaurants
 
@@ -105,7 +101,6 @@ class HomeViewController: UIViewController {
         locationDropDown.selectionAction = { [unowned self] (index: Int, item: String) in
             self.locationPicker.setTitle(item, for: .normal)
         }
-
     }
 
     @IBAction func restaurantDropDownMenuTapped(_ sender: Any) {
@@ -150,48 +145,33 @@ class HomeViewController: UIViewController {
         submitButton.backgroundColor = .green
     }
     
-    func fetchAllAvailableUserIds( completion: @escaping ([String]) -> Void){
+    func fetchAllAvailableUserIds(completion: @escaping ([String]) -> Void) {
         
-    var userIds: [String] = []
-        
-     let usersCollection = db.collection("userLunch")
-    
-     usersCollection.whereField("availability", isEqualTo: true).getDocuments { (querySnapshot, error) in
-         if let error = error {
+        var userIds: [String] = []
+        let usersCollection = db.collection("userLunch")
+
+        usersCollection.whereField("availability", isEqualTo: true).getDocuments { (querySnapshot, error) in
+            if let error = error {
              print("Error getting documents: \(error)")
              return
-         }
-         
-         guard let querySnapshot = querySnapshot else {
+            }
+
+            guard let querySnapshot = querySnapshot else {
              print("QuerySnapshot is nil.")
              return
-         }
+            }
 
-        
-         for document in querySnapshot.documents {
+            for document in querySnapshot.documents {
              let userId = document.documentID
              userIds.append(userId)
-          
-         }
-         
-         print("Available users : \(userIds)")
-         //self.availableUsers = self.getUserNamesForUserIDs(for: userIds)
-        //self.usersTable.reloadData()
-     }
-        DispatchQueue.main.async {
+            }
+
             completion(userIds)
         }
-       // return userIds
-         
     }
     
     func fetchUserNameforUserIds(for userIDs: [String], completion: @escaping ([String: String]) -> Void)  {
-        guard let uid = Auth.auth().currentUser?.uid else {
-            completion([:])
-            return
-        }
-        
-       
+
         let usersCollection = db.collection("users")
         var userDict: [String: String] = [:]
         userIDs.forEach { userId in
@@ -199,46 +179,30 @@ class HomeViewController: UIViewController {
             query.getDocuments { (querySnapshot,error) in
                 guard let query = querySnapshot else { return }
                 if let error = error {
-                    
-                    return
+
                 } else {
                     let document1 = query.documents.first
-                    var username = document1?["name"] as? String
+                    let username = document1?["name"] as? String
                     userDict[userId] = username
-                    print(username)
+                    completion(userDict)
+                    print("Dictionary: \(userDict)")
                 }
-                
             }
         }
-        print(userDict)
-         
-        DispatchQueue.main.async {
-            completion(userDict)
-        }
-       
-       
-    
     }
     
     func updateListOfAvailableUsers() {
-        DispatchQueue.global().async {
-            self.fetchAllAvailableUserIds { userIds in
-                
-                self.fetchUserNameforUserIds(for: userIds) { userDict in
-                    self.availableUsers = userDict
-                    self.usersTable.reloadData()
-                }
-                
+        self.fetchAllAvailableUserIds { userIds in
+            self.fetchUserNameforUserIds(for: userIds) { userDict in
+                self.availableUsers = userDict
+                self.usersTable.reloadData()
             }
         }
- 
     }
-
-
 }
 
 
-extension HomeViewController: UITableViewDelegate,UITableViewDataSource {
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return availableUsers.count
     }
@@ -253,27 +217,22 @@ extension HomeViewController: UITableViewDelegate,UITableViewDataSource {
         let cell = UITableViewCell()
         cell.textLabel?.text = name
         cell.textLabel?.textColor = .blue
+        cell.selectionStyle = .none
         return cell
-        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Get the selected user name from the availableUsers array
        
         let element = Array(self.availableUsers)
-       
         let userId = element[indexPath.row].key
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let destinationViewController = storyboard.instantiateViewController(withIdentifier: "availableUser") as? AvailableUserViewController {
          
             destinationViewController.userId = userId
             destinationViewController.modalPresentationStyle = .overFullScreen
-            present(destinationViewController, animated: true)
+            self.navigationController?.pushViewController(destinationViewController, animated: true)
         }
     }
-
-
-    
-    
-    
 }

@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -151,7 +151,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="fTs-aV-HB6" kind="relationship" relationship="viewControllers" id="k1Y-9J-o1b"/>
-                        <segue destination="b73-OV-Eqf" kind="relationship" relationship="viewControllers" id="Nh4-aG-dQV"/>
+                        <segue destination="gLG-8z-ikd" kind="relationship" relationship="viewControllers" id="Nh4-aG-dQV"/>
                         <segue destination="G9t-Vs-tDg" kind="relationship" relationship="viewControllers" id="1of-Zh-1iU"/>
                     </connections>
                 </tabBarController>
@@ -383,22 +383,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="8ob-Cl-DgA">
-                                <rect key="frame" x="5" y="69" width="383" height="681"/>
+                                <rect key="frame" x="5" y="113" width="383" height="637"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="AJV-fZ-2Lr">
-                                        <rect key="frame" x="0.0" y="0.0" width="383" height="223.66666666666666"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="383" height="209"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y1h-4k-bI1" userLabel="Lunch">
-                                                <rect key="frame" x="0.0" y="0.0" width="383" height="44.666666666666664"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="383" height="41.666666666666664"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do You want to have lunch today ? " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLm-tv-hZN">
-                                                        <rect key="frame" x="0.0" y="0.0" width="334" height="44.666666666666664"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="334" height="41.666666666666664"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ePC-E4-cnJ">
-                                                        <rect key="frame" x="334" y="0.0" width="51" height="44.666666666666664"/>
+                                                        <rect key="frame" x="334" y="0.0" width="51" height="41.666666666666664"/>
                                                     </switch>
                                                 </subviews>
                                                 <constraints>
@@ -406,7 +406,7 @@
                                                 </constraints>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mLe-hA-BOp">
-                                                <rect key="frame" x="0.0" y="44.666666666666671" width="383" height="44.666666666666671"/>
+                                                <rect key="frame" x="0.0" y="41.666666666666657" width="383" height="42"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Select your restaurant">
                                                     <color key="titleColor" systemColor="labelColor"/>
@@ -419,21 +419,21 @@
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="foi-JJ-cP7">
-                                                <rect key="frame" x="0.0" y="89.333333333333343" width="383" height="45"/>
+                                                <rect key="frame" x="0.0" y="83.666666666666657" width="383" height="41.666666666666657"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time for Lunch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MJZ-Rd-inQ">
-                                                        <rect key="frame" x="0.0" y="0.0" width="114.33333333333333" height="45"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="114.33333333333333" height="41.666666666666664"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Dtz-Xf-fmH">
-                                                        <rect key="frame" x="114.33333333333334" y="0.0" width="268.66666666666663" height="45"/>
+                                                        <rect key="frame" x="114.33333333333334" y="0.0" width="268.66666666666663" height="41.666666666666664"/>
                                                     </datePicker>
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SEO-NH-HnT">
-                                                <rect key="frame" x="0.0" y="134.33333333333334" width="383" height="44.666666666666657"/>
+                                                <rect key="frame" x="0.0" y="125.33333333333334" width="383" height="42"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Select your restaurant">
                                                     <color key="titleColor" systemColor="labelColor"/>
@@ -446,7 +446,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wjg-vg-0Tf">
-                                                <rect key="frame" x="0.0" y="179" width="383" height="44.666666666666657"/>
+                                                <rect key="frame" x="0.0" y="167.33333333333331" width="383" height="41.666666666666657"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Submit"/>
                                                 <connections>
@@ -457,7 +457,7 @@
                                         <color key="backgroundColor" systemColor="systemGray4Color"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mQb-Q8-EO0">
-                                        <rect key="frame" x="0.0" y="228.66666666666669" width="383" height="223.66666666666669"/>
+                                        <rect key="frame" x="0.0" y="214" width="383" height="209"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available Users" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SGh-em-CRX">
                                                 <rect key="frame" x="0.0" y="0.0" width="383" height="20.333333333333332"/>
@@ -466,7 +466,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="K6d-hk-spl">
-                                                <rect key="frame" x="0.0" y="20.333333333333314" width="383" height="203.33333333333334"/>
+                                                <rect key="frame" x="0.0" y="20.333333333333314" width="383" height="188.66666666666666"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="HL2-hf-Vjj">
@@ -493,7 +493,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="B79-Fd-HAU">
-                                        <rect key="frame" x="0.0" y="457.33333333333343" width="383" height="223.66666666666669"/>
+                                        <rect key="frame" x="0.0" y="428" width="383" height="209"/>
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </stackView>
                                 </subviews>
@@ -513,8 +513,7 @@
                             <constraint firstItem="Kye-Km-wdE" firstAttribute="bottom" secondItem="8ob-Cl-DgA" secondAttribute="bottom" constant="19" id="o8h-GM-cZh"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" id="LlO-Ki-ffe"/>
-                    <navigationItem key="navigationItem" title="HomeScreen" id="ObA-xu-Off">
+                    <navigationItem key="navigationItem" title="Home Screen" id="ObA-xu-Off">
                         <barButtonItem key="backBarButtonItem" title="Back" id="jFb-sL-RQz"/>
                     </navigationItem>
                     <connections>
@@ -528,7 +527,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DAM-2M-jS3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2478.6259541984732" y="-785.21126760563379"/>
+            <point key="canvasLocation" x="3405.3435114503814" y="-785.21126760563379"/>
         </scene>
         <!--Available User View Controller-->
         <scene sceneID="TOi-lG-PJv">
@@ -560,10 +559,30 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b68-RJ-V0g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4082" y="-432"/>
+            <point key="canvasLocation" x="5008.3969465648852" y="-432.3943661971831"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="mxU-Q6-gx5">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gLG-8z-ikd" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" id="LlO-Ki-ffe"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" backIndicatorImage="chevron.backward" catalog="system" id="kgo-Am-zo8">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="b73-OV-Eqf" kind="relationship" relationship="rootViewController" id="j7e-d5-jZb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="arP-8A-X6D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2478.6259541984732" y="-785.21126760563379"/>
         </scene>
     </scenes>
     <resources>
+        <image name="chevron.backward" catalog="system" width="97" height="128"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="123"/>
         <systemColor name="labelColor">
