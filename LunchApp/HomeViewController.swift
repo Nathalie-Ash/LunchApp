@@ -40,12 +40,15 @@ class HomeViewController: UIViewController {
     
     var restaurants: [Restaurant] = []
     var location : [LunchLocation] = []
+    var availableUsers: [String] = []
+   
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         setupRestaurantDropDownMenu()
         setupLocationDropDownMenu()
+        fetchAvailableUsersById()
     }
     
     func loadExistingRestaurants() {
@@ -151,21 +154,86 @@ class HomeViewController: UIViewController {
         submitButton.backgroundColor = .green
     }
 
- 
+    func fetchAvailableUsersById() {
+       
+                let db = Firestore.firestore()
+                let usersCollection = db.collection("userLunch")
+               
+                usersCollection.whereField("availability", isEqualTo: true).getDocuments { (querySnapshot, error) in
+                    if let error = error {
+                        print("Error getting documents: \(error)")
+                        return
+                    }
+                    
+                    guard let querySnapshot = querySnapshot else {
+                        print("QuerySnapshot is nil.")
+                        return
+                    }
+
+                    var userIds: [String] = []
+                    for document in querySnapshot.documents {
+                        let userId = document.documentID
+                        userIds.append(userId)
+                        
+                    }
+                    print("Available users : \(userIds)")
+                    
+                    self.getUserNamesForUserIDs(userIDs: userIds)
+                }
+            }
+
+    func getUserNamesForUserIDs(userIDs: [String]) {
+  
+                let db = Firestore.firestore()
+                let usersCollection = db.collection("users")
+
+  
+                usersCollection.getDocuments { (querySnapshot, error) in
+                    if let error = error {
+                        print("Error getting documents: \(error)")
+                        return
+                    }
+
+                    guard let querySnapshot = querySnapshot else {
+                        print("QuerySnapshot is nil.")
+                        return
+                    }
+
+                    var userIds: [String] = []
+                    for document in querySnapshot.documents {
+                        let userId = document.documentID
+                        userIds.append(userId)
+                    }
+
+                    // Loop through the documents and extract user names
+                    var userNames: [String] = []
+                    for document in querySnapshot.documents {
+                        if let username = document["name"] as? String {
+                            userNames.append(username)
+                        }
+                    }
+
+                    self.availableUsers = userNames
+                    self.usersTable.reloadData()
+
+                    print("User Names based on user IDs: \(userNames)")
+                }
+            }
+
     
 }
 
 
 extension HomeViewController: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return nameArray.count
+        return availableUsers.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //where i put the data
         // create the cell and add the contents
         
-        let element = self.nameArray[indexPath.row]
+        let element = self.availableUsers[indexPath.row]
         let cell = UITableViewCell()
         cell.textLabel?.text = element
         cell.textLabel?.textColor = .blue

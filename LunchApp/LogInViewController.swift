@@ -21,14 +21,14 @@ class LogInViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    // By adding this function, users who have longed in are always logged in even after they restart the app
-//    override func viewDidAppear(_ animated: Bool) {
-//        checkUserInfo()
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let vc = storyboard.instantiateViewController(identifier: "signUp")
-//        vc.modalPresentationStyle = .overFullScreen
-//        present(vc, animated: true)
-//    }
+   //  By adding this function, users who have longed in are always logged in even after they restart the app
+    override func viewDidAppear(_ animated: Bool) {
+        checkUserInfo()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "signUp")
+        vc.modalPresentationStyle = .overFullScreen
+        present(vc, animated: true)
+    }
 //
     @IBAction func logInPressed(_ sender: UIButton) {
         validateFields()
