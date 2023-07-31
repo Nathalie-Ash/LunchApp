@@ -110,8 +110,6 @@ class HomeViewController: UIViewController {
 
     }
 
-
-
     @IBAction func restaurantDropDownMenuTapped(_ sender: Any) {
           restaurantDropDown.show()
       }
@@ -174,8 +172,10 @@ class HomeViewController: UIViewController {
                     for document in querySnapshot.documents {
                         let userId = document.documentID
                         userIds.append(userId)
-                        
+                     
                     }
+                    
+                    
                     print("Available users : \(userIds)")
                     
                     self.getUserNamesForUserIDs(userIDs: userIds)
@@ -183,7 +183,10 @@ class HomeViewController: UIViewController {
             }
 
     func getUserNamesForUserIDs(userIDs: [String]) {
-  
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return
+        }
+
                 let db = Firestore.firestore()
                 let usersCollection = db.collection("users")
 
@@ -203,6 +206,7 @@ class HomeViewController: UIViewController {
                     for document in querySnapshot.documents {
                         let userId = document.documentID
                         userIds.append(userId)
+                        
                     }
 
                     // Loop through the documents and extract user names
@@ -210,17 +214,21 @@ class HomeViewController: UIViewController {
                     for document in querySnapshot.documents {
                         if let username = document["name"] as? String {
                             userNames.append(username)
+                            
                         }
                     }
-
+                    if let currentUserIndex = userIds.firstIndex(of: uid) {
+                              userNames.remove(at: currentUserIndex)
+                          }
+                    
                     self.availableUsers = userNames
                     self.usersTable.reloadData()
-
+                 //   self.getUserNameForUserID(userID: uid)
                     print("User Names based on user IDs: \(userNames)")
                 }
             }
 
-    
+
 }
 
 
