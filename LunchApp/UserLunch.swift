@@ -22,7 +22,7 @@ struct UserLunch {
             "restoName": restoName,
             "lunchTime": UserLunch.getTimeFromDate(lunchTime), // Store only the time part of the date
             "location": location,
-            "luchchDate": Timestamp(date: lunchDate)
+            "luchchDate":  lunchDate
         ]
     }
 }

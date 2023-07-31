@@ -37,7 +37,9 @@ class UserProfileViewController: UIViewController {
             return
         }
         
+        let userId = uid
         let name = nameLabel.text
+        
         let birthday = dateFormatter.string(from: datePicker.date)
         let office = officeLabel.text
         var foods: [String] = []
@@ -50,6 +52,7 @@ class UserProfileViewController: UIViewController {
             let restaurant = restaurantLabel.text
             
             let user = User(
+                userId: uid,
                 name: name!,
                 birthday: birthday,
                 office: office!,

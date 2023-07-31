@@ -19,10 +19,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var usersTable: UITableView!
 
-    let nameArray: [String] = ["Hadil", "Nathalie", "Raja"]
-
-    let restDb = Firestore.firestore()
-    let locDb = Firestore.firestore()
+    // TODO: change name
+    let db = Firestore.firestore()
     
     let restaurantCollection = Firestore.firestore().collection("restaurants")
     let locationCollection = Firestore.firestore().collection("locations")
@@ -40,7 +38,7 @@ class HomeViewController: UIViewController {
     
     var restaurants: [Restaurant] = []
     var location : [LunchLocation] = []
-    var availableUsers: [String] = []
+    var availableUsers: [String: String] = [:]
    
     
     override func viewDidLoad() {
@@ -48,7 +46,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         setupRestaurantDropDownMenu()
         setupLocationDropDownMenu()
-        fetchAvailableUsersById()
+        updateListOfAvailableUsers()
     }
     
     func loadExistingRestaurants() {
@@ -140,7 +138,7 @@ class HomeViewController: UIViewController {
             lunchDate: currentDate
         )
 
-        let collection = Firestore.firestore().collection("userLunch")
+        let collection = db.collection("userLunch")
         collection.document(uid).setData(userLunch.dictionary, merge: true) { error in
             if let error = error {
                 print("Error adding user lunch data: \(error)")
@@ -151,82 +149,90 @@ class HomeViewController: UIViewController {
         
         submitButton.backgroundColor = .green
     }
+    
+    func fetchAllAvailableUserIds( completion: @escaping ([String]) -> Void){
+        
+    var userIds: [String] = []
+        
+     let usersCollection = db.collection("userLunch")
+    
+     usersCollection.whereField("availability", isEqualTo: true).getDocuments { (querySnapshot, error) in
+         if let error = error {
+             print("Error getting documents: \(error)")
+             return
+         }
+         
+         guard let querySnapshot = querySnapshot else {
+             print("QuerySnapshot is nil.")
+             return
+         }
 
-    func fetchAvailableUsersById() {
-       
-                let db = Firestore.firestore()
-                let usersCollection = db.collection("userLunch")
-               
-                usersCollection.whereField("availability", isEqualTo: true).getDocuments { (querySnapshot, error) in
-                    if let error = error {
-                        print("Error getting documents: \(error)")
-                        return
-                    }
-                    
-                    guard let querySnapshot = querySnapshot else {
-                        print("QuerySnapshot is nil.")
-                        return
-                    }
-
-                    var userIds: [String] = []
-                    for document in querySnapshot.documents {
-                        let userId = document.documentID
-                        userIds.append(userId)
-                     
-                    }
-                    
-                    
-                    print("Available users : \(userIds)")
-                    
-                    self.getUserNamesForUserIDs(userIDs: userIds)
-                }
-            }
-
-    func getUserNamesForUserIDs(userIDs: [String]) {
+        
+         for document in querySnapshot.documents {
+             let userId = document.documentID
+             userIds.append(userId)
+          
+         }
+         
+         print("Available users : \(userIds)")
+         //self.availableUsers = self.getUserNamesForUserIDs(for: userIds)
+        //self.usersTable.reloadData()
+     }
+        DispatchQueue.main.async {
+            completion(userIds)
+        }
+       // return userIds
+         
+    }
+    
+    func fetchUserNameforUserIds(for userIDs: [String], completion: @escaping ([String: String]) -> Void)  {
         guard let uid = Auth.auth().currentUser?.uid else {
+            completion([:])
             return
         }
-
-                let db = Firestore.firestore()
-                let usersCollection = db.collection("users")
-
-  
-                usersCollection.getDocuments { (querySnapshot, error) in
-                    if let error = error {
-                        print("Error getting documents: \(error)")
-                        return
-                    }
-
-                    guard let querySnapshot = querySnapshot else {
-                        print("QuerySnapshot is nil.")
-                        return
-                    }
-
-                    var userIds: [String] = []
-                    for document in querySnapshot.documents {
-                        let userId = document.documentID
-                        userIds.append(userId)
-                        
-                    }
-
-                    // Loop through the documents and extract user names
-                    var userNames: [String] = []
-                    for document in querySnapshot.documents {
-                        if let username = document["name"] as? String {
-                            userNames.append(username)
-                            
-                        }
-                    }
-                    if let currentUserIndex = userIds.firstIndex(of: uid) {
-                              userNames.remove(at: currentUserIndex)
-                          }
+        
+       
+        let usersCollection = db.collection("users")
+        var userDict: [String: String] = [:]
+        userIDs.forEach { userId in
+            let query = usersCollection.whereField("userId", isEqualTo: userId).limit(to: 1)
+            query.getDocuments { (querySnapshot,error) in
+                guard let query = querySnapshot else { return }
+                if let error = error {
                     
-                    self.availableUsers = userNames
-                    self.usersTable.reloadData()
-                 //   self.getUserNameForUserID(userID: uid)
-                    print("User Names based on user IDs: \(userNames)")
+                    return
+                } else {
+                    let document1 = query.documents.first
+                    var username = document1?["name"] as? String
+                    userDict[userId] = username
+                    print(username)
                 }
+                
             }
+        }
+        print(userDict)
+         
+        DispatchQueue.main.async {
+            completion(userDict)
+        }
+       
+       
+    
+    }
+    
+    func updateListOfAvailableUsers() {
+        DispatchQueue.global().async {
+            self.fetchAllAvailableUserIds { userIds in
+                
+                self.fetchUserNameforUserIds(for: userIds) { userDict in
+                    self.availableUsers = userDict
+                    self.usersTable.reloadData()
+                }
+                
+            }
+        }
+ 
+    }
 
 
 }
@@ -240,15 +246,33 @@ extension HomeViewController: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //where i put the data
         // create the cell and add the contents
-        
-        let element = self.availableUsers[indexPath.row]
+        let element = Array(self.availableUsers)
+       
+        let name = element[indexPath.row].value
+        print(name)
         let cell = UITableViewCell()
-        cell.textLabel?.text = element
+        cell.textLabel?.text = name
         cell.textLabel?.textColor = .blue
         return cell
         
-       
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Get the selected user name from the availableUsers array
+       
+        let element = Array(self.availableUsers)
+       
+        let userId = element[indexPath.row].key
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let destinationViewController = storyboard.instantiateViewController(withIdentifier: "availableUser") as? AvailableUserViewController {
+         
+            destinationViewController.userId = userId
+            destinationViewController.modalPresentationStyle = .overFullScreen
+            present(destinationViewController, animated: true)
+        }
+    }
+
+
     
     
     
