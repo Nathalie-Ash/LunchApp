@@ -494,6 +494,26 @@
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="B79-Fd-HAU">
                                         <rect key="frame" x="0.0" y="428" width="383" height="209"/>
+                                        <subviews>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Oob-mR-PYn">
+                                                <rect key="frame" x="0.0" y="0.0" width="383" height="209"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <prototypes>
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="0a5-yP-JuL">
+                                                        <rect key="frame" x="0.0" y="50" width="383" height="43.666667938232422"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0a5-yP-JuL" id="G7o-UU-irE">
+                                                            <rect key="frame" x="0.0" y="0.0" width="383" height="43.666667938232422"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                        </tableViewCellContentView>
+                                                    </tableViewCell>
+                                                </prototypes>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="b73-OV-Eqf" id="1a3-7I-QOf"/>
+                                                    <outlet property="delegate" destination="b73-OV-Eqf" id="Uw7-2j-PEa"/>
+                                                </connections>
+                                            </tableView>
+                                        </subviews>
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </stackView>
                                 </subviews>
@@ -520,6 +540,7 @@
                         <outlet property="availabilitySwitch" destination="ePC-E4-cnJ" id="vBi-Ex-wgv"/>
                         <outlet property="locationPicker" destination="SEO-NH-HnT" id="NN1-4z-phh"/>
                         <outlet property="restaurantDropDownMenu" destination="mLe-hA-BOp" id="6or-bw-QfT"/>
+                        <outlet property="restaurantsTable" destination="Oob-mR-PYn" id="5lp-yZ-O5c"/>
                         <outlet property="submitButton" destination="wjg-vg-0Tf" id="iwl-ww-Dn7"/>
                         <outlet property="timePicker" destination="Dtz-Xf-fmH" id="aiT-i4-s4v"/>
                         <outlet property="usersTable" destination="K6d-hk-spl" id="gH9-mA-zi9"/>
