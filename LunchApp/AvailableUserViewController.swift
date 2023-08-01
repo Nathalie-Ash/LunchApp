@@ -27,9 +27,6 @@ class AvailableUserViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.isNavigationBarHidden = false
-        let backButton = UIBarButtonItem.init(barButtonSystemItem: .cancel, target: self, action: nil)
-        self.navigationItem.leftBarButtonItem = backButton
         
         displayUserInfo()
         
