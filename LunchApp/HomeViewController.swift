@@ -120,7 +120,7 @@ class HomeViewController: UIViewController {
         let userId = uid
         let availability = availabilitySwitch.isOn
         let restoName = restaurantDropDownMenu.titleLabel?.text ?? ""
-        var lunchTime = timePicker.date
+        let lunchTime = timePicker.date
         let location = locationPicker.titleLabel?.text ?? "Not Specified"
         let currentDate = Date()
 
@@ -141,7 +141,7 @@ class HomeViewController: UIViewController {
                 print("User lunch data added successfully!")
             }
         }
-        
+    
         submitButton.backgroundColor = .green
     }
     
