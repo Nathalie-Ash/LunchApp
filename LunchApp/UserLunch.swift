@@ -6,6 +6,7 @@
 //
 import Foundation
 import Firebase
+import FirebaseFirestore
 
 struct UserLunch {
     var userId: String

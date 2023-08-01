@@ -25,45 +25,59 @@ class UserProfileViewController: UIViewController {
     }
     
     var foodLabels: [UITextField] = []
+    var restaurantLabels: [UITextField] = []
     var choice = 1
     
     @IBAction func savePressed(_ sender: UIButton) {
-        
-        datePicker.datePickerMode = UIDatePicker.Mode.date
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd MMMM yyyy"
+
         
         guard let uid = Auth.auth().currentUser?.uid else {
             return
         }
-        
-        let userId = uid
-        let name = nameLabel.text
-        
-        let birthday = dateFormatter.string(from: datePicker.date)
-        let office = officeLabel.text
-        var foods: [String] = []
-        for textField in foodLabels {
-            if let text = textField.text, !text.isEmpty {
-                foods.append(text)
-            }
-            
+ 
+        guard let name = nameLabel.text, !name.isEmpty,
+              let office = officeLabel.text, !office.isEmpty else {
+            showAlert(message: "Please fill in all required fields.")
+            return
         }
-            let restaurant = restaurantLabel.text
-            
+
+        var foods: [String] = []
+          for textField in foodLabels {
+              if let text = textField.text, !text.isEmpty {
+                  foods.append(text)
+              }
+          }
+        var restaurants: [String] = []
+          for textField in restaurantLabels {
+              if let text = textField.text, !text.isEmpty {
+                  restaurants.append(text)
+                  }
+              }
+        
+        let birthday = datePicker.date
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        let formattedBirthday = dateFormatter.string(from: birthday)
+
+        if formattedBirthday.isEmpty {
+            showAlert(message: "Please select a valid birthday.")
+            return
+        }
+      
             let user = User(
                 userId: uid,
-                name: name!,
-                birthday: birthday,
-                office: office!,
+                name: name,
+                birthday: formattedBirthday,
+                office: office,
                 food: foods,
-                restaurant: [restaurant!]
+                restaurant: restaurants
             )
             
             let collection = Firestore.firestore().collection("users")
             collection.document(uid).setData(user.dictionary, merge: false) { error in
                 print(error)
             }
+        
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(identifier: "mainHome")
@@ -101,6 +115,11 @@ class UserProfileViewController: UIViewController {
             return newLabel
         }
         
+    func showAlert(message: String) {
+           let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+           alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+           present(alert, animated: true, completion: nil)
+       }
         
     
 }
