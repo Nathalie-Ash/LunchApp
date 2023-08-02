@@ -25,6 +25,7 @@
 		F677E4202A6FE929009C85C0 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F677E41F2A6FE929009C85C0 /* UserProfileViewController.swift */; };
 		F677E4672A70FC97009C85C0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F677E4662A70FC97009C85C0 /* HomeViewController.swift */; };
 		F6A1235D2A739A0A00D43BA3 /* AvailableUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A1235C2A739A0A00D43BA3 /* AvailableUserViewController.swift */; };
+		F6AF493E2A7A424B00FDD792 /* BirthdayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AF493D2A7A424B00FDD792 /* BirthdayViewController.swift */; };
 		F6D6091D2A78067D00E3AED3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D6091C2A78067D00E3AED3 /* User.swift */; };
 		F6E306AA2A729A51004DFEAA /* UserLunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E306A92A729A51004DFEAA /* UserLunch.swift */; };
 		F6E306AC2A72A178004DFEAA /* LunchLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E306AB2A72A178004DFEAA /* LunchLocation.swift */; };
@@ -76,6 +77,7 @@
 		F677E41F2A6FE929009C85C0 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		F677E4662A70FC97009C85C0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F6A1235C2A739A0A00D43BA3 /* AvailableUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableUserViewController.swift; sourceTree = "<group>"; };
+		F6AF493D2A7A424B00FDD792 /* BirthdayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayViewController.swift; sourceTree = "<group>"; };
 		F6D6091C2A78067D00E3AED3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F6E306A92A729A51004DFEAA /* UserLunch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLunch.swift; sourceTree = "<group>"; };
 		F6E306AB2A72A178004DFEAA /* LunchLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchLocation.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				F677E41F2A6FE929009C85C0 /* UserProfileViewController.swift */,
 				F677E4662A70FC97009C85C0 /* HomeViewController.swift */,
 				F6A1235C2A739A0A00D43BA3 /* AvailableUserViewController.swift */,
+				F6AF493D2A7A424B00FDD792 /* BirthdayViewController.swift */,
 				F6D6091C2A78067D00E3AED3 /* User.swift */,
 				F6E306A92A729A51004DFEAA /* UserLunch.swift */,
 				F6E306AB2A72A178004DFEAA /* LunchLocation.swift */,
@@ -440,6 +443,7 @@
 				F6E306AE2A72B5AF004DFEAA /* Restaurant.swift in Sources */,
 				F6A1235D2A739A0A00D43BA3 /* AvailableUserViewController.swift in Sources */,
 				F677E4182A6EE0A8009C85C0 /* LogInViewController.swift in Sources */,
+				F6AF493E2A7A424B00FDD792 /* BirthdayViewController.swift in Sources */,
 				F677E4202A6FE929009C85C0 /* UserProfileViewController.swift in Sources */,
 				F677E3EC2A6EDF9E009C85C0 /* ViewController.swift in Sources */,
 				F677E4672A70FC97009C85C0 /* HomeViewController.swift in Sources */,

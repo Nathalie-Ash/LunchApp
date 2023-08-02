@@ -25,7 +25,7 @@ class AvailableUserViewController: UIViewController {
     var lunchTime: Date?
     var lunchLocation: String?
     
-    var displayedBirthday: String?
+    var displayedBirthday = "Not specified"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -116,7 +116,8 @@ class AvailableUserViewController: UIViewController {
         let favFoodAsString = favFood.joined(separator: "-")
         let favRestoAsString = favResto.joined(separator: "-")
         
-        textLabel.text = "\(name) is having lunch today at \(restaurantName).\n Birthday: \(displayedBirthday!).\nTeam/Office: \(team).\n Fav Food: \(favFoodAsString).\n Fav Rest: \(favRestoAsString)"
+        
+        textLabel.text = "\(name) is having lunch today at \(restaurantName).\n Birthday: \(displayedBirthday).\nTeam/Office: \(team).\n Fav Food: \(favFoodAsString).\n Fav Rest: \(favRestoAsString)"
     }
     
 }

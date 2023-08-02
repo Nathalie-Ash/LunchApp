@@ -46,7 +46,6 @@ class HomeViewController: UIViewController {
         setupRestaurantDropDownMenu()
         setupLocationDropDownMenu()
         updateListOfAvailableUsers()
-//        updateListOfAvailableRestaurants()
         addPickedRestaurantsFromListener()
     }
     

@@ -68,12 +68,6 @@ class UserProfileViewController: UIViewController {
             collection.document(uid).setData(user.dictionary, merge: false) { error in
                 print(error)
             }
-        
-            
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            let vc = storyboard.instantiateViewController(identifier: "mainHome")
-//            vc.modalPresentationStyle = .overFullScreen
-//            present(vc, animated: true)
             
         }
         
@@ -84,7 +78,7 @@ class UserProfileViewController: UIViewController {
             return
         }
         guard let food = self.foodLabel.text, food.isEmpty == false else {
-           showAlert(message: "Please A Value.")
+           showAlert(message: "Please Enter A Value.")
             return
         }
         self.favoriteFood.append(food)
