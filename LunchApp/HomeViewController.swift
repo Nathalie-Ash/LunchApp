@@ -150,7 +150,9 @@ class HomeViewController: UIViewController {
     }
     
     func fetchAllAvailableUserIds(completion: @escaping ([String]) -> Void) {
-        
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return
+        }
         var userIds: [String] = []
         let usersCollection = db.collection("userLunch")
         
@@ -169,7 +171,9 @@ class HomeViewController: UIViewController {
                 let userId = document.documentID
                 userIds.append(userId)
             }
-            
+            if let currentUserIndex = userIds.firstIndex(of: uid) {
+                 userIds.remove(at: currentUserIndex)
+            }
             completion(userIds)
         }
     }
