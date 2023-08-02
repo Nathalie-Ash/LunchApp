@@ -586,6 +586,21 @@
                   endingLineNumber = "213"
                   offsetFromSymbolStart = "58">
                </Location>
+               <Location
+                  uuid = "DB2C234F-1FAF-41ED-96FC-F2C93AB45166 - bf3a4d15df470462"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LunchApp.HomeViewController.fetchRestaurantsFromUserLunch(completion: (Swift.Array&lt;Swift.String&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "LunchApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nathalie/Desktop/NewApp/LunchApp/LunchApp/HomeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "214"
+                  endingLineNumber = "214"
+                  offsetFromSymbolStart = "58">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -634,6 +649,21 @@
                   endingLineNumber = "234"
                   offsetFromSymbolStart = "1798">
                </Location>
+               <Location
+                  uuid = "350E939C-24F5-4737-9D9C-D644574ED5B4 - e25e660818a0f127"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in LunchApp.HomeViewController.fetchRestaurantsFromUserLunch(completion: (Swift.Array&lt;Swift.String&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "LunchApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nathalie/Desktop/NewApp/LunchApp/LunchApp/HomeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "235"
+                  endingLineNumber = "235"
+                  offsetFromSymbolStart = "1798">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -651,6 +681,38 @@
             endingLineNumber = "207"
             landmarkName = "updateListOfAvailableRestaurants()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1E8DA161-E95A-4193-9EC5-A6C050435F71 - 25a55265ea021ce4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LunchApp.HomeViewController.updateListOfAvailableRestaurants() -&gt; ()"
+                  moduleName = "LunchApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nathalie/Desktop/NewApp/LunchApp/LunchApp/HomeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "207"
+                  endingLineNumber = "207"
+                  offsetFromSymbolStart = "65">
+               </Location>
+               <Location
+                  uuid = "1E8DA161-E95A-4193-9EC5-A6C050435F71 - 25a55265ea021cc5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LunchApp.HomeViewController.updateListOfAvailableRestaurants() -&gt; ()"
+                  moduleName = "LunchApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nathalie/Desktop/NewApp/LunchApp/LunchApp/HomeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "208"
+                  endingLineNumber = "208"
+                  offsetFromSymbolStart = "65">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

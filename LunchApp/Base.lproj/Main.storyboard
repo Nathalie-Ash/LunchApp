@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -285,6 +286,9 @@
                                                         <buttonConfiguration key="configuration" style="gray" title="+">
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="16"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="restaurantPlusButtonPressed:" destination="fTs-aV-HB6" eventType="touchUpInside" id="6hl-Qy-fXU"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -459,14 +463,8 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mQb-Q8-EO0">
                                         <rect key="frame" x="0.0" y="214" width="383" height="209"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available Users" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SGh-em-CRX">
-                                                <rect key="frame" x="0.0" y="0.0" width="383" height="20.333333333333332"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="K6d-hk-spl">
-                                                <rect key="frame" x="0.0" y="20.333333333333314" width="383" height="188.66666666666666"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="383" height="209"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="HL2-hf-Vjj">
@@ -486,11 +484,6 @@
                                             </tableView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstItem="SGh-em-CRX" firstAttribute="top" secondItem="mQb-Q8-EO0" secondAttribute="top" id="agY-dk-NLe"/>
-                                            <constraint firstAttribute="trailing" secondItem="SGh-em-CRX" secondAttribute="trailing" id="cec-Nm-YSg"/>
-                                            <constraint firstItem="SGh-em-CRX" firstAttribute="leading" secondItem="mQb-Q8-EO0" secondAttribute="leading" id="ejR-a6-arx"/>
-                                        </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="B79-Fd-HAU">
                                         <rect key="frame" x="0.0" y="428" width="383" height="209"/>
@@ -498,9 +491,16 @@
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Oob-mR-PYn">
                                                 <rect key="frame" x="0.0" y="0.0" width="383" height="209"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available Restaurants" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SGh-em-CRX">
+                                                    <rect key="frame" x="0.0" y="0.0" width="383" height="20.333333333333332"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="0a5-yP-JuL">
-                                                        <rect key="frame" x="0.0" y="50" width="383" height="43.666667938232422"/>
+                                                        <rect key="frame" x="0.0" y="70.333333333333329" width="383" height="43.666667938232422"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0a5-yP-JuL" id="G7o-UU-irE">
                                                             <rect key="frame" x="0.0" y="0.0" width="383" height="43.666667938232422"/>

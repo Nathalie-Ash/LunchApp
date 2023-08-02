@@ -24,9 +24,13 @@ class UserProfileViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    var foodLabels: [UITextField] = []
-    var restaurantLabels: [UITextField] = []
-    var choice = 1
+    
+    // This array will hold the favorite food of the user
+    // Maximum 3 values
+    var favoriteFood: [String] = []
+    // This array will hold the favorite restaurants of the user
+    // Maximum 3 values
+    var favoriteRestaurants: [String] = []
     
     @IBAction func savePressed(_ sender: UIButton) {
 
@@ -40,19 +44,6 @@ class UserProfileViewController: UIViewController {
             showAlert(message: "Please fill in all required fields.")
             return
         }
-
-        var foods: [String] = []
-          for textField in foodLabels {
-              if let text = textField.text, !text.isEmpty {
-                  foods.append(text)
-              }
-          }
-        var restaurants: [String] = []
-          for textField in restaurantLabels {
-              if let text = textField.text, !text.isEmpty {
-                  restaurants.append(text)
-                  }
-              }
         
         let birthday = datePicker.date
         let dateFormatter = DateFormatter()
@@ -69,8 +60,8 @@ class UserProfileViewController: UIViewController {
                 name: name,
                 birthday: formattedBirthday,
                 office: office,
-                food: foods,
-                restaurant: restaurants
+                food: self.favoriteFood,
+                restaurant: self.favoriteRestaurants
             )
             
             let collection = Firestore.firestore().collection("users")
@@ -79,42 +70,44 @@ class UserProfileViewController: UIViewController {
             }
         
             
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(identifier: "mainHome")
-            vc.modalPresentationStyle = .overFullScreen
-            present(vc, animated: true)
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            let vc = storyboard.instantiateViewController(identifier: "mainHome")
+//            vc.modalPresentationStyle = .overFullScreen
+//            present(vc, animated: true)
             
         }
         
         
-        @IBAction func foodPlusButtonPressed(_ sender: UIButton) {
-            choice += 1
-            let newFoodLabel = createNewLabel()
-            foodLabels.append(newFoodLabel)
+    @IBAction func foodPlusButtonPressed(_ sender: UIButton) {
+        guard self.favoriteFood.count < 3 else {
+            showAlert(message: "A user can have a maximum of three values")
+            return
+        }
+        guard let food = self.foodLabel.text, food.isEmpty == false else {
+           showAlert(message: "Please A Value.")
+            return
+        }
+        self.favoriteFood.append(food)
+        self.foodLabel.text = ""
             
-            let index = foodLabels.count - 1
-            if index == 0 {
-                newFoodLabel.topAnchor.constraint(equalTo: foodLabel.bottomAnchor, constant: 10).isActive = true
-                
-            } else {
-                let previousFoodLabel = foodLabels[index - 1]
-                
-                newFoodLabel.topAnchor.constraint(equalTo: foodLabel.bottomAnchor, constant: 10).isActive = true
-                
-            }
-            
-            newFoodLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20).isActive = true
+    }
+    
+    @IBAction func restaurantPlusButtonPressed(_ sender: UIButton) {
+        
+        guard self.favoriteRestaurants.count < 3 else {
+            showAlert(message: "A user can have a maximum of three values")
+            return
         }
         
-         func createNewLabel() -> UITextField {
-            let newLabel = UITextField()
-            newLabel.placeholder = "Choice \(choice)"
-            newLabel.font = UIFont.systemFont(ofSize: 16)
-            newLabel.borderStyle = .roundedRect
-            newLabel.translatesAutoresizingMaskIntoConstraints = false
-            return newLabel
+        guard let restaurant = self.restaurantLabel.text, !restaurant.isEmpty else {
+            showAlert(message: "Please A Value.")
+            return
         }
         
+        self.favoriteRestaurants.append(restaurant)
+        self.restaurantLabel.text = ""
+    }
+    
     func showAlert(message: String) {
            let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
