@@ -23,7 +23,7 @@ struct UserLunch {
             "restoName": restoName,
             "lunchTime": UserLunch.getTimeFromDate(lunchTime), // Store only the time part of the date
             "location": location,
-            "lunchDate":  lunchDate
+            "lunchDate": lunchDate
         ]
     }
 }
@@ -32,8 +32,7 @@ extension UserLunch {
     
     
     init?(dictionary: [String : Any]) {
-        
-   
+
         guard let userId = dictionary["userId"] as? String,
               let availability = dictionary["availability"] as? Bool,
               let restoName = dictionary["restoName"] as? String,

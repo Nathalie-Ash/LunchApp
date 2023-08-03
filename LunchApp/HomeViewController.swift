@@ -20,8 +20,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var usersTable: UITableView!
     @IBOutlet weak var restaurantsTable: UITableView!
     
-    // TODO: change name
-    let db = Firestore.firestore()
+    
+    let database = Firestore.firestore()
     
     let restaurantCollection = Firestore.firestore().collection("restaurants")
     let locationCollection = Firestore.firestore().collection("locations")
@@ -45,7 +45,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         setupRestaurantDropDownMenu()
         setupLocationDropDownMenu()
-        updateListOfAvailableUsers()
+        updateListOfAvailableUsersFromListener()
         addPickedRestaurantsFromListener()
     }
     
@@ -136,7 +136,7 @@ class HomeViewController: UIViewController {
             lunchDate: currentDate
         )
         
-        let collection = db.collection("userLunch")
+        let collection = database.collection("userLunch")
         collection.document(uid).setData(userLunch.dictionary, merge: true) { error in
             if let error = error {
                 print("Error adding user lunch data: \(error)")
@@ -148,96 +148,7 @@ class HomeViewController: UIViewController {
         submitButton.backgroundColor = .green
     }
     
-    func fetchAllAvailableUserIds(completion: @escaping ([String]) -> Void) {
-        guard let uid = Auth.auth().currentUser?.uid else {
-            return
-        }
-        var userIds: [String] = []
-        let usersCollection = db.collection("userLunch")
-        
-        usersCollection.whereField("availability", isEqualTo: true).getDocuments { (querySnapshot, error) in
-            if let error = error {
-                print("Error getting documents: \(error)")
-                return
-            }
-            
-            guard let querySnapshot = querySnapshot else {
-                print("QuerySnapshot is nil.")
-                return
-            }
-            
-            for document in querySnapshot.documents {
-                let userId = document.documentID
-                userIds.append(userId)
-            }
-            if let currentUserIndex = userIds.firstIndex(of: uid) {
-                 userIds.remove(at: currentUserIndex)
-            }
-            completion(userIds)
-        }
-    }
-    
-    func fetchUserNameforUserIds(for userIDs: [String], completion: @escaping ([String: String]) -> Void)  {
-        
-        let usersCollection = db.collection("users")
-        var userDict: [String: String] = [:]
-        userIDs.forEach { userId in
-            let query = usersCollection.whereField("userId", isEqualTo: userId).limit(to: 1)
-            query.getDocuments { (querySnapshot,error) in
-                guard let query = querySnapshot else { return }
-                if let error = error {
-                    
-                } else {
-                    let document1 = query.documents.first
-                    let username = document1?["name"] as? String
-                    userDict[userId] = username
-                    completion(userDict)
-                    print("Dictionary: \(userDict)")
-                }
-            }
-        }
-    }
-    
-    func updateListOfAvailableUsers() {
-        self.fetchAllAvailableUserIds { userIds in
-            self.fetchUserNameforUserIds(for: userIds) { userDict in
-                self.availableUsers = userDict
-                self.usersTable.reloadData()
-            }
-        }
-    }
-    
-    func updateListOfAvailableRestaurants() {
-        self.fetchRestaurantsFromUserLunch { resto in
-            self.restaurantsTable.reloadData()
-        }
-    }
-    
-    func fetchRestaurantsFromUserLunch(completion: @escaping ([String]) -> Void) {
-        let userLunchCollection = Firestore.firestore().collection("userLunch")
-        
-        userLunchCollection.getDocuments { (querySnapshot, error) in
-            if let error = error {
-                // Handle the error here if needed
-                print("Error fetching user lunches: \(error)")
-                completion([]) // Call the completion handler with an empty array if there's an error
-                return
-            }
-            
-            
-            // Loop through each document in the userLunch collection
-            for document in querySnapshot!.documents {
-                if let data = document.data() as? [String: Any],
-                   let restaurantName = data["restoName"] as? String {
-                    // Add the restaurant name to the restaurants array
-                    self.availableRestaurants.append(restaurantName)
-                }
-            }
-            print("Restaurants: \(self.availableRestaurants)")
-            // Call the completion handler with the array of restaurant names
-            completion(self.availableRestaurants)
-        }
-    }
+
     
 }
 
@@ -295,7 +206,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 extension HomeViewController {
     
     func addPickedRestaurantsFromListener() {
-        db.collection("userLunch")
+        database.collection("userLunch")
             .addSnapshotListener { documentSnapshot, error in
                 guard let documentSnapshot = documentSnapshot else {
                     print("Error fetching document: \(error!)")
@@ -315,5 +226,65 @@ extension HomeViewController {
 
             }
     }
+    
+    
+    func fetchAllAvailableUserIdsFromListener(completion: @escaping ([String]) -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return
+        }
+        var userIds: [String] = []
+        let usersCollection = database.collection("userLunch").addSnapshotListener {  documentSnapshot, error in
+            guard let documentSnapshot = documentSnapshot else {
+                print("Error fetching document: \(error!)")
+                return
+            }
+            
+            for document in documentSnapshot.documents {
+                if let data = document.data() as? [String: Any],
+                   let availability = data["availability"] as? Bool {
+                    if availability == true {
+                        let userId = document.documentID
+                        userIds.append(userId)
+                    }
+                }
+            }
+            completion(userIds)
+        }
+    }
+    
+    func fetchUserNameforUserIdsFromListener(for userIDs: [String], completion: @escaping ([String: String]) -> Void)  {
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return
+        }
+        let usersCollection = database.collection("users").addSnapshotListener { documentSnapshot, error in
+            guard let documentSnapshot = documentSnapshot else {
+                print("Error fetching document: \(error!)")
+                return
+         }
+            var userDict: [String: String] = [:]
+            userIDs.forEach { userId in
+                for document in documentSnapshot.documents {
+                    if let data = document.data() as? [String: Any] {
+                        let username = data["name"] as? String
+                            let userId = document.documentID
+                            userDict[userId] = username
+                        userDict.removeValue(forKey: uid)
+                            completion(userDict)
+                        }
+                    }
+                    
+                }
+            }
+    }
+    
+    func updateListOfAvailableUsersFromListener() {
+        self.fetchAllAvailableUserIdsFromListener { userIds in
+            self.fetchUserNameforUserIdsFromListener(for: userIds){ userDict in
+                self.availableUsers = userDict
+                self.usersTable.reloadData()
+            }
+        }
+    }
+    
     
 }
