@@ -22,13 +22,13 @@ class LogInViewController: UIViewController {
     }
     
    //  By adding this function, users who have longed in are always logged in even after they restart the app
-    override func viewDidAppear(_ animated: Bool) {
-        checkUserInfo()
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(identifier: "signUp")
-        vc.modalPresentationStyle = .overFullScreen
-        present(vc, animated: true)
-    }
+//    override func viewDidAppear(_ animated: Bool) {
+//        checkUserInfo()
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let vc = storyboard.instantiateViewController(identifier: "signUp")
+//        vc.modalPresentationStyle = .overFullScreen
+//        present(vc, animated: true)
+//    }
 //
     @IBAction func logInPressed(_ sender: UIButton) {
         validateFields()
@@ -118,20 +118,27 @@ class LogInViewController: UIViewController {
 
     // checks if the user is currently logged in and navigates accordingly to
     // the main view
-    func checkUserInfo(){
+    func checkUserInfo() {
         if Auth.auth().currentUser != nil {
             print(Auth.auth().currentUser?.uid)
-        }
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            // User is logged in, navigate to the main view.
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
             guard let mainTabBarController = storyboard.instantiateViewController(identifier: "mainHome") as? UITabBarController else {
-                // Handle the case where the storyboard ID is incorrect or the cast fails
                 return
             }
-            
             mainTabBarController.modalPresentationStyle = .fullScreen
             mainTabBarController.selectedIndex = 1 //index of the "Home" tab
             self.present(mainTabBarController, animated: true, completion: nil)
-    
-}
+        } else {
+            // User is not logged in, navigate to the login screen.
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            guard let loginViewController = storyboard.instantiateViewController(identifier: "logIn") as? LogInViewController else {
+                return
+            }
+            loginViewController.modalPresentationStyle = .fullScreen
+            self.present(loginViewController, animated: true, completion: nil)
+        }
+    }
+
     
 }

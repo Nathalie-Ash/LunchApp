@@ -19,8 +19,7 @@ class UserProfileViewController: UIViewController {
     @IBOutlet weak var restaurantLabel: UITextField!
     
     @IBOutlet weak var foodButton: UIButton!
-    override func viewDidLoad() {
-        
+    override func viewDidLoad() {        
         super.viewDidLoad()
     }
     
@@ -102,11 +101,26 @@ class UserProfileViewController: UIViewController {
         self.restaurantLabel.text = ""
     }
     
+    @IBAction func signOutButtonPressed(_ sender: UIButton) {
+        do {
+            try Auth.auth().signOut()
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(identifier: "logIn")
+                vc.modalPresentationStyle = .overFullScreen
+                present(vc, animated: true)
+        } catch let signOutError as NSError {
+            print("Error signing out: \(signOutError)")
+        }
+    }
+
+    
     func showAlert(message: String) {
            let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
            present(alert, animated: true, completion: nil)
        }
+    
+    
         
     
 }

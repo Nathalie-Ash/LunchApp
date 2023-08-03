@@ -23,7 +23,10 @@ class BirthdayViewController: UIViewController {
     var birthdayMonth3 : [String] = []
     
     let currentDate = Date()
-
+    var noUpcomingBirthdaysinMonth1 = true
+    var noUpcomingBirthdaysinMonth2 = true
+    var noUpcomingBirthdaysinMonth3 = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         displayBirthdays()
@@ -47,6 +50,7 @@ class BirthdayViewController: UIViewController {
         self.birthdayMonth3 = []
             
         for document in documentSnapshot.documents {
+            var usernameAndMonth: String
             if let data = document.data() as? [String: Any],
                 let birthday = data["birthday"] as? String, let name = data["name"] as? String {
                 let dateFormatter = DateFormatter()
@@ -58,18 +62,21 @@ class BirthdayViewController: UIViewController {
                         let month = calendar.component(.month, from: date)
                         
                         if (month == currentMonth){
-                            self.firstMonthLabel.text = self.monthName(from: currentMonth)
-                                self.birthdayMonth1.append(birthdayAsMonth)
+                                self.noUpcomingBirthdaysinMonth1 = true
+                                usernameAndMonth = "\(name): \(birthdayAsMonth)"
+                                self.birthdayMonth1.append(usernameAndMonth)
                                 self.firstMonthTable.reloadData()
                             } else if (month == currentMonth+1){
-                                self.secondMonthLabel.text = self.monthName(from: currentMonth+1)
-                                self.birthdayMonth2.append(birthdayAsMonth)
+                                usernameAndMonth = "\(name): \(birthdayAsMonth)"
+                                self.noUpcomingBirthdaysinMonth2 = true
+                                self.birthdayMonth2.append(usernameAndMonth)
                                 self.secondMonthTable.reloadData()
                             } else if (month == currentMonth+2){
-                               
-                                self.thirdMonthLabel.text = self.monthName(from: currentMonth+2)
-                                self.birthdayMonth3.append(birthdayAsMonth)
+                                usernameAndMonth = "\(name): \(birthdayAsMonth)"
+                                self.noUpcomingBirthdaysinMonth3 = true
+                                self.birthdayMonth3.append(usernameAndMonth)
                                 self.thirdMonthTable.reloadData()
+                              
                             }
                         } else {
                             print("Invalid date format: \(birthday)")
@@ -87,9 +94,6 @@ class BirthdayViewController: UIViewController {
         self.firstMonthLabel.text = self.monthName(from: currentMonth)
         self.secondMonthLabel.text = self.monthName(from: currentMonth+1)
         self.thirdMonthLabel.text = self.monthName(from: currentMonth+2)
-        if (currentMonth == 12){
-            currentMonth = 1
-        }
     }
     
     
@@ -103,9 +107,6 @@ class BirthdayViewController: UIViewController {
             return nil
         }
     }
-    
-    
-    
 
 }
 
@@ -144,6 +145,12 @@ extension BirthdayViewController: UITableViewDelegate, UITableViewDataSource {
             let element = self.birthdayMonth3[indexPath.row]
             let cell = UITableViewCell()
             cell.textLabel?.text = element
+            cell.textLabel?.textColor = .black
+            cell.selectionStyle = .none
+            return cell
+        } else if noUpcomingBirthdaysinMonth1 == true || noUpcomingBirthdaysinMonth2 == true || self.noUpcomingBirthdaysinMonth3 == true {
+            let cell = UITableViewCell()
+            cell.textLabel?.text = "No upcoming birthdays"
             cell.textLabel?.textColor = .black
             cell.selectionStyle = .none
             return cell

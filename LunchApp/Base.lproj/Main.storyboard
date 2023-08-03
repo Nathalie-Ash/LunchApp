@@ -169,13 +169,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rin-Nd-oP0">
-                                <rect key="frame" x="152.33333333333334" y="64" width="88.666666666666657" height="20.333333333333329"/>
+                                <rect key="frame" x="152.33333333333334" y="64" width="88.666666666666657" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kQ4-CQ-Zsz">
-                                <rect key="frame" x="5" y="89.333333333333314" width="393" height="640.33333333333348"/>
+                                <rect key="frame" x="5" y="89" width="393" height="575.33333333333337"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="DAK-wy-Mqq">
                                         <rect key="frame" x="50" y="145" width="293" height="220"/>
@@ -200,7 +200,7 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="auF-6Y-aKi" userLabel="Birthday Stack">
-                                                <rect key="frame" x="0.0" y="44.999999999999972" width="271.33333333333331" height="40"/>
+                                                <rect key="frame" x="0.0" y="45" width="271.33333333333331" height="40"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Birthday:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w9r-Om-7Or">
                                                         <rect key="frame" x="0.0" y="0.0" width="68.333333333333329" height="40"/>
@@ -218,7 +218,7 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gTl-es-wHW" userLabel="Office Stack">
-                                                <rect key="frame" x="0.0" y="89.999999999999972" width="293" height="40"/>
+                                                <rect key="frame" x="0.0" y="90" width="293" height="40"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Office: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qXm-yP-OhL">
                                                         <rect key="frame" x="0.0" y="0.0" width="55.333333333333336" height="40"/>
@@ -238,7 +238,7 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ccN-yY-gjI" userLabel="Food Stack">
-                                                <rect key="frame" x="0.0" y="134.99999999999997" width="293" height="40"/>
+                                                <rect key="frame" x="0.0" y="135" width="293" height="40"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fav Food: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rsx-Ye-vOd">
                                                         <rect key="frame" x="0.0" y="0.0" width="78" height="40"/>
@@ -267,7 +267,7 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4ZK-An-X9U" userLabel="Rest Stack">
-                                                <rect key="frame" x="0.0" y="179.99999999999997" width="293" height="40"/>
+                                                <rect key="frame" x="0.0" y="180" width="293" height="40"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fav Restaurant: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b2Q-8l-Szf">
                                                         <rect key="frame" x="0.0" y="0.0" width="122" height="40"/>
@@ -325,26 +325,41 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="XQC-BV-bOJ"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="Gyz-gi-cXA"/>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YnA-HQ-WcX">
-                                <rect key="frame" x="130.33333333333337" y="734.66666666666663" width="132.66666666666663" height="34.333333333333371"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Save Changes"/>
-                                <connections>
-                                    <action selector="savePressed:" destination="fTs-aV-HB6" eventType="touchUpInside" id="Bge-v4-DQU"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="L3C-13-m3o">
+                                <rect key="frame" x="10" y="664.33333333333337" width="373" height="94.666666666666629"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m4b-K1-KgO">
+                                        <rect key="frame" x="0.0" y="0.0" width="373" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Save Changes"/>
+                                        <connections>
+                                            <action selector="savePressed:" destination="fTs-aV-HB6" eventType="touchUpInside" id="i0R-2f-yWx"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YnA-HQ-WcX">
+                                        <rect key="frame" x="0.0" y="60.333333333333258" width="373" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Sign Out"/>
+                                        <connections>
+                                            <action selector="signOutButtonPressed:" destination="fTs-aV-HB6" eventType="touchUpInside" id="AhM-MA-e4A"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ozh-OL-NSM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="rin-Nd-oP0" firstAttribute="centerX" secondItem="88R-SL-b1C" secondAttribute="centerX" id="1ft-vd-dUl"/>
-                            <constraint firstItem="YnA-HQ-WcX" firstAttribute="bottom" secondItem="ozh-OL-NSM" secondAttribute="bottom" id="PFL-q9-K4z"/>
+                            <constraint firstItem="ozh-OL-NSM" firstAttribute="trailing" secondItem="L3C-13-m3o" secondAttribute="trailing" constant="10" id="OQZ-ZJ-QJ4"/>
+                            <constraint firstItem="L3C-13-m3o" firstAttribute="leading" secondItem="ozh-OL-NSM" secondAttribute="leading" constant="10" id="Qgi-rK-ZIf"/>
                             <constraint firstItem="rin-Nd-oP0" firstAttribute="top" secondItem="ozh-OL-NSM" secondAttribute="top" constant="5" id="TMi-ia-8QH"/>
                             <constraint firstItem="kQ4-CQ-Zsz" firstAttribute="trailing" secondItem="88R-SL-b1C" secondAttribute="trailing" constant="5" id="Te9-TW-bsw"/>
                             <constraint firstItem="kQ4-CQ-Zsz" firstAttribute="leading" secondItem="88R-SL-b1C" secondAttribute="leading" constant="5" id="YtW-qO-NQu"/>
                             <constraint firstItem="kQ4-CQ-Zsz" firstAttribute="top" secondItem="rin-Nd-oP0" secondAttribute="bottom" constant="5" id="b0M-iH-2SQ"/>
-                            <constraint firstItem="YnA-HQ-WcX" firstAttribute="top" secondItem="kQ4-CQ-Zsz" secondAttribute="bottom" constant="5" id="cqF-se-kmI"/>
-                            <constraint firstItem="YnA-HQ-WcX" firstAttribute="centerX" secondItem="88R-SL-b1C" secondAttribute="centerX" id="zW5-gL-UqN"/>
+                            <constraint firstItem="L3C-13-m3o" firstAttribute="top" secondItem="kQ4-CQ-Zsz" secondAttribute="bottom" id="exk-98-qSq"/>
+                            <constraint firstItem="ozh-OL-NSM" firstAttribute="bottom" secondItem="L3C-13-m3o" secondAttribute="bottom" constant="10" id="pUp-ZV-vLN"/>
+                            <constraint firstItem="kQ4-CQ-Zsz" firstAttribute="top" secondItem="88R-SL-b1C" secondAttribute="top" constant="89" id="sts-41-r6Y"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="User" image="person.crop.circle.fill" catalog="system" id="RqY-cU-XgN"/>
