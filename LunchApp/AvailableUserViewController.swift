@@ -115,9 +115,11 @@ class AvailableUserViewController: UIViewController {
         
         let favFoodAsString = favFood.joined(separator: "-")
         let favRestoAsString = favResto.joined(separator: "-")
+        guard let time = lunchTime else {
+            return
+        }
         
-        
-        textLabel.text = "\(name) is having lunch today at \(restaurantName).\n Birthday: \(displayedBirthday).\nTeam/Office: \(team).\n Fav Food: \(favFoodAsString).\n Fav Rest: \(favRestoAsString)"
+        textLabel.text = "\(name) is having lunch today at \(restaurantName) at \(time).\n Birthday: \(displayedBirthday).\nTeam/Office: \(team).\n Fav Food: \(favFoodAsString).\n Fav Rest: \(favRestoAsString)"
     }
     
 }

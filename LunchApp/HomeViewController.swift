@@ -47,6 +47,8 @@ class HomeViewController: UIViewController {
         setupLocationDropDownMenu()
         updateListOfAvailableUsersFromListener()
         addPickedRestaurantsFromListener()
+         
+       
     }
     
     func loadExistingRestaurants() {
@@ -113,8 +115,7 @@ class HomeViewController: UIViewController {
     @IBAction func locationDropDownTapped(_ sender: UIButton) {
         locationDropDown.show()
     }
-    
-    
+ 
     @IBAction func submitButtonPressed(_ sender: Any) {
         guard let uid = Auth.auth().currentUser?.uid else {
             return
