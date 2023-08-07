@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "FED3B9F0-EE3B-4DC6-9FE2-E3EE692FF078"
+            uuid = "72F8FD57-4579-40F3-804F-FCF3ACA74ECF"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LunchApp/UserProfileViewController.swift"
+            filePath = "LunchApp/BirthdayViewController/BirthdayViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
-            landmarkName = "foodPlusButtonPressed(_:)"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "fetchBirthdays()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

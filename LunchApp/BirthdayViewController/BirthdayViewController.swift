@@ -41,28 +41,31 @@ class BirthdayViewController: UIViewController {
                    //fetch users information
                    let userId = data["userId"] as? String,
                    let birthday = data["birthday"] as? String,
-                   let name = data["name"] as? String {
-                    let dateFormatter = DateFormatter()
+                   let name = data["name"] as? String,
+                   let isPublic = data["isPublic"] as? Bool {
+                   let dateFormatter = DateFormatter()
                     dateFormatter.dateFormat = "MM/dd/yyyy"
                     if let date = dateFormatter.date(from: birthday) {
                         let calendar = Calendar.current
                         let dateComponents = calendar.dateComponents([.year, .month, .day], from: date)
                         // get the month component from the users birthdays
                         let month = dateComponents.month ?? 1
-                        
-                        // if the months that were found are in the next upcoming 3 months
-                        if targetMonths.contains(month) {
-                            // set the key of the dictionary to that month
-                            let key = SectionKey(month: month)
-                            // set the values of the dictionary to the user information
-                            let birthdayUser = BirthdayUser(userId: userId, name: name, birthday: date)
-                            // if there are no birthdays leave it empty
-                            if userBirthdayDict[key] == nil {
-                                userBirthdayDict[key] = []
+                        if (isPublic == true){
+                            // if the months that were found are in the next upcoming 3 months
+                            if targetMonths.contains(month) {
+                                // set the key of the dictionary to that month
+                                let key = SectionKey(month: month)
+                                // set the values of the dictionary to the user information
+                                let birthdayUser = BirthdayUser(userId: userId, name: name, birthday: date)
+                                // if there are no birthdays leave it empty
+                                if userBirthdayDict[key] == nil {
+                                    userBirthdayDict[key] = []
+                                }
+                                //else append the users info to the dict
+                                userBirthdayDict[key]?.append(birthdayUser)
                             }
-                            //else append the users info to the dict
-                            userBirthdayDict[key]?.append(birthdayUser)
                         }
+                    
                     }
                 }
                 

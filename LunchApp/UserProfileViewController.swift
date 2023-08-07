@@ -18,8 +18,9 @@ class UserProfileViewController: UIViewController {
     @IBOutlet weak var foodLabel: UITextField!
     @IBOutlet weak var restaurantLabel: UITextField!
     @IBOutlet weak var foodButton: UIButton!
-    
- //   var choice = 1
+    @IBOutlet weak var publicInfoSwitch: UISwitch!
+    @IBOutlet weak var profilePictureAvatar: UIImageView!
+    //   var choice = 1
     override func viewDidLoad() {        
         super.viewDidLoad()
     }
@@ -31,6 +32,8 @@ class UserProfileViewController: UIViewController {
     // This array will hold the favorite restaurants of the user
     // Maximum 3 values
     var favoriteRestaurants: [String] = []
+    
+    var isInfoPublic : Bool = true
     
     @IBAction func savePressed(_ sender: UIButton) {
 
@@ -50,18 +53,19 @@ class UserProfileViewController: UIViewController {
         dateFormatter.dateFormat = "MM/dd/yyyy"
         let formattedBirthday = dateFormatter.string(from: birthday)
 
-        if formattedBirthday.isEmpty {
-            showAlert(message: "Please select a valid birthday.")
-            return
+        if publicInfoSwitch.isOn{
+            isInfoPublic = false
+        } else {
+          isInfoPublic = true
         }
-      
             let user = User(
                 userId: uid,
                 name: name,
                 birthday: formattedBirthday,
                 office: office,
                 food: self.favoriteFood,
-                restaurant: self.favoriteRestaurants
+                restaurant: self.favoriteRestaurants,
+                isPublic: isInfoPublic
             )
             
             let collection = Firestore.firestore().collection("users")
@@ -134,8 +138,17 @@ class UserProfileViewController: UIViewController {
            present(alert, animated: true, completion: nil)
        }
     
-    
+    func setUpProfilePicture() {
+        profilePictureAvatar.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(presentPicker))
+        profilePictureAvatar.addGestureRecognizer(tapGesture)
+    }
         
+    @objc func presentPicker() {
+        let picker = UIImagePickerController()
+        picker.sourceType = .photoLibrary
+        self.present(picker, animated: true, completion: nil)
+    }
     
 }
 

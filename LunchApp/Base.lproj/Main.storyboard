@@ -217,7 +217,7 @@
                                 <rect key="frame" x="5" y="89" width="393" height="589.33333333333337"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="DAK-wy-Mqq">
-                                        <rect key="frame" x="50" y="145" width="293" height="220"/>
+                                        <rect key="frame" x="50" y="145" width="293" height="265"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="VTM-Qt-PBe" userLabel="Name Stack">
                                                 <rect key="frame" x="0.0" y="0.0" width="293" height="40"/>
@@ -335,6 +335,24 @@
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="ajS-mH-YDy"/>
                                                 </constraints>
                                             </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="XR6-cv-wu4" userLabel="Rest Stack">
+                                                <rect key="frame" x="0.0" y="225" width="256.66666666666669" height="40"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hide Birthday From Public" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lxr-qy-jdP">
+                                                        <rect key="frame" x="0.0" y="0.0" width="197.66666666666666" height="40"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="483-dF-SSA">
+                                                        <rect key="frame" x="207.66666666666666" y="0.0" width="50.999999999999972" height="40"/>
+                                                    </switch>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="V5w-MC-mAo"/>
+                                                    <constraint firstAttribute="height" constant="40" id="fiM-Kj-MtC"/>
+                                                </constraints>
+                                            </stackView>
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="VTM-Qt-PBe" secondAttribute="trailing" id="O9L-Lt-aFe"/>
@@ -412,6 +430,8 @@
                         <outlet property="foodLabel" destination="5hT-Nh-EA2" id="eqL-nc-uuE"/>
                         <outlet property="nameLabel" destination="IRB-ba-PY7" id="NBW-VD-e1f"/>
                         <outlet property="officeLabel" destination="bTc-ag-AmW" id="wNc-yx-lhZ"/>
+                        <outlet property="profilePictureAvatar" destination="eSI-TF-K0U" id="QiR-gu-P31"/>
+                        <outlet property="publicInfoSwitch" destination="483-dF-SSA" id="hVH-JK-sEs"/>
                         <outlet property="restaurantLabel" destination="6bz-Gi-u1F" id="u1A-xo-HRG"/>
                     </connections>
                 </viewController>
@@ -595,7 +615,7 @@
                                         <rect key="frame" x="0.0" y="428" width="383" height="209"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available Restaurants" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SGh-em-CRX">
-                                                <rect key="frame" x="0.0" y="0.0" width="383" height="20.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="383" height="20.333333333333332"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
