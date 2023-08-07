@@ -16,16 +16,15 @@ struct Restaurant {
     static let restaurants = [
            "Roadster",
            "Zaatar w Zeit",
-           "Kabaji",
+           "Kababji",
            "Deek Duke",
            "Roselane",
            "Al Abdullah",
            "Malak El Tawouk",
-           "Anthony's"
+           "Anthony's",
+           "No Preference"
        ]
 
-
-    
     var dictionary: [String: Any] {
         return [ "name": name
         ]

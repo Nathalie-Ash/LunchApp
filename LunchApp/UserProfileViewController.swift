@@ -17,8 +17,9 @@ class UserProfileViewController: UIViewController {
     @IBOutlet weak var officeLabel: UITextField!
     @IBOutlet weak var foodLabel: UITextField!
     @IBOutlet weak var restaurantLabel: UITextField!
-    
     @IBOutlet weak var foodButton: UIButton!
+    
+ //   var choice = 1
     override func viewDidLoad() {        
         super.viewDidLoad()
     }
@@ -67,7 +68,15 @@ class UserProfileViewController: UIViewController {
             collection.document(uid).setData(user.dictionary, merge: false) { error in
                 print(error)
             }
-            
+        
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let mainTabBarController = storyboard.instantiateViewController(identifier: "mainHome") as? UITabBarController else {
+            return
+        }
+        mainTabBarController.modalPresentationStyle = .fullScreen
+        mainTabBarController.selectedIndex = 1 //index of the "Home" tab
+        self.present(mainTabBarController, animated: true, completion: nil)
         }
         
         
@@ -80,6 +89,11 @@ class UserProfileViewController: UIViewController {
            showAlert(message: "Please Enter A Value.")
             return
         }
+//        while (choice < 4){
+//            choice += 1
+//            foodLabel.placeholder = "Choice \(choice)"
+//
+//        }
         self.favoriteFood.append(food)
         self.foodLabel.text = ""
             
@@ -124,3 +138,5 @@ class UserProfileViewController: UIViewController {
         
     
 }
+
+

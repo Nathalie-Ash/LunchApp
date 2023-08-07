@@ -124,7 +124,7 @@ class HomeViewController: UIViewController {
         let userId = uid
         let availability = availabilitySwitch.isOn
         let restoName = restaurantDropDownMenu.titleLabel?.text ?? ""
-        let lunchTime = timePicker.date
+        let lunchTime = timePicker.date 
         let location = locationPicker.titleLabel?.text ?? "Not Specified"
         let currentDate = Date()
         
@@ -142,6 +142,7 @@ class HomeViewController: UIViewController {
             if let error = error {
                 print("Error adding user lunch data: \(error)")
             } else {
+                
                 print("User lunch data added successfully!")
             }
         }
@@ -219,14 +220,18 @@ extension HomeViewController {
                 for document in documentSnapshot.documents {
                     if let data = document.data() as? [String: Any],
                        let restaurantName = data["restoName"] as? String {
-                        // Add the restaurant name to the restaurants array
-                        self.availableRestaurants.append(restaurantName)
-                        self.restaurantsTable.reloadData()
+                        // Check if the restaurantName is neither "Select your restaurant" nor "No Preference"
+                        if restaurantName != "No Preference" || restaurantName != "Select your restaurant"{
+                            self.availableRestaurants.append(restaurantName)
+                        }else {
+                            self.availableRestaurants.removeAll()
+                        }
                     }
                 }
-
+                self.restaurantsTable.reloadData()
             }
     }
+    
     
     
     func fetchAllAvailableUserIdsFromListener(completion: @escaping ([String]) -> Void) {

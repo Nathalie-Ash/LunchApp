@@ -60,6 +60,7 @@ extension UserLunch {
     static private func getTimeFromDate(_ date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
+        
         return dateFormatter.string(from: date)
     }
 
@@ -67,5 +68,6 @@ extension UserLunch {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
         return dateFormatter.date(from: timeString)
+        
     }
 }

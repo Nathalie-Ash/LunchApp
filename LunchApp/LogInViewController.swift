@@ -12,13 +12,13 @@ class LogInViewController: UIViewController {
     
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var email: UITextField!
-    
+    @IBOutlet weak var loggedInSwitch: UISwitch!
     @IBOutlet weak var errorLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         errorLabel.isHidden = true
-        // Do any additional setup after loading the view.
+        loggedInSwitch.isOn = UserDefaults.standard.bool(forKey: "StayLoggedIn")
     }
     
    //  By adding this function, users who have longed in are always logged in even after they restart the app
@@ -58,23 +58,7 @@ class LogInViewController: UIViewController {
         }
         logIn()
     }
-    
-//    func logIn(){
-//
-//        Auth.auth().signIn(withEmail: email.text! , password: password.text!) { [weak self] authResult, err  in
-//            guard let strongSelf = self else {
-//                return }
-//            if let err = err {
-//                print(err.localizedDescription)
-//
-//            }
-//            self!.checkUserInfo()
-//        }
-//
-//    }
-    
- 
-    
+     
     func logIn() {
         let userEmail = email.text!
         let userPassword = password.text!
@@ -138,6 +122,31 @@ class LogInViewController: UIViewController {
             loginViewController.modalPresentationStyle = .fullScreen
             self.present(loginViewController, animated: true, completion: nil)
         }
+    }
+    
+    @IBAction func stayLoggedInSwitchValueChanged(_ sender: UISwitch) {
+            // Store the switch value in user defaults
+            UserDefaults.standard.set(sender.isOn, forKey: "StayLoggedIn")
+        }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        // Check if the user is already logged in and the stay logged in switch is on
+        if let currentUser = Auth.auth().currentUser, loggedInSwitch.isOn {
+            print(currentUser.uid)
+            checkUserInfo()
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            guard let vc = storyboard.instantiateViewController(identifier: "signUp") as? UITabBarController else {
+                return
+            }
+            
+           
+            
+            vc.modalPresentationStyle = .overFullScreen
+            vc.selectedIndex = 1
+            self.present(vc, animated: true, completion: nil)
+        }
+
     }
 
     

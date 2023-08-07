@@ -17,7 +17,7 @@ import FirebaseFirestore
 
 struct LunchLocation {
     static let locations = [
-        "Ktichen Block A", "High Tables", "Outside the Office", "Kitchen Block C", "Open Space"
+        "Ktichen Block A", "High Tables", "Outside the Office", "Kitchen Block C", "Open Space", "No Preference"
     ]
     var locId: String
     var locName: String
@@ -32,8 +32,6 @@ struct LunchLocation {
 
 extension LunchLocation {
   
-    
-    
     init?(dictionary: [String : Any]) {
         guard let locId = dictionary["locId"] as? String,
               let locName = dictionary["locName"] as? String else { return nil }

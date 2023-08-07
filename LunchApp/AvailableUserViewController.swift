@@ -12,6 +12,7 @@ class AvailableUserViewController: UIViewController {
     
     @IBOutlet weak var textLabel: UILabel!
     
+    @IBOutlet weak var userNameLabel: UILabel!
     var userId: String?
     let database = Firestore.firestore()
     
@@ -61,7 +62,7 @@ class AvailableUserViewController: UIViewController {
                 print("Failed to parse user data")
                 return
             }
-            
+            self.userNameLabel.text = "\(user.name)"
             self.name = user.name
             self.birthday = user.birthday
             self.team = user.office
@@ -98,6 +99,8 @@ class AvailableUserViewController: UIViewController {
         }
     }
     
+   
+    
     func updateUserUI() {
         guard let name = name, let birthday = birthday, let team = team, let favFood = favFood,  let favResto = favResto, let restaurantName = restoName  else {
             textLabel.text = "User information not available."
@@ -118,10 +121,20 @@ class AvailableUserViewController: UIViewController {
         guard let time = lunchTime else {
             return
         }
+        dateFormatter.dateFormat = "HH:mm"
+        let displayedTime = dateFormatter.string(from: time)
         
-        textLabel.text = "\(name) is having lunch today at \(restaurantName) at \(time).\n Birthday: \(displayedBirthday).\nTeam/Office: \(team).\n Fav Food: \(favFoodAsString).\n Fav Rest: \(favRestoAsString)"
+        if (restaurantName == "No Preferance") {
+            textLabel.text = "\(name) is having food today at \(displayedTime).\nRestaurant Picked: Not Specified. Give them suggestions.\n Fav Food: \(favFoodAsString).\n Fav Rest: \(favRestoAsString)\nTeam/Office: \(team).\nBirthday: \(displayedBirthday)."
+        } else if (lunchLocation == "No Preferance"){
+            textLabel.text = "\(name) did not specify lunch time.\nRestaurant Picked: \(restaurantName)\n Fav Food: \(favFoodAsString).\n Fav Rest: \(favRestoAsString)\nTeam/Office: \(team).\nBirthday: \(displayedBirthday)."
+        } else {
+            
+            textLabel.text = "\(name) is having food today at \(displayedTime).\nRestaurant Picked: \(restaurantName)\n Fav Food: \(favFoodAsString).\n Fav Rest: \(favRestoAsString)\nTeam/Office: \(team).\nBirthday: \(displayedBirthday)."
+        }
     }
     
+    
+    
 }
-
 
