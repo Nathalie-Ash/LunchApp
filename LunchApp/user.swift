@@ -34,6 +34,8 @@ struct User {
     var food: [String]
     var restaurant: [String]
     var isPublic: Bool
+    var profilePictureURL: String
+    
     
     var dictionary: [String: Any] {
         return [
@@ -43,7 +45,8 @@ struct User {
             "office": office,
             "food": food,
             "restaurant": restaurant,
-            "isPublic": isPublic
+            "isPublic": isPublic,
+            "profilePictureURL": profilePictureURL
         ]
     }
 }
@@ -72,7 +75,8 @@ extension User {
               let office = dictionary["office"] as? String,
               let food = dictionary["food"] as? [String],
               let restaurant = dictionary["restaurant"] as? [String],
-              let isPublic = dictionary["isPublic"] as? Bool else { return nil }
+              let isPublic = dictionary["isPublic"] as? Bool,
+              let profilePictureURL = dictionary["profilePictureURL"] as? String else { return nil }
         
         self.init(userId: userId,
                   name: name,
@@ -80,7 +84,8 @@ extension User {
                   office: office,
                   food: food,
                   restaurant: restaurant,
-                  isPublic: isPublic)
+                  isPublic: isPublic,
+                  profilePictureURL: profilePictureURL)
     }
     
 }
