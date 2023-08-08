@@ -248,7 +248,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="4ep-4V-Q1C">
-                                                        <rect key="frame" x="78.333333333333314" y="0.0" width="193" height="40"/>
+                                                        <rect key="frame" x="78.333333333333343" y="0.0" width="193.00000000000003" height="40"/>
                                                     </datePicker>
                                                 </subviews>
                                                 <constraints>
@@ -266,7 +266,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Office/Team Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bTc-ag-AmW">
-                                                        <rect key="frame" x="65.333333333333329" y="0.0" width="227.66666666666669" height="40"/>
+                                                        <rect key="frame" x="65.333333333333357" y="0.0" width="227.66666666666663" height="40"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
@@ -345,7 +345,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="483-dF-SSA">
-                                                        <rect key="frame" x="207.66666666666666" y="0.0" width="50.999999999999972" height="40"/>
+                                                        <rect key="frame" x="207.66666666666669" y="0.0" width="51" height="40"/>
                                                     </switch>
                                                 </subviews>
                                                 <constraints>
@@ -362,11 +362,11 @@
                                         </constraints>
                                     </stackView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="eSI-TF-K0U">
-                                        <rect key="frame" x="110.66666666666669" y="6" width="150" height="128.66666666666666"/>
+                                        <rect key="frame" x="110.66666666666669" y="6" width="130" height="128.66666666666666"/>
                                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="130" id="RGC-YS-1Le"/>
-                                            <constraint firstAttribute="width" constant="150" id="vr4-AR-Dji"/>
+                                            <constraint firstAttribute="width" constant="130" id="vr4-AR-Dji"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
@@ -692,8 +692,8 @@
                                         <rect key="frame" x="0.0" y="56.000000000000007" width="90" height="88.666666666666686"/>
                                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="90" id="H6I-mX-8Vz"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="90" id="xx9-yG-Hp2"/>
+                                            <constraint firstAttribute="height" constant="90" id="H6I-mX-8Vz"/>
+                                            <constraint firstAttribute="width" constant="90" id="xx9-yG-Hp2"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="100" verticalHuggingPriority="251" text="User" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SnK-jp-CUY">
@@ -730,6 +730,7 @@
                     <connections>
                         <outlet property="textLabel" destination="SWj-0g-2z1" id="m6y-IX-ypA"/>
                         <outlet property="userNameLabel" destination="SnK-jp-CUY" id="WJT-PU-fRj"/>
+                        <outlet property="userProfile" destination="qfg-I6-hek" id="N4Y-Cx-yGr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b68-RJ-V0g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

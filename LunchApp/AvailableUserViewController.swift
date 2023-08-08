@@ -7,11 +7,13 @@
 
 import UIKit
 import FirebaseFirestore
+import FirebaseStorage
 
 class AvailableUserViewController: UIViewController {
     
     @IBOutlet weak var textLabel: UILabel!
     
+    @IBOutlet weak var userProfile: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     var userId: String?
     let database = Firestore.firestore()
@@ -22,6 +24,7 @@ class AvailableUserViewController: UIViewController {
     var favFood: [String]?
     var favResto: [String]?
     var isPublic: Bool?
+    var profilePictureUrl: String?
     
     var restoName: String?
     var lunchTime: Date?
@@ -31,7 +34,8 @@ class AvailableUserViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        userProfile.roundedImage()
+        userProfile.contentMode = .scaleToFill
         displayUserInfo {
             self.updateUserUI()
         }
@@ -70,6 +74,28 @@ class AvailableUserViewController: UIViewController {
             self.favFood = user.food
             self.favResto = user.restaurant
             self.isPublic = user.isPublic
+            
+            let profilePictureURLString = user.profilePictureURL
+            let profilePictureURL = URL(string: profilePictureURLString)
+            guard let profilePictureURL = profilePictureURL else {
+                return
+            }
+            do {
+                let storageReference = try Storage.storage().reference(for: profilePictureURL)
+                storageReference.getData(maxSize: 10 * 1024 * 1024) { data, error in
+                    if let error = error {
+                        print("Error fetching image data")
+                        return
+                    }
+                    if let imageData = data, let image = UIImage(data: imageData) {
+                        DispatchQueue.main.async {
+                            self.userProfile.image = image
+                        }
+                    }
+                }
+            } catch {
+                print(error)
+            }
             completion()
         }
         
@@ -109,7 +135,7 @@ class AvailableUserViewController: UIViewController {
         }
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd/yyyy"
+        dateFormatter.dateFormat = "dd/MM/yyyy"
         if let date = dateFormatter.date(from: birthday){
             if  isPublic == true {
                 dateFormatter.dateFormat = "MMMM d"
@@ -142,3 +168,6 @@ class AvailableUserViewController: UIViewController {
     
     
 }
+
+
+

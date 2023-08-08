@@ -5,10 +5,12 @@
 //  Created by Nathalie on 25/07/2023.
 //
 
+
 import UIKit
 import FirebaseAuth
 import FirebaseFirestore
 import FirebaseStorage
+
 
 class UserProfileViewController: UIViewController {
     
@@ -20,10 +22,57 @@ class UserProfileViewController: UIViewController {
     @IBOutlet weak var foodButton: UIButton!
     @IBOutlet weak var publicInfoSwitch: UISwitch!
     @IBOutlet weak var profilePictureAvatar: UIImageView!
-      var choice = 1
-    override func viewDidLoad() {        
+    
+    var choice = 1
+    
+    override func viewDidLoad() {
+        
         super.viewDidLoad()
+        profilePictureAvatar.roundedImage()
+        profilePictureAvatar.contentMode = .scaleToFill
         setUpProfilePicture()
+        
+        
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let usersCollection = Firestore.firestore().collection("users").document(uid).addSnapshotListener { documentSnapshot, error in
+            guard let documentSnapshot = documentSnapshot else {
+                print("Error fetching document: \(error!)")
+                return
+            }
+            if let userData = documentSnapshot.data(),
+               let user = User(dictionary: userData) {
+                self.nameLabel.text = user.name
+                self.officeLabel.text = user.office
+                
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "dd/MM/yyyy"
+                let birthdayString = user.birthday
+                let birthdayDate = dateFormatter.date(from: birthdayString)
+                self.datePicker.date = birthdayDate!
+
+                let profilePictureURLString = user.profilePictureURL
+                let profilePictureURL = URL(string: profilePictureURLString)
+                guard let profilePictureURL = profilePictureURL else {
+                    return
+                }
+                do {
+                    let storageReference = try Storage.storage().reference(for: profilePictureURL)
+                    storageReference.getData(maxSize: 10 * 1024 * 1024) { data, error in
+                        if let error = error {
+                            print("Error fetching image data")
+                            return
+                        }
+                        if let imageData = data, let image = UIImage(data: imageData) {
+                            DispatchQueue.main.async {
+                                self.profilePictureAvatar.image = image
+                            }
+                        }
+                    }
+                } catch {
+                    print(error)
+                }
+            }
+        }
     }
     
     
@@ -38,64 +87,68 @@ class UserProfileViewController: UIViewController {
     var image: UIImage? = nil
     
     @IBAction func savePressed(_ sender: UIButton) {
-
-        guard let image = profilePictureAvatar.image else { return }
+        
         guard let uid = Auth.auth().currentUser?.uid else {
             return
         }
- 
+        
         guard let name = nameLabel.text, !name.isEmpty,
               let office = officeLabel.text, !office.isEmpty else {
             showAlert(message: "Please fill in all required fields.")
             return
         }
-        var profilePictureUrl = ""
+        
         let birthday = datePicker.date
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd/yyyy"
+        dateFormatter.dateFormat = "dd/MM/yyyy"
         let formattedBirthday = dateFormatter.string(from: birthday)
+        
+        let minAllowedDate = Calendar.current.date(byAdding: .year, value: -16, to: Date())
+        
+            if birthday < minAllowedDate! {
+                self.datePicker.date = birthday
+            } else {
+                let alert = UIAlertController(title: "Age Constraint", message: "You must be at least 16 years old.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                     self.present(alert, animated: true, completion: nil)
+                     self.datePicker.date = minAllowedDate!
+                   return
+               }
+                
 
         if publicInfoSwitch.isOn{
             isInfoPublic = false
         } else {
-          isInfoPublic = true
+            isInfoPublic = true
         }
         
-        self.uploadProfilePicture(image) { url in
-            if let profilePictureURL = url {
-                profilePictureUrl = profilePictureURL
+        var user = User(
+            userId: uid,
+            name: name,
+            birthday: formattedBirthday,
+            office: office,
+            food: self.favoriteFood,
+            restaurant: self.favoriteRestaurants,
+            isPublic: isInfoPublic,
+            profilePictureURL: ""
+        )
+        
+        
+        if let image = profilePictureAvatar.image {
+            self.uploadProfilePicture(image) { url in
+                user.profilePictureURL = url ?? ""
+                let collection = Firestore.firestore().collection("users")
+                collection.document(uid).setData(user.dictionary, merge: true) { error in
+                    print(error)
+                }
             }
-        }
-            
-            let user = User(
-                userId: uid,
-                name: name,
-                birthday: formattedBirthday,
-                office: office,
-                food: self.favoriteFood,
-                restaurant: self.favoriteRestaurants,
-                isPublic: isInfoPublic,
-                profilePictureURL: profilePictureUrl
-            )
-            
-       
-        
+        } else {
             let collection = Firestore.firestore().collection("users")
-            collection.document(uid).setData(user.dictionary, merge: false) { error in
+            collection.document(uid).setData(user.dictionary, merge: true) { error in
                 print(error)
             }
-     
-
-          
-           
-
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let mainTabBarController = storyboard.instantiateViewController(identifier: "mainHome") as? UITabBarController else {
-            return
         }
-        mainTabBarController.modalPresentationStyle = .fullScreen
-        mainTabBarController.selectedIndex = 1 //index of the "Home" tab
-        self.present(mainTabBarController, animated: true, completion: nil)
+        self.tabBarController?.selectedIndex = 1
         }
         
         
@@ -105,17 +158,17 @@ class UserProfileViewController: UIViewController {
             return
         }
         guard let food = self.foodLabel.text, food.isEmpty == false else {
-           showAlert(message: "Please Enter A Value.")
+            showAlert(message: "Please Enter A Value.")
             return
         }
         while (choice < 4){
             choice += 1
             foodLabel.placeholder = "Choice \(choice)"
-
+            
         }
         self.favoriteFood.append(food)
         self.foodLabel.text = ""
-            
+        
     }
     
     @IBAction func restaurantPlusButtonPressed(_ sender: UIButton) {
@@ -137,31 +190,31 @@ class UserProfileViewController: UIViewController {
     @IBAction func signOutButtonPressed(_ sender: UIButton) {
         do {
             try Auth.auth().signOut()
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let vc = storyboard.instantiateViewController(identifier: "logIn")
-                vc.modalPresentationStyle = .overFullScreen
-                present(vc, animated: true)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(identifier: "logIn")
+            vc.modalPresentationStyle = .overFullScreen
+            present(vc, animated: true)
         } catch let signOutError as NSError {
             print("Error signing out: \(signOutError)")
         }
     }
-
+    
     
     func showAlert(message: String) {
-           let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-           alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-           present(alert, animated: true, completion: nil)
-       }
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
     
     func setUpProfilePicture() {
         profilePictureAvatar.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(presentPicker))
         profilePictureAvatar.addGestureRecognizer(tapGesture)
     }
-        
+    
     @objc func presentPicker() {
-//        profilePictureAvatar.layer.cornerRadius = 40
-//        profilePictureAvatar.clipsToBounds = true
+        //        profilePictureAvatar.layer.cornerRadius = 40
+        //        profilePictureAvatar.clipsToBounds = true
         let picker = UIImagePickerController()
         picker.sourceType = .photoLibrary
         picker.allowsEditing = true
@@ -176,16 +229,16 @@ class UserProfileViewController: UIViewController {
             return
         }
         let storageRef = Storage.storage().reference().child("user \(uid)")
-
+        
         guard let imageData = image.jpegData(compressionQuality: 0.4) else {
             return
         }
-
+        
         let metaData = StorageMetadata()
         metaData.contentType = "image/jpg"
-
+        
         let profilePicRef = storageRef.child("profilePictures").child("\(UUID().uuidString).jpg")
-
+        
         profilePicRef.putData(imageData, metadata: metaData) { metaData, error in
             if error == nil, metaData != nil {
                 // Fetch the download URL for the uploaded image
@@ -201,7 +254,9 @@ class UserProfileViewController: UIViewController {
             }
         }
     }
-
+    
+    
+    
     
 }
 
@@ -213,7 +268,7 @@ extension UserProfileViewController: UIImagePickerControllerDelegate, UINavigati
             image = imageSelected
             profilePictureAvatar.image = imageSelected
         }
-
+        
         if let imageOriginal = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             image = imageOriginal
             profilePictureAvatar.image = imageOriginal
@@ -222,4 +277,12 @@ extension UserProfileViewController: UIImagePickerControllerDelegate, UINavigati
         picker.dismiss(animated: true, completion: nil)
     }
     
+}
+
+
+extension UIImageView {
+    func roundedImage() {
+        self.layer.cornerRadius = (self.frame.size.height) / 2;
+        self.clipsToBounds = true
+    }
 }

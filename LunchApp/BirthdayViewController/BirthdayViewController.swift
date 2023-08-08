@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 
 class BirthdayViewController: UIViewController {
     
@@ -42,6 +43,7 @@ class BirthdayViewController: UIViewController {
                    let userId = data["userId"] as? String,
                    let birthday = data["birthday"] as? String,
                    let name = data["name"] as? String,
+                   let imageURL = data["profilePictureURL"] as? String,
                    let isPublic = data["isPublic"] as? Bool {
                    let dateFormatter = DateFormatter()
                     dateFormatter.dateFormat = "MM/dd/yyyy"
@@ -56,7 +58,7 @@ class BirthdayViewController: UIViewController {
                                 // set the key of the dictionary to that month
                                 let key = SectionKey(month: month)
                                 // set the values of the dictionary to the user information
-                                let birthdayUser = BirthdayUser(userId: userId, name: name, birthday: date)
+                                let birthdayUser = BirthdayUser(userId: userId, name: name, birthday: date, imageURL: imageURL)
                                 // if there are no birthdays leave it empty
                                 if userBirthdayDict[key] == nil {
                                     userBirthdayDict[key] = []
@@ -135,6 +137,27 @@ extension BirthdayViewController: UITableViewDelegate, UITableViewDataSource {
         let data = birthdayData[indexPath.section].birthdays[indexPath.row]
         cell.nameLabel.text =  data.name
         cell.birthdayLabel.text = data.getBirthdayFormatted()
+        
+        let profilePictureURLString = data.imageURL
+        let profilePictureURL = URL(string: profilePictureURLString)
+        if let profilePictureURL = profilePictureURL {
+            do {
+                let storageReference = try Storage.storage().reference(for: profilePictureURL)
+                storageReference.getData(maxSize: 10 * 1024 * 1024) { data, error in
+                    if let error = error {
+                        print("Error fetching image data")
+                        return
+                    }
+                    if let imageData = data, let image = UIImage(data: imageData) {
+                        DispatchQueue.main.async {
+                            cell.userProfileImageView.image = image
+                        }
+                    }
+                }
+            } catch {
+                print(error)
+            }
+        }
         return cell
     }
 }
@@ -152,6 +175,7 @@ struct BirthdayUser {
     let userId: String
     let name: String
     let birthday: Date
+    let imageURL: String
     
     func getBirthdayFormatted() -> String? {
         let dateFormatter = DateFormatter()
