@@ -14,7 +14,7 @@ struct UserLunch {
     var restoName: String
     var lunchTime: Date // Store the lunch time as a Date
     var location: String
-    var lunchDate: Date
+    var lunchDate: String
 
     var dictionary: [String: Any] {
         return [
@@ -23,7 +23,7 @@ struct UserLunch {
             "restoName": restoName,
             "lunchTime": UserLunch.getTimeFromDate(lunchTime), // Store only the time part of the date
             "location": location,
-            "lunchDate": lunchDate
+            "lunchDate":lunchDate
         ]
     }
 }
@@ -39,7 +39,7 @@ extension UserLunch {
               let lunchTimeString = dictionary["lunchTime"] as? String,
               let lunchTime = UserLunch.getTimeFromString(lunchTimeString),
               let location = dictionary["location"] as? String,
-              let lunchDateTimeStamp = dictionary["lunchDate"] as? Timestamp
+              let lunchDate = dictionary["lunchDate"] as? String
         else {
                   
             return nil
@@ -50,7 +50,7 @@ extension UserLunch {
                   restoName: restoName,
                   lunchTime: lunchTime,
                   location:  location,
-                  lunchDate: lunchDateTimeStamp.dateValue())
+                  lunchDate: lunchDate)
     
     }
 }
@@ -69,5 +69,11 @@ extension UserLunch {
         dateFormatter.dateFormat = "HH:mm"
         return dateFormatter.date(from: timeString)
         
+    }
+    
+    static private func formatDate(_ date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        return dateFormatter.string(from: date)
     }
 }

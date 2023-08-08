@@ -17,6 +17,7 @@ class UserProfileViewController: UIViewController {
     @IBOutlet weak var nameLabel: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var officeLabel: UITextField!
+    @IBOutlet weak var foodStackView: UIStackView!
     @IBOutlet weak var foodLabel: UITextField!
     @IBOutlet weak var restaurantLabel: UITextField!
     @IBOutlet weak var foodButton: UIButton!
@@ -48,7 +49,7 @@ class UserProfileViewController: UIViewController {
                 dateFormatter.dateFormat = "dd/MM/yyyy"
                 let birthdayString = user.birthday
                 let birthdayDate = dateFormatter.date(from: birthdayString)
-                self.datePicker.date = birthdayDate!
+                self.datePicker.date = birthdayDate ?? Date()
 
                 let profilePictureURLString = user.profilePictureURL
                 let profilePictureURL = URL(string: profilePictureURLString)
@@ -161,13 +162,17 @@ class UserProfileViewController: UIViewController {
             showAlert(message: "Please Enter A Value.")
             return
         }
-        while (choice < 4){
-            choice += 1
-            foodLabel.placeholder = "Choice \(choice)"
-            
-        }
+//        while (choice < 4){
+//            choice += 1
+//            foodLabel.placeholder = "Choice \(choice)"
+//
+//        }
+        let label = UILabel()
+        label.text = self.foodLabel.text
         self.favoriteFood.append(food)
         self.foodLabel.text = ""
+        self.foodStackView.addArrangedSubview(label)
+        
         
     }
     

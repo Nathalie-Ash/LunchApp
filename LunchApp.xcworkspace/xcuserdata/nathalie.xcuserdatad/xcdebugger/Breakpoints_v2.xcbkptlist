@@ -7,16 +7,96 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "1AC37EB7-0723-4562-8616-FDCE5945B2E0"
-            shouldBeEnabled = "Yes"
+            uuid = "FEC51375-8583-40A1-9031-16DA063B6A83"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LunchApp/BirthdayViewController/BirthdayViewController.swift"
+            filePath = "LunchApp/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            startingLineNumber = "214"
+            endingLineNumber = "214"
+            landmarkName = "addPickedRestaurantsFromListener()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "FEC51375-8583-40A1-9031-16DA063B6A83 - fe47f564cb4e4c16"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LunchApp.HomeViewController.addPickedRestaurantsFromListener() -&gt; ()"
+                  moduleName = "LunchApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nathalie/Desktop/NewApp/LunchApp/LunchApp/HomeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "211"
+                  endingLineNumber = "211"
+                  offsetFromSymbolStart = "184">
+               </Location>
+               <Location
+                  uuid = "FEC51375-8583-40A1-9031-16DA063B6A83 - fe47f564cb4e4c16"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LunchApp.HomeViewController.addPickedRestaurantsFromListener() -&gt; ()"
+                  moduleName = "LunchApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nathalie/Desktop/NewApp/LunchApp/LunchApp/HomeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "211"
+                  endingLineNumber = "211"
+                  offsetFromSymbolStart = "116">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DE78619E-E6B0-4D9E-AD79-C67CFC76357B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LunchApp/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "265"
+            endingLineNumber = "265"
+            landmarkName = "fetchAllAvailableUserIdsFromListener(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3EE5F38F-D31F-4567-A2BC-5037BF9A43CA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LunchApp/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "266"
+            endingLineNumber = "266"
+            landmarkName = "fetchAllAvailableUserIdsFromListener(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FA28030F-4239-48BC-898B-466E2A1AD2E2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LunchApp/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "301"
+            endingLineNumber = "301"
+            landmarkName = "updateListOfAvailableUsersFromListener()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

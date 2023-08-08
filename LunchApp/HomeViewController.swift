@@ -47,8 +47,8 @@ class HomeViewController: UIViewController {
         setupLocationDropDownMenu()
         updateListOfAvailableUsersFromListener()
         addPickedRestaurantsFromListener()
-         
-       
+        
+        
     }
     
     func loadExistingRestaurants() {
@@ -115,7 +115,7 @@ class HomeViewController: UIViewController {
     @IBAction func locationDropDownTapped(_ sender: UIButton) {
         locationDropDown.show()
     }
- 
+    
     @IBAction func submitButtonPressed(_ sender: Any) {
         guard let uid = Auth.auth().currentUser?.uid else {
             return
@@ -124,9 +124,12 @@ class HomeViewController: UIViewController {
         let userId = uid
         let availability = availabilitySwitch.isOn
         let restoName = restaurantDropDownMenu.titleLabel?.text ?? ""
-        let lunchTime = timePicker.date 
+        let lunchTime = timePicker.date
         let location = locationPicker.titleLabel?.text ?? "Not Specified"
-        let currentDate = Date()
+        let currentDate = Date.now
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        let formattedDate = dateFormatter.string(from: currentDate)
         
         let userLunch = UserLunch(
             userId: userId,
@@ -134,7 +137,7 @@ class HomeViewController: UIViewController {
             restoName: restoName,
             lunchTime: lunchTime,
             location: location,
-            lunchDate: currentDate
+            lunchDate: formattedDate
         )
         
         let collection = database.collection("userLunch")
@@ -150,7 +153,7 @@ class HomeViewController: UIViewController {
         submitButton.backgroundColor = .green
     }
     
-
+    
     
 }
 
@@ -208,38 +211,48 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 extension HomeViewController {
     
     func addPickedRestaurantsFromListener() {
-        database.collection("userLunch")
-            .addSnapshotListener { documentSnapshot, error in
-                guard let documentSnapshot = documentSnapshot else {
-                    print("Error fetching document: \(error!)")
+        
+        let today = Date.now
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        let formattedDate = dateFormatter.string(from: today)
+        
+        database.collection("userLunch").whereField("lunchDate", isEqualTo: formattedDate)
+            .addSnapshotListener { querySnapshot, error in
+                guard let querySnapshot = querySnapshot else {
+                    print("Error fetching documents: \(error!)")
                     return
                 }
                 
                 // Loop through each document in the userLunch collection
                 self.availableRestaurants = []
-                for document in documentSnapshot.documents {
+                var uniqueRestaurants: Set<String> = []
+                for document in querySnapshot.documents {
                     if let data = document.data() as? [String: Any],
                        let restaurantName = data["restoName"] as? String {
-                        // Check if the restaurantName is neither "Select your restaurant" nor "No Preference"
-                        if restaurantName != "No Preference" || restaurantName != "Select your restaurant"{
-                            self.availableRestaurants.append(restaurantName)
-                        }else {
-                            self.availableRestaurants.removeAll()
+                        // Check if the restaurantName is not "No Preference"
+                        if restaurantName != "No Preference"{
+                            uniqueRestaurants.insert(restaurantName)
                         }
                     }
                 }
+                self.availableRestaurants = Array(uniqueRestaurants)
                 self.restaurantsTable.reloadData()
             }
     }
     
     
     
+    
     func fetchAllAvailableUserIdsFromListener(completion: @escaping ([String]) -> Void) {
-        guard let uid = Auth.auth().currentUser?.uid else {
-            return
-        }
+        
+        let today = Date.now
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        let formattedDate = dateFormatter.string(from: today)
+        
         var userIds: [String] = []
-        let usersCollection = database.collection("userLunch").addSnapshotListener {  documentSnapshot, error in
+        let usersCollection = database.collection("userLunch").whereField("lunchDate", isEqualTo: formattedDate).addSnapshotListener {  documentSnapshot, error in
             guard let documentSnapshot = documentSnapshot else {
                 print("Error fetching document: \(error!)")
                 return
@@ -262,25 +275,25 @@ extension HomeViewController {
         guard let uid = Auth.auth().currentUser?.uid else {
             return
         }
-        let usersCollection = database.collection("users").addSnapshotListener { documentSnapshot, error in
+        
+        
+        let usersCollection = database.collection("users").whereField(FieldPath.documentID(), in: userIDs).addSnapshotListener { documentSnapshot, error in
             guard let documentSnapshot = documentSnapshot else {
                 print("Error fetching document: \(error!)")
                 return
-         }
+            }
             var userDict: [String: String] = [:]
-            userIDs.forEach { userId in
-                for document in documentSnapshot.documents {
-                    if let data = document.data() as? [String: Any] {
-                        let username = data["name"] as? String
-                            let userId = document.documentID
-                            userDict[userId] = username
-                        userDict.removeValue(forKey: uid)
-                            completion(userDict)
-                        }
-                    }
-                    
+            for document in documentSnapshot.documents {
+                if let data = document.data() as? [String: Any] {
+                    let username = data["name"] as? String
+                    let userId = document.documentID
+                    userDict[userId] = username
                 }
             }
+            userDict.removeValue(forKey: uid)
+            completion(userDict)
+            
+        }
     }
     
     func updateListOfAvailableUsersFromListener() {
