@@ -534,9 +534,7 @@
                                                 <state key="normal" title="Select your restaurant">
                                                     <color key="titleColor" systemColor="labelColor"/>
                                                 </state>
-                                                <buttonConfiguration key="configuration" style="filled" title="Select your restaurant" cornerStyle="capsule">
-                                                    <color key="baseForegroundColor" systemColor="labelColor"/>
-                                                </buttonConfiguration>
+                                                <buttonConfiguration key="configuration" style="filled" title="Select your restaurant" cornerStyle="capsule"/>
                                                 <connections>
                                                     <action selector="restaurantDropDownMenuTapped:" destination="b73-OV-Eqf" eventType="touchUpInside" id="D1S-Uz-SzK"/>
                                                 </connections>

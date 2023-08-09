@@ -21,6 +21,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var restaurantsTable: UITableView!
     
     
+    
     let database = Firestore.firestore()
     
     let restaurantCollection = Firestore.firestore().collection("restaurants")
@@ -40,6 +41,7 @@ class HomeViewController: UIViewController {
     var location : [LunchLocation] = []
     var availableUsers: [String: String] = [:]
     var availableRestaurants: [String] = []
+    var selectedRestaurantPreference: String = "No Preference"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,11 +88,14 @@ class HomeViewController: UIViewController {
     }
     
     func setupRestaurantDropDownMenu() {
+    
         restaurantDropDown.anchorView = restaurantDropDownMenu
         restaurantDropDown.dataSource = Restaurant.restaurants
         restaurantDropDown.selectionAction = { [unowned self] (index: Int, item: String) in
             self.restaurantDropDownMenu.setTitle(item, for: .normal)
+            self.selectedRestaurantPreference = item
         }
+        
     }
     
     func setupLocationDropDownMenu() {
@@ -117,7 +122,7 @@ class HomeViewController: UIViewController {
         
         let userId = uid
         let availability = availabilitySwitch.isOn
-        let restoName = restaurantDropDownMenu.titleLabel?.text ?? ""
+        let restoName = self.selectedRestaurantPreference
         let lunchTime = timePicker.date
         let location = locationPicker.titleLabel?.text ?? "Not Specified"
         let currentDate = Date.now
@@ -227,7 +232,7 @@ extension HomeViewController {
                     if let data = document.data() as? [String: Any],
                        let restaurantName = data["restoName"] as? String {
                         // Check if the restaurantName is not "No Preference"
-                        if restaurantName != "No Preference"{
+                        if restaurantName != "No Preference" {
                             uniqueRestaurants.insert(restaurantName)
                         }
                     }
