@@ -47,12 +47,10 @@ class HomeViewController: UIViewController {
         setupLocationDropDownMenu()
         updateListOfAvailableUsersFromListener()
         addPickedRestaurantsFromListener()
-        
-        
     }
     
     func loadExistingRestaurants() {
-        // Clear the existing restaurants array before adding new data
+        // Clear the existing restaurants array
         self.restaurants.removeAll()
         
         for restaurantName in Restaurant.restaurants {
@@ -64,7 +62,6 @@ class HomeViewController: UIViewController {
                 }
             }
             
-            // Generate the restaurant ID (document ID) for the struct
             let restaurant = Restaurant(restoID: docRef.documentID, name: restaurantName)
             self.restaurants.append(restaurant)
         }
@@ -72,7 +69,6 @@ class HomeViewController: UIViewController {
     
     
     func loadExistingLocations() {
-        // Clear the existing restaurants array before adding new data
         self.location.removeAll()
         
         for locationName in LunchLocation.locations {
@@ -84,7 +80,6 @@ class HomeViewController: UIViewController {
                 }
             }
             
-            // Generate the restaurant ID (document ID) for the struct
             let location = LunchLocation(locId: docRef.documentID, locName: locationName)
             self.location.append(location)
         }
@@ -93,7 +88,6 @@ class HomeViewController: UIViewController {
     func setupRestaurantDropDownMenu() {
         restaurantDropDown.anchorView = restaurantDropDownMenu
         restaurantDropDown.dataSource = Restaurant.restaurants
-        
         restaurantDropDown.selectionAction = { [unowned self] (index: Int, item: String) in
             self.restaurantDropDownMenu.setTitle(item, for: .normal)
         }
@@ -149,12 +143,8 @@ class HomeViewController: UIViewController {
                 print("User lunch data added successfully!")
             }
         }
-        
         submitButton.backgroundColor = .green
     }
-    
-    
-    
 }
 
 
@@ -170,15 +160,21 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == usersTable {
-            let element = Array(self.availableUsers)
-            let name = element[indexPath.row].value
-            print(name)
-            let cell = UITableViewCell()
-            cell.textLabel?.text = name
-            cell.textLabel?.textColor = .blue
-            cell.selectionStyle = .none
-            return cell
-            
+            if self.availableUsers.isEmpty {
+                let cell = UITableViewCell()
+                cell.textLabel?.text = "No available users yet "
+                cell.textLabel?.textColor = .gray
+                cell.selectionStyle = .none
+                return cell
+            } else {
+                let element = Array(self.availableUsers)
+                let name = element[indexPath.row].value
+                let cell = UITableViewCell()
+                cell.textLabel?.text = name
+                cell.textLabel?.textColor = .blue
+                cell.selectionStyle = .none
+                return cell
+            }
         } else if tableView == restaurantsTable {
             let element = self.availableRestaurants[indexPath.row]
             let cell = UITableViewCell()
@@ -241,8 +237,7 @@ extension HomeViewController {
             }
     }
     
-    
-    
+ 
     
     func fetchAllAvailableUserIdsFromListener(completion: @escaping ([String]) -> Void) {
         
@@ -276,7 +271,11 @@ extension HomeViewController {
             return
         }
         
-        
+        if userIDs.isEmpty {
+                completion([String: String]())
+                return
+            }
+
         let usersCollection = database.collection("users").whereField(FieldPath.documentID(), in: userIDs).addSnapshotListener { documentSnapshot, error in
             guard let documentSnapshot = documentSnapshot else {
                 print("Error fetching document: \(error!)")
@@ -298,12 +297,15 @@ extension HomeViewController {
     
     func updateListOfAvailableUsersFromListener() {
         self.fetchAllAvailableUserIdsFromListener { userIds in
-            self.fetchUserNameforUserIdsFromListener(for: userIds){ userDict in
-                self.availableUsers = userDict
-                self.usersTable.reloadData()
+            self.fetchUserNameforUserIdsFromListener(for: userIds) { userDict in
+                if userDict.isEmpty {
+                   self.usersTable.reloadData()
+                } else {
+                    self.availableUsers = userDict
+                    self.usersTable.reloadData()
+                }
             }
         }
     }
-    
-    
+  
 }

@@ -24,7 +24,9 @@ class UserProfileViewController: UIViewController {
     @IBOutlet weak var publicInfoSwitch: UISwitch!
     @IBOutlet weak var profilePictureAvatar: UIImageView!
     
-    var choice = 1
+    var foodChoice = 1
+    var restChoice = 1
+    var previousProfilePictureRef: StorageReference?
     
     override func viewDidLoad() {
         
@@ -154,6 +156,7 @@ class UserProfileViewController: UIViewController {
         
         
     @IBAction func foodPlusButtonPressed(_ sender: UIButton) {
+        foodChoice += 1
         guard self.favoriteFood.count < 3 else {
             showAlert(message: "A user can have a maximum of three values")
             return
@@ -162,22 +165,19 @@ class UserProfileViewController: UIViewController {
             showAlert(message: "Please Enter A Value.")
             return
         }
-//        while (choice < 4){
-//            choice += 1
-//            foodLabel.placeholder = "Choice \(choice)"
-//
-//        }
-        let label = UILabel()
-        label.text = self.foodLabel.text
+        
+        foodLabel.placeholder = "Choice \(foodChoice)"
+//        let label = UILabel()
+//        label.text = self.foodLabel.text
         self.favoriteFood.append(food)
         self.foodLabel.text = ""
-        self.foodStackView.addArrangedSubview(label)
+//        self.foodStackView.addArrangedSubview(label)
         
         
     }
     
     @IBAction func restaurantPlusButtonPressed(_ sender: UIButton) {
-        
+        restChoice += 1
         guard self.favoriteRestaurants.count < 3 else {
             showAlert(message: "A user can have a maximum of three values")
             return
@@ -188,6 +188,7 @@ class UserProfileViewController: UIViewController {
             return
         }
         
+        restaurantLabel.placeholder = "Choice \(restChoice)"
         self.favoriteRestaurants.append(restaurant)
         self.restaurantLabel.text = ""
     }
@@ -228,12 +229,21 @@ class UserProfileViewController: UIViewController {
     }
     
     
+
     func uploadProfilePicture(_ image: UIImage, completion: @escaping ((_ url: String?) -> ())) {
-        
         guard let uid = Auth.auth().currentUser?.uid else {
             return
         }
         let storageRef = Storage.storage().reference().child("user \(uid)")
+        
+        // Delete previous profile picture if it exists
+        if let previousProfilePictureRef = previousProfilePictureRef {
+            previousProfilePictureRef.delete { error in
+                if let error = error {
+                    print("Error deleting previous profile picture: \(error)")
+                }
+            }
+        }
         
         guard let imageData = image.jpegData(compressionQuality: 0.4) else {
             return
@@ -242,12 +252,17 @@ class UserProfileViewController: UIViewController {
         let metaData = StorageMetadata()
         metaData.contentType = "image/jpg"
         
+        // create a reference to the users storage using UID
         let profilePicRef = storageRef.child("profilePictures").child("\(UUID().uuidString).jpg")
         
+        previousProfilePictureRef = profilePicRef
+        
+        // upload the image to the specified path
         profilePicRef.putData(imageData, metadata: metaData) { metaData, error in
             if error == nil, metaData != nil {
                 // Fetch the download URL for the uploaded image
                 profilePicRef.downloadURL { url, error in
+                    // convert the URL into string
                     if let downloadURL = url?.absoluteString {
                         completion(downloadURL)
                     } else {
@@ -259,7 +274,7 @@ class UserProfileViewController: UIViewController {
             }
         }
     }
-    
+
     
     
     
