@@ -15,10 +15,17 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var loggedInSwitch: UISwitch!
     @IBOutlet weak var errorLabel: UILabel!
     
+    @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var logInButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         errorLabel.isHidden = true
         loggedInSwitch.isOn = UserDefaults.standard.bool(forKey: "StayLoggedIn")
+        password.useUnderline()
+        email.useUnderline()
+        logInButton.layer.cornerRadius = 10
+        signUpButton.layer.cornerRadius = 10
+        
     }
     
    //  By adding this function, users who have longed in are always logged in even after they restart the app

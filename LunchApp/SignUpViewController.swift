@@ -13,26 +13,23 @@ class SignUpViewController: UIViewController {
 
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var email: UITextField!
-    
     @IBOutlet weak var errorLabel: UILabel!
     
+    @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var confirmPassword: UITextField!
     
+    @IBOutlet weak var logInButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         errorLabel.isHidden = true
+        password.useUnderline()
+        email.useUnderline()
+        confirmPassword.useUnderline()
+        signUpButton.layer.cornerRadius = 10
+        logInButton.layer.cornerRadius = 10
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     @IBAction func signUpPressed(_ sender: UIButton) {
         if email.text?.isEmpty == true {
@@ -42,6 +39,13 @@ class SignUpViewController: UIViewController {
         
         if password.text?.isEmpty == true {
             print("No text in password field")
+            return
+        }
+        
+        if password.text != confirmPassword.text {
+            errorLabel.isHidden = false
+            print("Passwords Don't Match!")
+            errorLabel.text = "Passwords Don't Match!"
             return
         }
         signUp()

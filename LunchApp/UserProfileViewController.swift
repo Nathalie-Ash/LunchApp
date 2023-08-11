@@ -34,13 +34,18 @@ class UserProfileViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        profilePictureAvatar.roundedImage()
-        profilePictureAvatar.contentMode = .scaleToFill
+      //  profilePictureAvatar.roundedImage()
+       // profilePictureAvatar.contentMode = .scaleToFill
         setUpProfilePicture()
         signOutButton.layer.cornerRadius = 10
         saveChangesButton.layer.cornerRadius = 10
         foodButton.layer.cornerRadius = 10
         restaurantPlusButton.layer.cornerRadius = 10
+        
+        self.nameLabel.useUnderline()
+        self.officeLabel.useUnderline()
+        self.foodLabel.useUnderline()
+        self.restaurantLabel.useUnderline()
         
         guard let uid = Auth.auth().currentUser?.uid else { return }
         let usersCollection = Firestore.firestore().collection("users").document(uid).addSnapshotListener { documentSnapshot, error in
@@ -310,5 +315,19 @@ extension UIImageView {
     func roundedImage() {
         self.layer.cornerRadius = (self.frame.size.height) / 2;
         self.clipsToBounds = true
+    }
+}
+
+
+extension UITextField {
+
+    func useUnderline() {
+        let border = CALayer()
+        let borderWidth = CGFloat(1.0)
+        border.borderColor = UIColor.lightGray.cgColor
+        border.frame = CGRect(origin: CGPoint(x: 0,y :self.frame.size.height - borderWidth), size: CGSize(width: self.frame.size.width, height: self.frame.size.height))
+        border.borderWidth = borderWidth
+        self.layer.addSublayer(border)
+        self.layer.masksToBounds = true
     }
 }
