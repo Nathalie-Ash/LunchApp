@@ -20,7 +20,12 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var usersTable: UITableView!
     @IBOutlet weak var restaurantsTable: UITableView!
     
-    
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var locationView: UIView!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var restaurantLabel: UILabel!
+    //    var currentUser: User?
+    @IBOutlet weak var lunchView: UIView!
     
     let database = Firestore.firestore()
     
@@ -44,11 +49,26 @@ class HomeViewController: UIViewController {
     var selectedRestaurantPreference: String = "No Preference"
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         setupRestaurantDropDownMenu()
         setupLocationDropDownMenu()
         updateListOfAvailableUsersFromListener()
         addPickedRestaurantsFromListener()
+        getUserName()
+        lunchView.layer.cornerRadius = 10
+        restaurantDropDownMenu.layer.cornerRadius = 10
+        locationView.layer.cornerRadius = 10
+        locationPicker.layer.cornerRadius = 10
+        submitButton.layer.cornerRadius = 10
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     func loadExistingRestaurants() {
@@ -88,14 +108,16 @@ class HomeViewController: UIViewController {
     }
     
     func setupRestaurantDropDownMenu() {
-    
+        
         restaurantDropDown.anchorView = restaurantDropDownMenu
         restaurantDropDown.dataSource = Restaurant.restaurants
         restaurantDropDown.selectionAction = { [unowned self] (index: Int, item: String) in
-            self.restaurantDropDownMenu.setTitle(item, for: .normal)
-            self.selectedRestaurantPreference = item
+            self.restaurantLabel.text = item
+            //            self.restaurantDropDownMenu.setTitle(item, for: .normal)
+                self.selectedRestaurantPreference = item
+            //        }
+            
         }
-        
     }
     
     func setupLocationDropDownMenu() {
@@ -103,7 +125,7 @@ class HomeViewController: UIViewController {
         locationDropDown.dataSource = LunchLocation.locations
         
         locationDropDown.selectionAction = { [unowned self] (index: Int, item: String) in
-            self.locationPicker.setTitle(item, for: .normal)
+            self.locationLabel.text = item
         }
     }
     
@@ -148,15 +170,43 @@ class HomeViewController: UIViewController {
                 print("User lunch data added successfully!")
             }
         }
-        submitButton.backgroundColor = .green
+        submitButton.backgroundColor = UIColor(red: 253.0/255.0, green: 136.0/255.0, blue: 71.0/255.0, alpha: 1.0)
     }
+    
+    func getUserName() {
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return
+        }
+        
+        database.collection("users").whereField("userId", isEqualTo: uid).addSnapshotListener {
+            querySnapshot, error in
+            guard let querySnapshot = querySnapshot else { return }
+            for document in querySnapshot.documents {
+                if let data = document.data() as? [String: Any],
+                   let name = data["name"] as? String{
+                    self.nameLabel.text = "Hi \(name),"
+                }
+            }
+        }
+    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//            if segue.identifier == "chatView" {
+//                if let chatViewController = segue.destination as? ChatViewController {
+//                    chatViewController.currentUser = currentUser
+//                }
+//            }
+//        }
 }
 
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == usersTable {
-            return availableUsers.count
+            if self.availableUsers.isEmpty{
+                return 1
+            }else {
+                return availableUsers.count
+            }
         } else if tableView == restaurantsTable {
             return availableRestaurants.count
         }
@@ -175,8 +225,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                 let element = Array(self.availableUsers)
                 let name = element[indexPath.row].value
                 let cell = UITableViewCell()
+                cell.imageView?.image = UIImage(named: "profile")
                 cell.textLabel?.text = name
-                cell.textLabel?.textColor = .blue
+                cell.textLabel?.textColor = .black
+                cell.textLabel?.font = UIFont.systemFont(ofSize: 17, weight: .medium)
                 cell.selectionStyle = .none
                 return cell
             }
@@ -184,6 +236,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             let element = self.availableRestaurants[indexPath.row]
             let cell = UITableViewCell()
             cell.textLabel?.text = element
+            cell.imageView?.image = UIImage(named: "food")
             cell.textLabel?.textColor = .black
             cell.selectionStyle = .none
             return cell

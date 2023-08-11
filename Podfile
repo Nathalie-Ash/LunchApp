@@ -12,6 +12,8 @@ target 'LunchApp' do
 	pod 'Firebase/Firestore'
 	pod 'Firebase/Storage'
         pod 'DropDown'
+	pod 'MessageKit'
+	pod 'SDWebImage'
 
   target 'LunchAppTests' do
     inherit! :search_paths

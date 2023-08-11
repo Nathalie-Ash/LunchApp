@@ -21,6 +21,7 @@ class BirthdayViewController: UIViewController {
         super.viewDidLoad()
         let nib = UINib(nibName: "BirthdayTableViewCell", bundle: .main)
         self.birthdaysTableView.register(nib, forCellReuseIdentifier: "BirthdayTableViewCellId")
+        self.birthdaysTableView.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: "UITableViewHeaderFooterViewId")
         fetchBirthdays()
     }
     
@@ -46,7 +47,7 @@ class BirthdayViewController: UIViewController {
                    let imageURL = data["profilePictureURL"] as? String,
                    let isPublic = data["isPublic"] as? Bool {
                    let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "MM/dd/yyyy"
+                    dateFormatter.dateFormat = "dd/MM/yyyy"
                     if let date = dateFormatter.date(from: birthday) {
                         let calendar = Calendar.current
                         let dateComponents = calendar.dateComponents([.year, .month, .day], from: date)
@@ -127,9 +128,8 @@ extension BirthdayViewController: UITableViewDelegate, UITableViewDataSource {
         }
     
     //the title of each section is the month
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        monthName(from: birthdayData[section].section.month)
-    }
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//    }
     
     // fetch the data from the birthdayData array and place it in each cell accordingly
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -160,6 +160,30 @@ extension BirthdayViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return cell
     }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "UITableViewHeaderFooterViewId")
+        headerView?.textLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        headerView?.textLabel?.text = monthName(from: birthdayData[section].section.month)
+        headerView?.contentView.backgroundColor = .white
+        headerView?.backgroundView?.backgroundColor = .white
+        headerView?.textLabel?.textColor = UIColor(red: 253.0/255.0, green: 136.0/255.0, blue: 71.0/255.0, alpha: 1.0)
+        return headerView
+    }
+    
+//    func tableView(_ tableView: UITableView, didEndDisplayingHeaderView view: UIView, forSection section: Int) {
+//        if let headerView = view as? UITableViewHeaderFooterView {
+//            headerView.textLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+//         //   headerView
+//            headerView.contentView.backgroundColor = .white
+//            headerView.backgroundView?.backgroundColor = .white
+//            headerView.textLabel?.textColor = UIColor(red: 253.0/255.0, green: 136.0/255.0, blue: 71.0/255.0, alpha: 1.0)
+//        }
+//    }
+    
+//    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+//
+//   }
 }
 
 // thi struct contains the total birthday information and the table divisions

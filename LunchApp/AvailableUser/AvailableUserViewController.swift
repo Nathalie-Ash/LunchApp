@@ -15,14 +15,21 @@ class AvailableUserViewController: UIViewController {
     
     @IBOutlet weak var userProfile: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
+    
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var teamLabel: UILabel!
+    @IBOutlet weak var birthdayLabel: UILabel!
+    @IBOutlet weak var pickedRestaurantViewContainer: UIView!
+    @IBOutlet weak var pickedRestaurantLabel: UILabel!
+    @IBOutlet weak var userDetailsCollectionView: UICollectionView!
+    
     var userId: String?
     let database = Firestore.firestore()
     
     var name: String?
     var birthday: String?
     var team: String?
-    var favFood: [String]?
-    var favResto: [String]?
     var isPublic: Bool?
     var profilePictureUrl: String?
     
@@ -30,12 +37,15 @@ class AvailableUserViewController: UIViewController {
     var lunchTime: Date?
     var lunchLocation: String?
     
-    var displayedBirthday = "Not specified"
+    var displayedBirthday = "Birthday Not Available"
+    var sections: [AvailableUserCollectionViewSection] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         userProfile.roundedImage()
         userProfile.contentMode = .scaleToFill
+        let nib = UINib(nibName: "UserDetailsCollectionViewCell", bundle: .main)
+        userDetailsCollectionView.register(nib, forCellWithReuseIdentifier: "UserDetailsCollectionViewCellId")
         displayUserInfo {
             self.updateUserUI()
         }
@@ -47,6 +57,8 @@ class AvailableUserViewController: UIViewController {
         guard let userId = userId else { return }
         let usersCollection = Firestore.firestore().collection("users")
         let userLunchCollection = Firestore.firestore().collection("userLunch")
+        var favoriteFoodSection = AvailableUserCollectionViewSection(headerTitle: "Favorite Food", detailsList: [])
+        var favoriteRestaurantsSection = AvailableUserCollectionViewSection(headerTitle: "Favorite Restaurant", detailsList: [])
         
         usersCollection.document(userId).getDocument { (querySnapshot, error) in
             if let error = error {
@@ -71,9 +83,10 @@ class AvailableUserViewController: UIViewController {
             self.name = user.name
             self.birthday = user.birthday
             self.team = user.office
-            self.favFood = user.food
-            self.favResto = user.restaurant
             self.isPublic = user.isPublic
+            favoriteFoodSection.detailsList = user.food
+            favoriteRestaurantsSection.detailsList = user.restaurant
+            self.sections = [favoriteFoodSection, favoriteRestaurantsSection]
             
             let profilePictureURLString = user.profilePictureURL
             let profilePictureURL = URL(string: profilePictureURLString)
@@ -129,8 +142,8 @@ class AvailableUserViewController: UIViewController {
     
     
     func updateUserUI() {
-        guard let name = name, let birthday = birthday, let team = team, let favFood = favFood,  let favResto = favResto, let restaurantName = restoName  else {
-            textLabel.text = "User information not available."
+        guard let name = name, let birthday = birthday, let team = team, let restaurantName = restoName  else {
+            //  textLabel.text = "User information not available."
             return
         }
         
@@ -141,31 +154,54 @@ class AvailableUserViewController: UIViewController {
                 dateFormatter.dateFormat = "MMMM d"
                 displayedBirthday = dateFormatter.string(from: date)
             } else {
-                displayedBirthday = "Not Available"
+                displayedBirthday = "Birthday Not Available"
                 
             }
         }
-            
-            let favFoodAsString = favFood.joined(separator: "-")
-            let favRestoAsString = favResto.joined(separator: "-")
-            guard let time = lunchTime else {
-                return
-            }
-            dateFormatter.dateFormat = "HH:mm"
-            let displayedTime = dateFormatter.string(from: time)
-            
-            if (restaurantName == "No Preferance") {
-                textLabel.text = "\(name) is having food today at \(displayedTime).\nRestaurant Picked: Not Specified. Give them suggestions.\n Fav Food: \(favFoodAsString).\n Fav Rest: \(favRestoAsString)\nTeam/Office: \(team).\nBirthday: \(displayedBirthday)."
-            } else if (lunchLocation == "No Preferance"){
-                textLabel.text = "\(name) did not specify lunch time.\nRestaurant Picked: \(restaurantName)\n Fav Food: \(favFoodAsString).\n Fav Rest: \(favRestoAsString)\nTeam/Office: \(team).\nBirthday: \(displayedBirthday)."
-            } else {
-                textLabel.text = "\(name) is having food today at \(displayedTime).\nRestaurant Picked: \(restaurantName)\n Fav Food: \(favFoodAsString).\n Fav Rest: \(favRestoAsString)\nTeam/Office: \(team).\nBirthday: \(displayedBirthday)."
-            }
+        
+        guard let time = lunchTime else {
+            return
         }
+        dateFormatter.dateFormat = "HH:mm"
+        let displayedTime = dateFormatter.string(from: time)
         
         
-       
+        
+        self.userNameLabel.text = name
+        self.birthdayLabel.text = displayedBirthday
+        self.teamLabel.text = team
+        self.timeLabel.text = displayedTime
+        self.pickedRestaurantLabel.text = restaurantName
+        self.nameLabel.text = "\(name) Lunch Time"
+        self.userDetailsCollectionView.reloadData()
+        
+    }
     
+}
+
+extension AvailableUserViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        self.sections.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        self.sections[section].detailsList.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UserDetailsCollectionViewCellId", for: indexPath) as! UserDetailsCollectionViewCell
+        cell.detailsLabel.text = sections[indexPath.section].detailsList[indexPath.row]
+        return cell
+    }
+    
+}
+
+
+struct AvailableUserCollectionViewSection {
+    
+    let headerTitle: String
+    var detailsList: [String] // in this case it's gonna be food or restaurant
     
 }
 

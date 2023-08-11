@@ -45,5 +45,26 @@ extension Restaurant {
 }
 
 
+/*
+enum TestRestaurants : String {
+    case zwz = "Zaatar w Zeit"
+    case roadster = "Roadster"
+    case dd = "Deek Duke"
+    
+}
 
 
+struct allRestaurants {
+    let allRestaurants : [TestRestaurants] = [.zwz, .roadster, .dd]
+    
+}
+
+
+struct Restaurant {
+
+let resto: TestRestaurant
+
+var title: String { resto.rawValue }
+
+}
+*/

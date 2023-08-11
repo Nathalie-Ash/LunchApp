@@ -23,6 +23,9 @@ class UserProfileViewController: UIViewController {
     @IBOutlet weak var foodButton: UIButton!
     @IBOutlet weak var publicInfoSwitch: UISwitch!
     @IBOutlet weak var profilePictureAvatar: UIImageView!
+    @IBOutlet weak var restaurantPlusButton: UIButton!
+    @IBOutlet weak var signOutButton: UIButton!
+    @IBOutlet weak var saveChangesButton: UIButton!
     
     var foodChoice = 1
     var restChoice = 1
@@ -34,7 +37,10 @@ class UserProfileViewController: UIViewController {
         profilePictureAvatar.roundedImage()
         profilePictureAvatar.contentMode = .scaleToFill
         setUpProfilePicture()
-        
+        signOutButton.layer.cornerRadius = 10
+        saveChangesButton.layer.cornerRadius = 10
+        foodButton.layer.cornerRadius = 10
+        restaurantPlusButton.layer.cornerRadius = 10
         
         guard let uid = Auth.auth().currentUser?.uid else { return }
         let usersCollection = Firestore.firestore().collection("users").document(uid).addSnapshotListener { documentSnapshot, error in
