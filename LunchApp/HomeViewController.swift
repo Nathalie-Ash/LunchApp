@@ -27,6 +27,9 @@ class HomeViewController: UIViewController {
     //    var currentUser: User?
     @IBOutlet weak var lunchView: UIView!
     
+    var tapGesture: UITapGestureRecognizer = UITapGestureRecognizer()
+    var timer  = Timer()
+    
     let database = Firestore.firestore()
     
     let restaurantCollection = Firestore.firestore().collection("restaurants")
@@ -115,9 +118,10 @@ class HomeViewController: UIViewController {
             self.restaurantLabel.text = item
             //            self.restaurantDropDownMenu.setTitle(item, for: .normal)
                 self.selectedRestaurantPreference = item
-            //        }
-            
         }
+        tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.restaurantDropDownMenuTapped))
+        self.lunchView.addGestureRecognizer(tapGesture)
+        
     }
     
     func setupLocationDropDownMenu() {
@@ -127,9 +131,11 @@ class HomeViewController: UIViewController {
         locationDropDown.selectionAction = { [unowned self] (index: Int, item: String) in
             self.locationLabel.text = item
         }
+        tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.locationDropDownTapped))
+        self.locationView.addGestureRecognizer(tapGesture)
     }
     
-    @IBAction func restaurantDropDownMenuTapped(_ sender: Any) {
+   @IBAction @objc func restaurantDropDownMenuTapped(_ sender: Any) {
         restaurantDropDown.show()
     }
     
@@ -137,7 +143,7 @@ class HomeViewController: UIViewController {
         locationDropDown.show()
     }
     
-    @IBAction func submitButtonPressed(_ sender: Any) {
+    @IBAction @objc func submitButtonPressed(_ sender: Any) {
         guard let uid = Auth.auth().currentUser?.uid else {
             return
         }
@@ -171,6 +177,9 @@ class HomeViewController: UIViewController {
             }
         }
         submitButton.backgroundColor = UIColor(red: 253.0/255.0, green: 136.0/255.0, blue: 71.0/255.0, alpha: 1.0)
+        Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { _ in
+            self.submitButton.backgroundColor = UIColor(red: 136.0/255.0, green: 126.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+        }
     }
     
     func getUserName() {

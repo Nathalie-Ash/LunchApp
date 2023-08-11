@@ -15,10 +15,12 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
     
+    @IBOutlet weak var passwordVisibilityButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var confirmPassword: UITextField!
     
     @IBOutlet weak var logInButton: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         errorLabel.isHidden = true
@@ -27,7 +29,8 @@ class SignUpViewController: UIViewController {
         confirmPassword.useUnderline()
         signUpButton.layer.cornerRadius = 10
         logInButton.layer.cornerRadius = 10
-        // Do any additional setup after loading the view.
+        password.enablePasswordToggle()
+        confirmPassword.enablePasswordToggle()
     }
     
     
@@ -51,6 +54,8 @@ class SignUpViewController: UIViewController {
         signUp()
     }
     
+
+    
     @IBAction func logInPressed(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "logIn")
@@ -64,8 +69,8 @@ class SignUpViewController: UIViewController {
             guard let user = authResult?.user, error == nil else {
                 Auth.auth().currentUser?.updateEmail(to: email.text!)
                 Auth.auth().currentUser?.updatePassword(to: password.text!)
-                errorLabel.text = error?.localizedDescription
                 errorLabel.isHidden = false
+                errorLabel.text = error?.localizedDescription
                 print("Error \(String(describing: error))")
                 return
             }
@@ -74,10 +79,7 @@ class SignUpViewController: UIViewController {
             vc.modalPresentationStyle = .overFullScreen
             present(vc, animated: true)
         }
-        
-
-        
-        
+ 
     }
 
 }

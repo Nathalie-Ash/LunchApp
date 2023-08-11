@@ -25,6 +25,7 @@ class LogInViewController: UIViewController {
         email.useUnderline()
         logInButton.layer.cornerRadius = 10
         signUpButton.layer.cornerRadius = 10
+        password.enablePasswordToggle()
         
     }
     

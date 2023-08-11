@@ -34,6 +34,7 @@
 		F6AF493E2A7A424B00FDD792 /* BirthdayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AF493D2A7A424B00FDD792 /* BirthdayViewController.swift */; };
 		F6AF49422A7BAE6300FDD792 /* BirthdayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AF49402A7BAE6300FDD792 /* BirthdayTableViewCell.swift */; };
 		F6AF49432A7BAE6300FDD792 /* BirthdayTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6AF49412A7BAE6300FDD792 /* BirthdayTableViewCell.xib */; };
+		F6C1E3352A86631400F9566E /* UITextField_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C1E3342A86631400F9566E /* UITextField_Extension.swift */; };
 		F6D6091D2A78067D00E3AED3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D6091C2A78067D00E3AED3 /* User.swift */; };
 		F6E306AA2A729A51004DFEAA /* UserLunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E306A92A729A51004DFEAA /* UserLunch.swift */; };
 		F6E306AC2A72A178004DFEAA /* LunchLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E306AB2A72A178004DFEAA /* LunchLocation.swift */; };
@@ -94,6 +95,7 @@
 		F6AF493D2A7A424B00FDD792 /* BirthdayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayViewController.swift; sourceTree = "<group>"; };
 		F6AF49402A7BAE6300FDD792 /* BirthdayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayTableViewCell.swift; sourceTree = "<group>"; };
 		F6AF49412A7BAE6300FDD792 /* BirthdayTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BirthdayTableViewCell.xib; sourceTree = "<group>"; };
+		F6C1E3342A86631400F9566E /* UITextField_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField_Extension.swift; sourceTree = "<group>"; };
 		F6D6091C2A78067D00E3AED3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F6E306A92A729A51004DFEAA /* UserLunch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLunch.swift; sourceTree = "<group>"; };
 		F6E306AB2A72A178004DFEAA /* LunchLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchLocation.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				F665A5C82A83BBD100C9E574 /* Chat.swift */,
 				F665A5CA2A83BBDE00C9E574 /* ChatUser.swift */,
 				F665A5CC2A83BBEF00C9E574 /* Message.swift */,
+				F6C1E3342A86631400F9566E /* UITextField_Extension.swift */,
 			);
 			path = LunchApp;
 			sourceTree = "<group>";
@@ -499,6 +502,7 @@
 				F6D6091D2A78067D00E3AED3 /* User.swift in Sources */,
 				F677E3EA2A6EDF9E009C85C0 /* SceneDelegate.swift in Sources */,
 				F677E41A2A6EE0C0009C85C0 /* SignUpViewController.swift in Sources */,
+				F6C1E3352A86631400F9566E /* UITextField_Extension.swift in Sources */,
 				F665A5C72A83BB5F00C9E574 /* ChatViewController.swift in Sources */,
 				F6E306AC2A72A178004DFEAA /* LunchLocation.swift in Sources */,
 			);
