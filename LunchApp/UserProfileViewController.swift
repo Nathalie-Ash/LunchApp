@@ -34,8 +34,9 @@ class UserProfileViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-      //  profilePictureAvatar.roundedImage()
+        //profilePictureAvatar.roundedImage()
        // profilePictureAvatar.contentMode = .scaleToFill
+
         setUpProfilePicture()
         signOutButton.layer.cornerRadius = 10
         saveChangesButton.layer.cornerRadius = 10

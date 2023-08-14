@@ -10,9 +10,7 @@ import FirebaseFirestore
 import FirebaseStorage
 
 class AvailableUserViewController: UIViewController {
-    
-    @IBOutlet weak var textLabel: UILabel!
-    
+
     @IBOutlet weak var userProfile: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     
@@ -57,7 +55,9 @@ class AvailableUserViewController: UIViewController {
         guard let userId = userId else { return }
         let usersCollection = Firestore.firestore().collection("users")
         let userLunchCollection = Firestore.firestore().collection("userLunch")
+        
         var favoriteFoodSection = AvailableUserCollectionViewSection(headerTitle: "Favorite Food", detailsList: [])
+        
         var favoriteRestaurantsSection = AvailableUserCollectionViewSection(headerTitle: "Favorite Restaurant", detailsList: [])
         
         usersCollection.document(userId).getDocument { (querySnapshot, error) in
@@ -84,8 +84,10 @@ class AvailableUserViewController: UIViewController {
             self.birthday = user.birthday
             self.team = user.office
             self.isPublic = user.isPublic
+            
             favoriteFoodSection.detailsList = user.food
             favoriteRestaurantsSection.detailsList = user.restaurant
+            
             self.sections = [favoriteFoodSection, favoriteRestaurantsSection]
             
             let profilePictureURLString = user.profilePictureURL
@@ -191,8 +193,22 @@ extension AvailableUserViewController: UICollectionViewDelegate, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UserDetailsCollectionViewCellId", for: indexPath) as! UserDetailsCollectionViewCell
-        cell.detailsLabel.text = sections[indexPath.section].detailsList[indexPath.row]
+        if (sections[indexPath.section].detailsList.isEmpty){
+            cell.detailsLabel.text = "Not specified"
+        } else {
+            cell.detailsLabel.text = sections[indexPath.section].detailsList[indexPath.row]
+        }
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+
+        if let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "HeaderView", for: indexPath) as? SectionHeader{
+            sectionHeader.titleLabel.text = sections[indexPath.section].headerTitle
+            return sectionHeader
+        }
+        
+        return UICollectionReusableView()
     }
     
 }

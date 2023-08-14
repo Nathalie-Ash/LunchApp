@@ -30,6 +30,8 @@
 		F677E41E2A6F110C009C85C0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F677E41D2A6F110C009C85C0 /* GoogleService-Info.plist */; };
 		F677E4202A6FE929009C85C0 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F677E41F2A6FE929009C85C0 /* UserProfileViewController.swift */; };
 		F677E4672A70FC97009C85C0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F677E4662A70FC97009C85C0 /* HomeViewController.swift */; };
+		F69493CE2A8A093800C48C82 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69493CD2A8A093800C48C82 /* SectionHeader.swift */; };
+		F69493D62A8A32B700C48C82 /* AvailableUsersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69493D52A8A32B700C48C82 /* AvailableUsersCollectionViewCell.swift */; };
 		F6A1235D2A739A0A00D43BA3 /* AvailableUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A1235C2A739A0A00D43BA3 /* AvailableUserViewController.swift */; };
 		F6AF493E2A7A424B00FDD792 /* BirthdayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AF493D2A7A424B00FDD792 /* BirthdayViewController.swift */; };
 		F6AF49422A7BAE6300FDD792 /* BirthdayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AF49402A7BAE6300FDD792 /* BirthdayTableViewCell.swift */; };
@@ -91,6 +93,8 @@
 		F677E41D2A6F110C009C85C0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F677E41F2A6FE929009C85C0 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		F677E4662A70FC97009C85C0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		F69493CD2A8A093800C48C82 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
+		F69493D52A8A32B700C48C82 /* AvailableUsersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableUsersCollectionViewCell.swift; sourceTree = "<group>"; };
 		F6A1235C2A739A0A00D43BA3 /* AvailableUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableUserViewController.swift; sourceTree = "<group>"; };
 		F6AF493D2A7A424B00FDD792 /* BirthdayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayViewController.swift; sourceTree = "<group>"; };
 		F6AF49402A7BAE6300FDD792 /* BirthdayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayTableViewCell.swift; sourceTree = "<group>"; };
@@ -160,6 +164,7 @@
 				F6A1235C2A739A0A00D43BA3 /* AvailableUserViewController.swift */,
 				F63CFB322A8528E10061CD7E /* UserDetailsCollectionViewCell.swift */,
 				F63CFB332A8528E10061CD7E /* UserDetailsCollectionViewCell.xib */,
+				F69493CD2A8A093800C48C82 /* SectionHeader.swift */,
 			);
 			path = AvailableUser;
 			sourceTree = "<group>";
@@ -191,6 +196,7 @@
 			children = (
 				F63CFB312A8528BF0061CD7E /* AvailableUser */,
 				F6AF493F2A7BAE3000FDD792 /* BirthdayViewController */,
+				F69493D12A8A306A00C48C82 /* HomeAvailableUser */,
 				F677E3E72A6EDF9E009C85C0 /* AppDelegate.swift */,
 				F677E3E92A6EDF9E009C85C0 /* SceneDelegate.swift */,
 				F677E3EB2A6EDF9E009C85C0 /* ViewController.swift */,
@@ -202,7 +208,6 @@
 				F677E4172A6EE0A8009C85C0 /* LogInViewController.swift */,
 				F677E4192A6EE0C0009C85C0 /* SignUpViewController.swift */,
 				F677E41F2A6FE929009C85C0 /* UserProfileViewController.swift */,
-				F677E4662A70FC97009C85C0 /* HomeViewController.swift */,
 				F6D6091C2A78067D00E3AED3 /* User.swift */,
 				F6E306A92A729A51004DFEAA /* UserLunch.swift */,
 				F6E306AB2A72A178004DFEAA /* LunchLocation.swift */,
@@ -231,6 +236,15 @@
 				F677E40A2A6EDFA1009C85C0 /* LunchAppUITestsLaunchTests.swift */,
 			);
 			path = LunchAppUITests;
+			sourceTree = "<group>";
+		};
+		F69493D12A8A306A00C48C82 /* HomeAvailableUser */ = {
+			isa = PBXGroup;
+			children = (
+				F677E4662A70FC97009C85C0 /* HomeViewController.swift */,
+				F69493D52A8A32B700C48C82 /* AvailableUsersCollectionViewCell.swift */,
+			);
+			path = HomeAvailableUser;
 			sourceTree = "<group>";
 		};
 		F6AF493F2A7BAE3000FDD792 /* BirthdayViewController */ = {
@@ -501,7 +515,9 @@
 				F6E306AA2A729A51004DFEAA /* UserLunch.swift in Sources */,
 				F6D6091D2A78067D00E3AED3 /* User.swift in Sources */,
 				F677E3EA2A6EDF9E009C85C0 /* SceneDelegate.swift in Sources */,
+				F69493D62A8A32B700C48C82 /* AvailableUsersCollectionViewCell.swift in Sources */,
 				F677E41A2A6EE0C0009C85C0 /* SignUpViewController.swift in Sources */,
+				F69493CE2A8A093800C48C82 /* SectionHeader.swift in Sources */,
 				F6C1E3352A86631400F9566E /* UITextField_Extension.swift in Sources */,
 				F665A5C72A83BB5F00C9E574 /* ChatViewController.swift in Sources */,
 				F6E306AC2A72A178004DFEAA /* LunchLocation.swift in Sources */,
