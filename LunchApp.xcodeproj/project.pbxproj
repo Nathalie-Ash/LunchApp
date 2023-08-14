@@ -10,6 +10,9 @@
 		0CA85554E5573BA31F6E223F /* Pods_LunchAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E674FD6EBD6CC249B9861566 /* Pods_LunchAppTests.framework */; };
 		2B2579E0BB8EA79153BFC911 /* Pods_LunchApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FED8962FCD8B68F0CA47A828 /* Pods_LunchApp.framework */; };
 		31814914EBDB73BFE887BB83 /* Pods_LunchApp_LunchAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D5DAECF9785F599CC4B7FE0 /* Pods_LunchApp_LunchAppUITests.framework */; };
+		F6394D6C2A8A55DB0014A38C /* AvaialbleUserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6394D6A2A8A55DB0014A38C /* AvaialbleUserCollectionViewCell.swift */; };
+		F6394D6D2A8A55DB0014A38C /* AvaialbleUserCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6394D6B2A8A55DB0014A38C /* AvaialbleUserCollectionViewCell.xib */; };
+		F6394D712A8A69BF0014A38C /* availableSectionHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6394D702A8A69BF0014A38C /* availableSectionHeaderCollectionReusableView.swift */; };
 		F63CFB342A8528E10061CD7E /* UserDetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63CFB322A8528E10061CD7E /* UserDetailsCollectionViewCell.swift */; };
 		F63CFB352A8528E10061CD7E /* UserDetailsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F63CFB332A8528E10061CD7E /* UserDetailsCollectionViewCell.xib */; };
 		F665A5C72A83BB5F00C9E574 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F665A5C62A83BB5F00C9E574 /* ChatViewController.swift */; };
@@ -31,7 +34,6 @@
 		F677E4202A6FE929009C85C0 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F677E41F2A6FE929009C85C0 /* UserProfileViewController.swift */; };
 		F677E4672A70FC97009C85C0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F677E4662A70FC97009C85C0 /* HomeViewController.swift */; };
 		F69493CE2A8A093800C48C82 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69493CD2A8A093800C48C82 /* SectionHeader.swift */; };
-		F69493D62A8A32B700C48C82 /* AvailableUsersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69493D52A8A32B700C48C82 /* AvailableUsersCollectionViewCell.swift */; };
 		F6A1235D2A739A0A00D43BA3 /* AvailableUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A1235C2A739A0A00D43BA3 /* AvailableUserViewController.swift */; };
 		F6AF493E2A7A424B00FDD792 /* BirthdayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AF493D2A7A424B00FDD792 /* BirthdayViewController.swift */; };
 		F6AF49422A7BAE6300FDD792 /* BirthdayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AF49402A7BAE6300FDD792 /* BirthdayTableViewCell.swift */; };
@@ -69,6 +71,9 @@
 		E674FD6EBD6CC249B9861566 /* Pods_LunchAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LunchAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF5A75A75F45EB2EDC50BA29 /* Pods-LunchAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LunchAppTests.debug.xcconfig"; path = "Target Support Files/Pods-LunchAppTests/Pods-LunchAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F08209C2D8515881DCCE69E9 /* Pods-LunchApp-LunchAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LunchApp-LunchAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-LunchApp-LunchAppUITests/Pods-LunchApp-LunchAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		F6394D6A2A8A55DB0014A38C /* AvaialbleUserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvaialbleUserCollectionViewCell.swift; sourceTree = "<group>"; };
+		F6394D6B2A8A55DB0014A38C /* AvaialbleUserCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvaialbleUserCollectionViewCell.xib; sourceTree = "<group>"; };
+		F6394D702A8A69BF0014A38C /* availableSectionHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = availableSectionHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		F63CFB322A8528E10061CD7E /* UserDetailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsCollectionViewCell.swift; sourceTree = "<group>"; };
 		F63CFB332A8528E10061CD7E /* UserDetailsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserDetailsCollectionViewCell.xib; sourceTree = "<group>"; };
 		F665A5C62A83BB5F00C9E574 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
@@ -94,7 +99,6 @@
 		F677E41F2A6FE929009C85C0 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		F677E4662A70FC97009C85C0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F69493CD2A8A093800C48C82 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
-		F69493D52A8A32B700C48C82 /* AvailableUsersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableUsersCollectionViewCell.swift; sourceTree = "<group>"; };
 		F6A1235C2A739A0A00D43BA3 /* AvailableUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableUserViewController.swift; sourceTree = "<group>"; };
 		F6AF493D2A7A424B00FDD792 /* BirthdayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayViewController.swift; sourceTree = "<group>"; };
 		F6AF49402A7BAE6300FDD792 /* BirthdayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayTableViewCell.swift; sourceTree = "<group>"; };
@@ -242,7 +246,9 @@
 			isa = PBXGroup;
 			children = (
 				F677E4662A70FC97009C85C0 /* HomeViewController.swift */,
-				F69493D52A8A32B700C48C82 /* AvailableUsersCollectionViewCell.swift */,
+				F6394D6A2A8A55DB0014A38C /* AvaialbleUserCollectionViewCell.swift */,
+				F6394D6B2A8A55DB0014A38C /* AvaialbleUserCollectionViewCell.xib */,
+				F6394D702A8A69BF0014A38C /* availableSectionHeaderCollectionReusableView.swift */,
 			);
 			path = HomeAvailableUser;
 			sourceTree = "<group>";
@@ -369,6 +375,7 @@
 				F6AF49432A7BAE6300FDD792 /* BirthdayTableViewCell.xib in Resources */,
 				F677E3F42A6EDFA0009C85C0 /* LaunchScreen.storyboard in Resources */,
 				F677E41E2A6F110C009C85C0 /* GoogleService-Info.plist in Resources */,
+				F6394D6D2A8A55DB0014A38C /* AvaialbleUserCollectionViewCell.xib in Resources */,
 				F677E3F12A6EDFA0009C85C0 /* Assets.xcassets in Resources */,
 				F63CFB352A8528E10061CD7E /* UserDetailsCollectionViewCell.xib in Resources */,
 				F677E3EF2A6EDF9E009C85C0 /* Main.storyboard in Resources */,
@@ -510,12 +517,13 @@
 				F665A5C92A83BBD100C9E574 /* Chat.swift in Sources */,
 				F677E3EC2A6EDF9E009C85C0 /* ViewController.swift in Sources */,
 				F677E4672A70FC97009C85C0 /* HomeViewController.swift in Sources */,
+				F6394D6C2A8A55DB0014A38C /* AvaialbleUserCollectionViewCell.swift in Sources */,
 				F677E3E82A6EDF9E009C85C0 /* AppDelegate.swift in Sources */,
 				F6AF49422A7BAE6300FDD792 /* BirthdayTableViewCell.swift in Sources */,
 				F6E306AA2A729A51004DFEAA /* UserLunch.swift in Sources */,
+				F6394D712A8A69BF0014A38C /* availableSectionHeaderCollectionReusableView.swift in Sources */,
 				F6D6091D2A78067D00E3AED3 /* User.swift in Sources */,
 				F677E3EA2A6EDF9E009C85C0 /* SceneDelegate.swift in Sources */,
-				F69493D62A8A32B700C48C82 /* AvailableUsersCollectionViewCell.swift in Sources */,
 				F677E41A2A6EE0C0009C85C0 /* SignUpViewController.swift in Sources */,
 				F69493CE2A8A093800C48C82 /* SectionHeader.swift in Sources */,
 				F6C1E3352A86631400F9566E /* UITextField_Extension.swift in Sources */,

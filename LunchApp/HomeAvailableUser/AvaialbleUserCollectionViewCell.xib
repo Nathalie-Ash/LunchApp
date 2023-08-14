@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AvailabilityCollectionViewCellId" id="gTV-IL-0wX" customClass="AvaialbleUserCollectionViewCell" customModule="LunchApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="232" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="232" height="50"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="NX5-F7-dMX">
+                        <rect key="frame" x="15" y="5" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="cic-Yl-7RE"/>
+                            <constraint firstAttribute="height" constant="40" id="tKv-0C-pCb"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZwB-PG-ekI">
+                        <rect key="frame" x="70" y="14.666666666666664" width="147" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="ZwB-PG-ekI" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="DiU-Ft-lOb"/>
+                <constraint firstItem="ZwB-PG-ekI" firstAttribute="leading" secondItem="NX5-F7-dMX" secondAttribute="trailing" constant="15" id="LOj-yz-94V"/>
+                <constraint firstItem="NX5-F7-dMX" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="15" id="PHZ-My-hrI"/>
+                <constraint firstAttribute="trailing" secondItem="ZwB-PG-ekI" secondAttribute="trailing" constant="15" id="jqW-3w-bhf"/>
+                <constraint firstItem="NX5-F7-dMX" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="wpD-W5-9FB"/>
+            </constraints>
+            <size key="customSize" width="232" height="50"/>
+            <connections>
+                <outlet property="nameLabel" destination="ZwB-PG-ekI" id="HmO-DF-Cmn"/>
+            </connections>
+            <point key="canvasLocation" x="288.54961832061065" y="26.760563380281692"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="profile" width="40" height="40"/>
+    </resources>
+</document>

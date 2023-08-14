@@ -697,25 +697,25 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="AJV-fZ-2Lr">
-                                        <rect key="frame" x="0.0" y="61.666666666666657" width="394" height="468.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="61.666666666666657" width="394" height="293"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="y1h-4k-bI1" userLabel="Lunch">
-                                                <rect key="frame" x="0.0" y="0.0" width="394" height="206.33333333333334"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="394" height="31"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do You want to have lunch today ? " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLm-tv-hZN">
-                                                        <rect key="frame" x="0.0" y="92.333333333333343" width="345" height="21.666666666666671"/>
+                                                        <rect key="frame" x="0.0" y="4.6666666666666856" width="345" height="21.666666666666668"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ePC-E4-cnJ">
-                                                        <rect key="frame" x="345" y="87.666666666666686" width="51" height="31"/>
+                                                        <rect key="frame" x="345" y="0.0" width="51" height="31"/>
                                                         <color key="onTintColor" name="LunchApp_Purple"/>
                                                     </switch>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="foi-JJ-cP7">
-                                                <rect key="frame" x="0.0" y="216.33333333333334" width="394" height="52.000000000000028"/>
+                                                <rect key="frame" x="0.0" y="41" width="394" height="52"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="tIB-fe-bKg">
                                                         <rect key="frame" x="0.0" y="1" width="28" height="50.666666666666671"/>
@@ -737,7 +737,7 @@
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Ne-S0-EwB">
-                                                <rect key="frame" x="0.0" y="278.33333333333337" width="394" height="60"/>
+                                                <rect key="frame" x="0.0" y="103.00000000000003" width="394" height="60"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Restaurant" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BsM-S3-fGZ">
                                                         <rect key="frame" x="10" y="18" width="159.66666666666666" height="24"/>
@@ -747,7 +747,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mLe-hA-BOp">
-                                                        <rect key="frame" x="342" y="6.6666666666666856" width="47" height="47"/>
+                                                        <rect key="frame" x="342" y="6.6666666666666288" width="47" height="47"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="47" id="cWV-nV-g6u"/>
@@ -776,7 +776,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eyD-gH-5wz">
-                                                <rect key="frame" x="0.0" y="348.33333333333337" width="394" height="60"/>
+                                                <rect key="frame" x="0.0" y="173.00000000000003" width="394" height="60"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Lunch Area" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w4c-Od-lxp">
                                                         <rect key="frame" x="10" y="18" width="163.33333333333334" height="24"/>
@@ -814,7 +814,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Ok-Gx-CQa">
-                                                <rect key="frame" x="0.0" y="418.33333333333337" width="394" height="50"/>
+                                                <rect key="frame" x="0.0" y="243" width="394" height="50"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wjg-vg-0Tf">
                                                         <rect key="frame" x="134.66666666666666" y="5" width="124.99999999999997" height="40"/>
@@ -842,42 +842,47 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="0M1-E0-Gqm">
-                                        <rect key="frame" x="0.0" y="535" width="394" height="192"/>
+                                        <rect key="frame" x="0.0" y="359.66666666666674" width="394" height="367.33333333333326"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="mQb-Q8-EO0">
-                                                <rect key="frame" x="0.0" y="0.0" width="394" height="96"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="394" height="183.66666666666666"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="People having lunch today" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jiZ-bn-01Z">
-                                                        <rect key="frame" x="0.0" y="0.0" width="394" height="24"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                        <color key="textColor" name="LunchApp_Orange"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="K6d-hk-spl">
-                                                        <rect key="frame" x="0.0" y="34" width="394" height="62"/>
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ACk-nb-QC9">
+                                                        <rect key="frame" x="0.0" y="0.0" width="394" height="183.66666666666666"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                        <prototypes>
-                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="HL2-hf-Vjj">
-                                                                <rect key="frame" x="0.0" y="50" width="394" height="43.666667938232422"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
-                                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HL2-hf-Vjj" id="9DT-mI-dam">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="394" height="43.666667938232422"/>
-                                                                    <autoresizingMask key="autoresizingMask"/>
-                                                                </tableViewCellContentView>
-                                                            </tableViewCell>
-                                                        </prototypes>
-                                                        <sections/>
+                                                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bzH-8M-vGY">
+                                                            <size key="itemSize" width="128" height="128"/>
+                                                            <size key="headerReferenceSize" width="50" height="50"/>
+                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        </collectionViewFlowLayout>
+                                                        <cells/>
+                                                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="availableHeaderView" id="iWa-RX-6xq" customClass="availableSectionHeaderCollectionReusableView" customModule="LunchApp" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="394" height="50"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0lZ-9f-yXW">
+                                                                    <rect key="frame" x="78" y="-1" width="282" height="51"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <connections>
+                                                                <outlet property="titleLabel" destination="0lZ-9f-yXW" id="dKh-SX-qF3"/>
+                                                            </connections>
+                                                        </collectionReusableView>
                                                         <connections>
-                                                            <outlet property="dataSource" destination="b73-OV-Eqf" id="2Sk-ub-ybM"/>
-                                                            <outlet property="delegate" destination="b73-OV-Eqf" id="tWN-qW-baz"/>
+                                                            <outlet property="dataSource" destination="b73-OV-Eqf" id="i9g-oA-LNT"/>
+                                                            <outlet property="delegate" destination="b73-OV-Eqf" id="ZYg-IK-HxC"/>
                                                         </connections>
-                                                    </tableView>
+                                                    </collectionView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="B79-Fd-HAU">
-                                                <rect key="frame" x="0.0" y="96" width="394" height="96"/>
+                                                <rect key="frame" x="0.0" y="183.66666666666669" width="394" height="183.66666666666669"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restaurants" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SGh-em-CRX">
                                                         <rect key="frame" x="0.0" y="0.0" width="394" height="24"/>
@@ -888,7 +893,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Oob-mR-PYn">
-                                                        <rect key="frame" x="0.0" y="34" width="394" height="62"/>
+                                                        <rect key="frame" x="0.0" y="34" width="394" height="149.66666666666666"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="0a5-yP-JuL">
@@ -926,6 +931,7 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="jFb-sL-RQz"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="availabilityCollectionView" destination="ACk-nb-QC9" id="9qw-vv-ea9"/>
                         <outlet property="availabilitySwitch" destination="ePC-E4-cnJ" id="vBi-Ex-wgv"/>
                         <outlet property="locationLabel" destination="w4c-Od-lxp" id="o5d-Ib-WM5"/>
                         <outlet property="locationPicker" destination="SEO-NH-HnT" id="NN1-4z-phh"/>
@@ -937,7 +943,6 @@
                         <outlet property="restaurantsTable" destination="Oob-mR-PYn" id="5lp-yZ-O5c"/>
                         <outlet property="submitButton" destination="wjg-vg-0Tf" id="iwl-ww-Dn7"/>
                         <outlet property="timePicker" destination="Dtz-Xf-fmH" id="aiT-i4-s4v"/>
-                        <outlet property="usersTable" destination="K6d-hk-spl" id="gH9-mA-zi9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DAM-2M-jS3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

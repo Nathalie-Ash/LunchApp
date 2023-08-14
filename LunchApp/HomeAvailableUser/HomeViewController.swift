@@ -20,6 +20,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var usersTable: UITableView!
     @IBOutlet weak var restaurantsTable: UITableView!
     
+    @IBOutlet weak var availabilityCollectionView: UICollectionView!
+    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var locationView: UIView!
     @IBOutlet weak var locationLabel: UILabel!
@@ -51,6 +53,8 @@ class HomeViewController: UIViewController {
     var availableRestaurants: [String] = []
     var selectedRestaurantPreference: String = "No Preference"
     
+    var sections: [HomeViewCollectionViewSection] = []
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -64,6 +68,12 @@ class HomeViewController: UIViewController {
         locationView.layer.cornerRadius = 10
         locationPicker.layer.cornerRadius = 10
         submitButton.layer.cornerRadius = 10
+        
+        
+        let nib = UINib(nibName: "AvaialbleUserCollectionViewCell", bundle: .main)
+        
+        availabilityCollectionView.register(nib, forCellWithReuseIdentifier: "AvailabilityCollectionViewCellId")
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -198,13 +208,7 @@ class HomeViewController: UIViewController {
             }
         }
     }
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//            if segue.identifier == "chatView" {
-//                if let chatViewController = segue.destination as? ChatViewController {
-//                    chatViewController.currentUser = currentUser
-//                }
-//            }
-//        }
+
 }
 
 
@@ -223,37 +227,37 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if tableView == usersTable {
-            if self.availableUsers.isEmpty {
-                let cell = UITableViewCell()
-                cell.textLabel?.text = "No available users yet "
-                cell.textLabel?.textColor = .gray
-                cell.selectionStyle = .none
-                return cell
-            } else {
-                let element = Array(self.availableUsers)
-                let name = element[indexPath.row].value
-                let cell = UITableViewCell()
-                cell.imageView?.image = UIImage(named: "profile")
-                cell.textLabel?.text = name
-                cell.textLabel?.textColor = .black
-                cell.textLabel?.font = UIFont.systemFont(ofSize: 17, weight: .medium)
-                cell.selectionStyle = .none
-                return cell
-            }
-        } else if tableView == restaurantsTable {
+//        if tableView == usersTable {
+//            if self.availableUsers.isEmpty {
+//                let cell = UITableViewCell()
+//                cell.textLabel?.text = "No available users yet "
+//                cell.textLabel?.textColor = .gray
+//                cell.selectionStyle = .none
+//                return cell
+//            } else {
+//                let element = Array(self.availableUsers)
+//                let name = element[indexPath.row].value
+//                let cell = UITableViewCell()
+//                cell.imageView?.image = UIImage(named: "profile")
+//                cell.textLabel?.text = name
+//                cell.textLabel?.textColor = .black
+//                cell.textLabel?.font = UIFont.systemFont(ofSize: 17, weight: .medium)
+//                cell.selectionStyle = .none
+//                return cell
+//            }
+//        } else if tableView == restaurantsTable {
             let element = self.availableRestaurants[indexPath.row]
             let cell = UITableViewCell()
             cell.textLabel?.text = element
             cell.imageView?.image = UIImage(named: "food")
             cell.textLabel?.textColor = .black
             cell.selectionStyle = .none
-            return cell
-        }
+//            return cell
+//        }
         return UITableViewCell()
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+   /* func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Get the selected user name from the availableUsers array
         if tableView == usersTable{
             let element = Array(self.availableUsers)
@@ -267,7 +271,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                 self.navigationController?.pushViewController(destinationViewController, animated: true)
             }
         }
-    }
+    }*/
 }
 
 // MARK: Firebase listeners
@@ -342,7 +346,10 @@ extension HomeViewController {
                 completion([String: String]())
                 return
             }
-
+        
+        var availableUsersSection = HomeViewCollectionViewSection(headerTitle: "People having lunch today", detailsList: [:])
+        
+        self.sections = [availableUsersSection]
         let usersCollection = database.collection("users").whereField(FieldPath.documentID(), in: userIDs).addSnapshotListener { documentSnapshot, error in
             guard let documentSnapshot = documentSnapshot else {
                 print("Error fetching document: \(error!)")
@@ -357,6 +364,8 @@ extension HomeViewController {
                 }
             }
             userDict.removeValue(forKey: uid)
+            //availableUsersSection.detailsList = userDict
+            self.sections[0].detailsList = userDict
             completion(userDict)
             
         }
@@ -366,13 +375,62 @@ extension HomeViewController {
         self.fetchAllAvailableUserIdsFromListener { userIds in
             self.fetchUserNameforUserIdsFromListener(for: userIds) { userDict in
                 if userDict.isEmpty {
-                   self.usersTable.reloadData()
+                    self.availabilityCollectionView.reloadData()
                 } else {
                     self.availableUsers = userDict
-                    self.usersTable.reloadData()
+                    
+                    self.availabilityCollectionView.reloadData()
                 }
             }
         }
     }
   
 }
+
+
+
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+    
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        self.sections.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        self.sections[section].detailsList.keys.count
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AvailabilityCollectionViewCellId", for: indexPath) as! AvaialbleUserCollectionViewCell
+        
+        let availableIds = Array(sections[indexPath.section].detailsList.keys)
+        let name = sections[indexPath.section].detailsList[availableIds[indexPath.row]]
+           cell.nameLabel.text = name
+           return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+
+        if let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "availableHeaderView", for: indexPath) as? availableSectionHeaderCollectionReusableView{
+            sectionHeader.titleLabel.text = sections[indexPath.section].headerTitle
+            return sectionHeader
+        }
+        
+        return UICollectionReusableView()
+    }
+    
+    
+    
+}
+
+
+
+struct HomeViewCollectionViewSection {
+    let headerTitle: String // contains title of the sections
+    var detailsList: [String : String] // contains the users who are available on this day and the  restaurants that have been chosen for today
+}
+
+
+
+
