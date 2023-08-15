@@ -139,6 +139,7 @@ class AvailableUserViewController: UIViewController {
             
             completion()
         }
+        self.userDetailsCollectionView.reloadData()
     }
     
     
@@ -193,7 +194,8 @@ extension AvailableUserViewController: UICollectionViewDelegate, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UserDetailsCollectionViewCellId", for: indexPath) as! UserDetailsCollectionViewCell
-        if (sections[indexPath.section].detailsList.isEmpty){
+        
+        if (self.sections[indexPath.section].detailsList.count == 0){
             cell.detailsLabel.text = "Not specified"
         } else {
             cell.detailsLabel.text = sections[indexPath.section].detailsList[indexPath.row]

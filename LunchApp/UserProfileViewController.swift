@@ -5,7 +5,7 @@
 //  Created by Nathalie on 25/07/2023.
 //
 
-
+//TODO: fix labels for food and resto
 import UIKit
 import FirebaseAuth
 import FirebaseFirestore
@@ -32,7 +32,7 @@ class UserProfileViewController: UIViewController {
     var previousProfilePictureRef: StorageReference?
     
     override func viewDidLoad() {
-        
+        foodChoice = 1
         super.viewDidLoad()
         //profilePictureAvatar.roundedImage()
        // profilePictureAvatar.contentMode = .scaleToFill
@@ -179,11 +179,11 @@ class UserProfileViewController: UIViewController {
         }
         
         foodLabel.placeholder = "Choice \(foodChoice)"
-//        let label = UILabel()
-//        label.text = self.foodLabel.text
+        let label = UILabel()
+        label.text = self.foodLabel.text
         self.favoriteFood.append(food)
         self.foodLabel.text = ""
-//        self.foodStackView.addArrangedSubview(label)
+        self.foodStackView.addArrangedSubview(label)
         
         
     }
