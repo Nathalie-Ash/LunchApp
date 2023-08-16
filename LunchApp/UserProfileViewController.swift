@@ -38,8 +38,8 @@ class UserProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //profilePictureAvatar.roundedImage()
-       // profilePictureAvatar.contentMode = .scaleToFill
+        profilePictureAvatar.roundedImage()
+        profilePictureAvatar.contentMode = .scaleToFill
 
         setUpProfilePicture()
         signOutButton.layer.cornerRadius = 10
@@ -76,6 +76,17 @@ class UserProfileViewController: UIViewController {
                      }
                      if user.food.count > 2, !user.food[2].isEmpty {
                          self.foodChoice3.text = user.food[2]
+                     }
+                
+                
+                if user.restaurant.count > 0, !user.restaurant[0].isEmpty {
+                         self.restaurantChoice1.text = user.restaurant[0]
+                     }
+                     if user.restaurant.count > 1, !user.restaurant[1].isEmpty {
+                         self.restaurantChoice2.text = user.restaurant[1]
+                     }
+                     if user.restaurant.count > 2, !user.restaurant[2].isEmpty {
+                         self.restaurantChoice3.text = user.restaurant[2]
                      }
                 
                 let dateFormatter = DateFormatter()
@@ -166,6 +177,19 @@ class UserProfileViewController: UIViewController {
         if let foodChoice3Text = foodChoice3.text, !foodChoice3Text.isEmpty {
             favoriteFood.append(foodChoice3Text)
         }
+        
+        
+        
+        if let restaurantChoice1Text = restaurantChoice1.text, !restaurantChoice1Text.isEmpty {
+            favoriteRestaurants.append(restaurantChoice1Text)
+        }
+        if let restaurantChoice2Text = restaurantChoice2.text, !restaurantChoice2Text.isEmpty {
+            favoriteRestaurants.append(restaurantChoice2Text)
+        }
+        if let restaurantChoice3Text = restaurantChoice3.text, !restaurantChoice3Text.isEmpty {
+            favoriteRestaurants.append(restaurantChoice3Text)
+        }
+        
         
         var user = User(
             userId: uid,
@@ -312,7 +336,7 @@ extension UserProfileViewController: UIImagePickerControllerDelegate, UINavigati
 
 extension UIImageView {
     func roundedImage() {
-        self.layer.cornerRadius = (self.frame.size.height) / 2;
+        self.layer.cornerRadius = (self.frame.size.width) / 2;
         self.clipsToBounds = true
     }
 }

@@ -322,7 +322,7 @@
                                                 </constraints>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="DAK-wy-Mqq">
-                                                <rect key="frame" x="20" y="212.33333333333334" width="345.66666666666669" height="450.33333333333326"/>
+                                                <rect key="frame" x="20" y="212.33333333333334" width="345.66666666666669" height="470.33333333333326"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="VTM-Qt-PBe" userLabel="Name Stack">
                                                         <rect key="frame" x="0.0" y="0.0" width="345.66666666666669" height="40"/>
@@ -396,10 +396,10 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ccN-yY-gjI" userLabel="Food Stack">
-                                                        <rect key="frame" x="0.0" y="160.33333333333331" width="345.66666666666669" height="120"/>
+                                                        <rect key="frame" x="0.0" y="160.33333333333331" width="345.66666666666669" height="130"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fav Food" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rsx-Ye-vOd">
-                                                                <rect key="frame" x="0.0" y="0.0" width="117" height="120"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="117" height="130"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="117" id="mhi-cB-Rwv"/>
                                                                 </constraints>
@@ -407,8 +407,8 @@
                                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SPo-FI-jqx">
-                                                                <rect key="frame" x="126.99999999999999" y="0.0" width="218.66666666666663" height="120"/>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="SPo-FI-jqx">
+                                                                <rect key="frame" x="126.99999999999999" y="0.0" width="218.66666666666663" height="130"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Choice 1" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5hT-Nh-EA2" userLabel="Food Text Field">
                                                                         <rect key="frame" x="0.0" y="0.0" width="218.66666666666666" height="40"/>
@@ -419,7 +419,7 @@
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
                                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Choice 2" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rCU-wr-P6J" userLabel="Food Text Field">
-                                                                        <rect key="frame" x="0.0" y="40" width="218.66666666666666" height="40"/>
+                                                                        <rect key="frame" x="0.0" y="45" width="218.66666666666666" height="40"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="40" id="NUi-Mn-Lq5"/>
                                                                         </constraints>
@@ -427,7 +427,7 @@
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
                                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Choice 3" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7i2-Xn-z7c" userLabel="Food Text Field">
-                                                                        <rect key="frame" x="0.0" y="80" width="218.66666666666666" height="40"/>
+                                                                        <rect key="frame" x="0.0" y="90" width="218.66666666666666" height="40"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="40" id="2i3-if-eMf"/>
                                                                         </constraints>
@@ -439,10 +439,10 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4ZK-An-X9U" userLabel="Rest Stack">
-                                                        <rect key="frame" x="0.0" y="285.33333333333331" width="345.66666666666669" height="120"/>
+                                                        <rect key="frame" x="0.0" y="295.33333333333331" width="345.66666666666669" height="130"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fav Restaurant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b2Q-8l-Szf">
-                                                                <rect key="frame" x="0.0" y="0.0" width="117" height="120"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="117" height="130"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="117" id="fFs-Yu-VGS"/>
                                                                 </constraints>
@@ -450,8 +450,8 @@
                                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1Ne-MS-Zc1">
-                                                                <rect key="frame" x="126.99999999999999" y="0.0" width="218.66666666666663" height="120"/>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="1Ne-MS-Zc1">
+                                                                <rect key="frame" x="126.99999999999999" y="0.0" width="218.66666666666663" height="130"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Choice 1" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6bz-Gi-u1F">
                                                                         <rect key="frame" x="0.0" y="0.0" width="218.66666666666666" height="40"/>
@@ -462,7 +462,7 @@
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
                                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Choice 2" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zNp-GE-Zah">
-                                                                        <rect key="frame" x="0.0" y="40" width="218.66666666666666" height="40"/>
+                                                                        <rect key="frame" x="0.0" y="45" width="218.66666666666666" height="40"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="40" id="z6d-NN-IDh"/>
                                                                         </constraints>
@@ -470,7 +470,7 @@
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
                                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Choice 3" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PcZ-SK-qWj">
-                                                                        <rect key="frame" x="0.0" y="80" width="218.66666666666666" height="40"/>
+                                                                        <rect key="frame" x="0.0" y="90" width="218.66666666666666" height="40"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="40" id="Gnf-rJ-mQb"/>
                                                                         </constraints>
@@ -482,7 +482,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="XR6-cv-wu4" userLabel="Public Infp">
-                                                        <rect key="frame" x="0.0" y="410.33333333333331" width="270.66666666666669" height="40"/>
+                                                        <rect key="frame" x="0.0" y="430.33333333333331" width="270.66666666666669" height="40"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hide Birthday From Public" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lxr-qy-jdP">
                                                                 <rect key="frame" x="0.0" y="0.0" width="211.66666666666666" height="40"/>
@@ -522,11 +522,11 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="DAK-wy-Mqq" firstAttribute="centerX" secondItem="en4-pR-aTZ" secondAttribute="centerX" id="C2m-B5-Ymm"/>
-                                            <constraint firstAttribute="height" constant="800" id="Cf3-TM-AKR"/>
                                             <constraint firstItem="DAK-wy-Mqq" firstAttribute="leading" secondItem="en4-pR-aTZ" secondAttribute="leading" constant="20" id="DNx-eW-1lw"/>
                                             <constraint firstItem="DAK-wy-Mqq" firstAttribute="top" secondItem="eSI-TF-K0U" secondAttribute="bottom" constant="20" id="ZXW-x1-HE4"/>
                                             <constraint firstItem="3E6-56-O2V" firstAttribute="leading" secondItem="eSI-TF-K0U" secondAttribute="centerX" constant="40" id="dzG-Wz-mpQ"/>
                                             <constraint firstItem="3E6-56-O2V" firstAttribute="top" secondItem="en4-pR-aTZ" secondAttribute="top" constant="30.000000000000004" id="hVq-Mi-aNp"/>
+                                            <constraint firstAttribute="height" constant="800" id="mrX-Df-lnm"/>
                                             <constraint firstItem="eSI-TF-K0U" firstAttribute="leading" secondItem="en4-pR-aTZ" secondAttribute="leading" constant="106.66666666666667" id="tKz-OT-ULP"/>
                                             <constraint firstItem="eSI-TF-K0U" firstAttribute="top" secondItem="en4-pR-aTZ" secondAttribute="top" constant="20" id="vUZ-Sc-vm3"/>
                                             <constraint firstAttribute="trailing" secondItem="DAK-wy-Mqq" secondAttribute="trailing" constant="20" id="xgc-O4-c2s"/>
