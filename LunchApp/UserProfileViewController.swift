@@ -18,21 +18,25 @@ class UserProfileViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var officeLabel: UITextField!
     @IBOutlet weak var foodStackView: UIStackView!
-    @IBOutlet weak var foodLabel: UITextField!
     @IBOutlet weak var restaurantLabel: UITextField!
-    @IBOutlet weak var foodButton: UIButton!
     @IBOutlet weak var publicInfoSwitch: UISwitch!
     @IBOutlet weak var profilePictureAvatar: UIImageView!
-    @IBOutlet weak var restaurantPlusButton: UIButton!
     @IBOutlet weak var signOutButton: UIButton!
     @IBOutlet weak var saveChangesButton: UIButton!
     
-    var foodChoice = 1
-    var restChoice = 1
+    @IBOutlet weak var foodChoice1: UITextField!
+    @IBOutlet weak var foodChoice2: UITextField!
+    @IBOutlet weak var foodChoice3: UITextField!
+    
+    @IBOutlet weak var restaurantChoice1: UITextField!
+    
+    @IBOutlet weak var restaurantChoice2: UITextField!
+    
+    @IBOutlet weak var restaurantChoice3: UITextField!
+    
     var previousProfilePictureRef: StorageReference?
     
     override func viewDidLoad() {
-        foodChoice = 1
         super.viewDidLoad()
         //profilePictureAvatar.roundedImage()
        // profilePictureAvatar.contentMode = .scaleToFill
@@ -40,13 +44,18 @@ class UserProfileViewController: UIViewController {
         setUpProfilePicture()
         signOutButton.layer.cornerRadius = 10
         saveChangesButton.layer.cornerRadius = 10
-        foodButton.layer.cornerRadius = 10
-        restaurantPlusButton.layer.cornerRadius = 10
         
         self.nameLabel.useUnderline()
         self.officeLabel.useUnderline()
-        self.foodLabel.useUnderline()
         self.restaurantLabel.useUnderline()
+        self.foodChoice1.useUnderline()
+        self.foodChoice2.useUnderline()
+        self.foodChoice3.useUnderline()
+        
+        self.restaurantChoice1.useUnderline()
+        self.restaurantChoice2.useUnderline()
+        self.restaurantChoice3.useUnderline()
+        
         
         guard let uid = Auth.auth().currentUser?.uid else { return }
         let usersCollection = Firestore.firestore().collection("users").document(uid).addSnapshotListener { documentSnapshot, error in
@@ -58,6 +67,16 @@ class UserProfileViewController: UIViewController {
                let user = User(dictionary: userData) {
                 self.nameLabel.text = user.name
                 self.officeLabel.text = user.office
+                
+                if user.food.count > 0, !user.food[0].isEmpty {
+                         self.foodChoice1.text = user.food[0]
+                     }
+                     if user.food.count > 1, !user.food[1].isEmpty {
+                         self.foodChoice2.text = user.food[1]
+                     }
+                     if user.food.count > 2, !user.food[2].isEmpty {
+                         self.foodChoice3.text = user.food[2]
+                     }
                 
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "dd/MM/yyyy"
@@ -137,6 +156,17 @@ class UserProfileViewController: UIViewController {
             isInfoPublic = true
         }
         
+        
+        if let foodChoice1Text = foodChoice1.text, !foodChoice1Text.isEmpty {
+            favoriteFood.append(foodChoice1Text)
+        }
+        if let foodChoice2Text = foodChoice2.text, !foodChoice2Text.isEmpty {
+            favoriteFood.append(foodChoice2Text)
+        }
+        if let foodChoice3Text = foodChoice3.text, !foodChoice3Text.isEmpty {
+            favoriteFood.append(foodChoice3Text)
+        }
+        
         var user = User(
             userId: uid,
             name: name,
@@ -147,6 +177,7 @@ class UserProfileViewController: UIViewController {
             isPublic: isInfoPublic,
             profilePictureURL: ""
         )
+        
         
         
         if let image = profilePictureAvatar.image {
@@ -167,44 +198,7 @@ class UserProfileViewController: UIViewController {
         }
         
         
-    @IBAction func foodPlusButtonPressed(_ sender: UIButton) {
-        foodChoice += 1
-        guard self.favoriteFood.count < 3 else {
-            showAlert(message: "A user can have a maximum of three values")
-            return
-        }
-        guard let food = self.foodLabel.text, food.isEmpty == false else {
-            showAlert(message: "Please Enter A Value.")
-            return
-        }
-        
-        foodLabel.placeholder = "Choice \(foodChoice)"
-        let label = UILabel()
-        label.text = self.foodLabel.text
-        self.favoriteFood.append(food)
-        self.foodLabel.text = ""
-        self.foodStackView.addArrangedSubview(label)
-        
-        
-    }
-    
-    @IBAction func restaurantPlusButtonPressed(_ sender: UIButton) {
-        restChoice += 1
-        guard self.favoriteRestaurants.count < 3 else {
-            showAlert(message: "A user can have a maximum of three values")
-            return
-        }
-        
-        guard let restaurant = self.restaurantLabel.text, !restaurant.isEmpty else {
-            showAlert(message: "Please A Value.")
-            return
-        }
-        
-        restaurantLabel.placeholder = "Choice \(restChoice)"
-        self.favoriteRestaurants.append(restaurant)
-        self.restaurantLabel.text = ""
-    }
-    
+   
     @IBAction func signOutButtonPressed(_ sender: UIButton) {
         do {
             try Auth.auth().signOut()
@@ -226,6 +220,7 @@ class UserProfileViewController: UIViewController {
     
     func setUpProfilePicture() {
         profilePictureAvatar.isUserInteractionEnabled = true
+        profilePictureAvatar.contentMode = .scaleAspectFit
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(presentPicker))
         profilePictureAvatar.addGestureRecognizer(tapGesture)
     }
@@ -276,6 +271,7 @@ class UserProfileViewController: UIViewController {
                 profilePicRef.downloadURL { url, error in
                     // convert the URL into string
                     if let downloadURL = url?.absoluteString {
+                        self.profilePictureAvatar.roundedImage()
                         completion(downloadURL)
                     } else {
                         completion(nil)
@@ -299,11 +295,13 @@ extension UserProfileViewController: UIImagePickerControllerDelegate, UINavigati
         if let imageSelected = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
             image = imageSelected
             profilePictureAvatar.image = imageSelected
-        }
+            self.profilePictureAvatar.roundedImage()
+          }
         
         if let imageOriginal = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             image = imageOriginal
             profilePictureAvatar.image = imageOriginal
+            self.profilePictureAvatar.roundedImage()
         }
         
         picker.dismiss(animated: true, completion: nil)
