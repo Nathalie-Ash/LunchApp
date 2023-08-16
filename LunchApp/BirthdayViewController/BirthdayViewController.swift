@@ -75,7 +75,9 @@ class BirthdayViewController: UIViewController {
             }
              // update the birthdayData array which contains all the inforamtion and sort the months in increasing order
              self.birthdayData = userBirthdayDict.map({ (key: SectionKey, value: [BirthdayUser]) in
-                 BirthdayData(section: key, birthdays: value)
+                 var value = value
+                 let sortValue = value.sorted(by: { Date.MonthDay(date: $0.birthday)  < Date.MonthDay(date: $1.birthday)  })
+                 return BirthdayData(section: key, birthdays: sortValue)
              }).sorted(by: { data1, data2 in
                  data1.section.month < data2.section.month
              })
@@ -200,4 +202,21 @@ struct BirthdayUser {
 struct SectionKey: Equatable, Hashable {
       let month: Int
     
+}
+
+
+
+extension Date {
+    struct MonthDay: Comparable {
+        let month: Int
+        let day: Int
+        init(date: Date) {
+            let comps = Calendar.current.dateComponents([.month,.day], from: date)
+            self.month = comps.month ?? 0
+            self.day = comps.day ?? 0        }
+        
+        static func <(lhs: MonthDay, rhs: MonthDay) -> Bool {
+            return (lhs.month < rhs.month || (lhs.month == rhs.month && lhs.day < rhs.day))
+        }
+    }
 }
