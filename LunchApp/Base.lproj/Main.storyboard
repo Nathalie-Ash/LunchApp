@@ -288,7 +288,7 @@
                         <segue destination="fTs-aV-HB6" kind="relationship" relationship="viewControllers" id="k1Y-9J-o1b"/>
                         <segue destination="gLG-8z-ikd" kind="relationship" relationship="viewControllers" id="Nh4-aG-dQV"/>
                         <segue destination="G9t-Vs-tDg" kind="relationship" relationship="viewControllers" id="nKI-DJ-cPo"/>
-                        <segue destination="5Xc-Ba-ZQk" kind="relationship" relationship="viewControllers" id="BHq-qO-IXI"/>
+                        <segue destination="Car-kQ-oxR" kind="relationship" relationship="viewControllers" id="eZH-rx-mLj"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zZM-Ft-MDE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -925,7 +925,7 @@
         <scene sceneID="iEx-Tj-50M">
             <objects>
                 <viewController storyboardIdentifier="chatView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="5Xc-Ba-ZQk" customClass="ChatViewController" customModule="LunchApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" restorationIdentifier="chatView" id="Dmf-8p-mc9" customClass="Cha">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="chatView" id="Dmf-8p-mc9">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="Orj-pV-8l6"/>
@@ -936,6 +936,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2YH-dr-m31" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1694" y="717"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="w0p-Mc-NBf">
+            <objects>
+                <viewController id="Car-kQ-oxR" customClass="ChatsListViewController" customModule="LunchApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SBv-wR-0eQ" customClass="Ch">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="o8c-95-2z6"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="3o5-MX-mIk" customClass="ch"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sa3-JM-Bca" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2494" y="954"/>
         </scene>
         <!--Available User View Controller-->
         <scene sceneID="TOi-lG-PJv">
@@ -954,10 +970,10 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="S4c-Yh-i5k">
-                                <rect key="frame" x="147" y="157" width="136.33333333333337" height="111"/>
+                                <rect key="frame" x="132.66666666666669" y="157" width="164.66666666666669" height="111"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="100" verticalHuggingPriority="251" text="User" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SnK-jp-CUY">
-                                        <rect key="frame" x="0.0" y="0.0" width="136.33333333333334" height="23"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="164.66666666666666" height="23"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="23" id="YdQ-wj-lna"/>
                                         </constraints>
@@ -966,21 +982,22 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Birthday" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4jn-CI-qA0">
-                                        <rect key="frame" x="0.0" y="28" width="136.33333333333334" height="19.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="28" width="164.66666666666666" height="19.333333333333329"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                         <color key="textColor" red="0.53333333333333333" green="0.49411764705882355" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWE-T4-DSZ">
-                                        <rect key="frame" x="0.0" y="52.333333333333343" width="136.33333333333334" height="19.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="52.333333333333343" width="164.66666666666666" height="19.333333333333329"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                         <color key="textColor" name="LunchApp_Orange"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hRj-ql-OGK">
-                                        <rect key="frame" x="0.0" y="76.666666666666657" width="136.33333333333334" height="34.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="76.666666666666657" width="164.66666666666666" height="34.333333333333343"/>
+                                        <color key="tintColor" name="LunchApp_Purple"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Send Message"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="message.fill" catalog="system" title="Send Message"/>
                                         <connections>
                                             <action selector="sendMessageButtonPressed:" destination="skl-xK-SOT" eventType="touchUpInside" id="N8X-Qx-niz"/>
                                         </connections>
@@ -1147,6 +1164,7 @@
         <image name="clock.fill" catalog="system" width="128" height="123"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="logo" width="124" height="116"/>
+        <image name="message.fill" catalog="system" width="128" height="114"/>
         <image name="pencil.and.outline" catalog="system" width="128" height="128"/>
         <image name="person.circle.fill" catalog="system" width="128" height="123"/>
         <image name="pickedResto" width="354" height="102"/>

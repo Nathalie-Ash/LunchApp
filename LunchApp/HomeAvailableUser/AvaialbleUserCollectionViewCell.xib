@@ -42,6 +42,7 @@
             </constraints>
             <size key="customSize" width="232" height="50"/>
             <connections>
+                <outlet property="imageView" destination="NX5-F7-dMX" id="I9N-HP-Fe7"/>
                 <outlet property="nameLabel" destination="ZwB-PG-ekI" id="HmO-DF-Cmn"/>
             </connections>
             <point key="canvasLocation" x="288.54961832061065" y="26.760563380281692"/>

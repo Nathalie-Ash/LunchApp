@@ -13,6 +13,7 @@
 		F6394D6C2A8A55DB0014A38C /* AvaialbleUserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6394D6A2A8A55DB0014A38C /* AvaialbleUserCollectionViewCell.swift */; };
 		F6394D6D2A8A55DB0014A38C /* AvaialbleUserCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6394D6B2A8A55DB0014A38C /* AvaialbleUserCollectionViewCell.xib */; };
 		F6394D712A8A69BF0014A38C /* availableSectionHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6394D702A8A69BF0014A38C /* availableSectionHeaderCollectionReusableView.swift */; };
+		F6394D742A8BB45D0014A38C /* ChatsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6394D732A8BB45D0014A38C /* ChatsListViewController.swift */; };
 		F63CFB342A8528E10061CD7E /* UserDetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63CFB322A8528E10061CD7E /* UserDetailsCollectionViewCell.swift */; };
 		F63CFB352A8528E10061CD7E /* UserDetailsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F63CFB332A8528E10061CD7E /* UserDetailsCollectionViewCell.xib */; };
 		F665A5C72A83BB5F00C9E574 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F665A5C62A83BB5F00C9E574 /* ChatViewController.swift */; };
@@ -74,6 +75,7 @@
 		F6394D6A2A8A55DB0014A38C /* AvaialbleUserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvaialbleUserCollectionViewCell.swift; sourceTree = "<group>"; };
 		F6394D6B2A8A55DB0014A38C /* AvaialbleUserCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvaialbleUserCollectionViewCell.xib; sourceTree = "<group>"; };
 		F6394D702A8A69BF0014A38C /* availableSectionHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = availableSectionHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		F6394D732A8BB45D0014A38C /* ChatsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsListViewController.swift; sourceTree = "<group>"; };
 		F63CFB322A8528E10061CD7E /* UserDetailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsCollectionViewCell.swift; sourceTree = "<group>"; };
 		F63CFB332A8528E10061CD7E /* UserDetailsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserDetailsCollectionViewCell.xib; sourceTree = "<group>"; };
 		F665A5C62A83BB5F00C9E574 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
@@ -209,6 +211,11 @@
 				F677E41D2A6F110C009C85C0 /* GoogleService-Info.plist */,
 				F677E3F22A6EDFA0009C85C0 /* LaunchScreen.storyboard */,
 				F677E3F52A6EDFA0009C85C0 /* Info.plist */,
+				F6394D732A8BB45D0014A38C /* ChatsListViewController.swift */,
+				F665A5C62A83BB5F00C9E574 /* ChatViewController.swift */,
+				F665A5C82A83BBD100C9E574 /* Chat.swift */,
+				F665A5CA2A83BBDE00C9E574 /* ChatUser.swift */,
+				F665A5CC2A83BBEF00C9E574 /* Message.swift */,
 				F677E4172A6EE0A8009C85C0 /* LogInViewController.swift */,
 				F677E4192A6EE0C0009C85C0 /* SignUpViewController.swift */,
 				F677E41F2A6FE929009C85C0 /* UserProfileViewController.swift */,
@@ -216,10 +223,6 @@
 				F6E306A92A729A51004DFEAA /* UserLunch.swift */,
 				F6E306AB2A72A178004DFEAA /* LunchLocation.swift */,
 				F6E306AD2A72B5AF004DFEAA /* Restaurant.swift */,
-				F665A5C62A83BB5F00C9E574 /* ChatViewController.swift */,
-				F665A5C82A83BBD100C9E574 /* Chat.swift */,
-				F665A5CA2A83BBDE00C9E574 /* ChatUser.swift */,
-				F665A5CC2A83BBEF00C9E574 /* Message.swift */,
 				F6C1E3342A86631400F9566E /* UITextField_Extension.swift */,
 			);
 			path = LunchApp;
@@ -512,6 +515,7 @@
 				F677E4182A6EE0A8009C85C0 /* LogInViewController.swift in Sources */,
 				F665A5CD2A83BBEF00C9E574 /* Message.swift in Sources */,
 				F6AF493E2A7A424B00FDD792 /* BirthdayViewController.swift in Sources */,
+				F6394D742A8BB45D0014A38C /* ChatsListViewController.swift in Sources */,
 				F665A5CB2A83BBDE00C9E574 /* ChatUser.swift in Sources */,
 				F677E4202A6FE929009C85C0 /* UserProfileViewController.swift in Sources */,
 				F665A5C92A83BBD100C9E574 /* Chat.swift in Sources */,

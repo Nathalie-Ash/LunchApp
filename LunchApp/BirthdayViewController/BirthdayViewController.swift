@@ -127,9 +127,7 @@ extension BirthdayViewController: UITableViewDelegate, UITableViewDataSource {
         self.birthdayData[section].birthdays.count
         }
     
-    //the title of each section is the month
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//    }
+
     
     // fetch the data from the birthdayData array and place it in each cell accordingly
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -171,19 +169,7 @@ extension BirthdayViewController: UITableViewDelegate, UITableViewDataSource {
         return headerView
     }
     
-//    func tableView(_ tableView: UITableView, didEndDisplayingHeaderView view: UIView, forSection section: Int) {
-//        if let headerView = view as? UITableViewHeaderFooterView {
-//            headerView.textLabel?.font = UIFont.boldSystemFont(ofSize: 20)
-//         //   headerView
-//            headerView.contentView.backgroundColor = .white
-//            headerView.backgroundView?.backgroundColor = .white
-//            headerView.textLabel?.textColor = UIColor(red: 253.0/255.0, green: 136.0/255.0, blue: 71.0/255.0, alpha: 1.0)
-//        }
-//    }
-    
-//    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-//
-//   }
+
 }
 
 // thi struct contains the total birthday information and the table divisions

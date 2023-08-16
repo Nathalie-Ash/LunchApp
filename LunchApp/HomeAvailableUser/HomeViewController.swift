@@ -4,8 +4,6 @@
 //
 //  Created by Nathalie on 26/07/2023.
 //
-//TODO: Add "No available users yet" and "No available restaurants yet" when details list is empty
-
 
 import UIKit
 import FirebaseAuth
@@ -72,6 +70,7 @@ class HomeViewController: UIViewController {
         locationPicker.layer.cornerRadius = 10
         submitButton.layer.cornerRadius = 10
         
+    
         
         let nib = UINib(nibName: "AvaialbleUserCollectionViewCell", bundle: .main)
         
@@ -240,7 +239,12 @@ class HomeViewController: UIViewController {
                 }
                 
                 self.availableRestaurants = newAvailableRestaurants
-                self.sections[1].detailsList = self.availableRestaurants
+                if (self.availableRestaurants.isEmpty){
+                    self.sections[1].detailsList = ["id": "No Available Restaurant Yet"]
+                } else {
+                    self.sections[1].detailsList = self.availableRestaurants
+                }
+               
                 self.availabilityCollectionView.reloadData()
             }
     }
@@ -302,7 +306,12 @@ class HomeViewController: UIViewController {
             }
             userDict.removeValue(forKey: uid)
             //availableUsersSection.detailsList = userDict
-            self.sections[0].detailsList = userDict
+            
+            if (userDict.isEmpty){
+                self.sections[0].detailsList = ["id": "No Available Users Yet"]
+            } else {
+                self.sections[0].detailsList = userDict
+            }
             completion(userDict)
             
         }
@@ -343,18 +352,16 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDelegate
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AvailabilityCollectionViewCellId", for: indexPath) as! AvaialbleUserCollectionViewCell
         
         let availableIds = Array(sections[indexPath.section].detailsList.keys)
+
+        let name = sections[indexPath.section].detailsList[availableIds[indexPath.row]]
+        cell.nameLabel.text = name
         
-        if availableIds.isEmpty {
-            cell.nameLabel.text = "Not available"
-            print("Not available")
+        if indexPath.section == 0{
+            cell.imageView.image = UIImage(named: "profile")
         } else {
-            if let name = sections[indexPath.section].detailsList[availableIds[indexPath.row]] {
-                cell.nameLabel.text = name
-            } else {
-                cell.nameLabel.text = "Name not found"
-            }
+            cell.imageView.image = UIImage(named: "food")
         }
-        
+
         return cell
     }
 

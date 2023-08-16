@@ -23,6 +23,7 @@ class AvailableUserViewController: UIViewController {
     @IBOutlet weak var userDetailsCollectionView: UICollectionView!
     
     var userId: String?
+    var currentUserId: String? 
     let database = Firestore.firestore()
     
     var name: String?
@@ -50,6 +51,17 @@ class AvailableUserViewController: UIViewController {
     }
     
     
+    @IBAction func sendMessageButtonPressed(_ sender: UIButton) {
+        
+   
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let destinationViewController = storyboard.instantiateViewController(withIdentifier: "chatView") as? ChatViewController {
+            destinationViewController.currentUserId = currentUserId
+            destinationViewController.secondUserId = userId
+            destinationViewController.modalPresentationStyle = .overFullScreen
+            self.navigationController?.pushViewController(destinationViewController, animated: true)
+        }
+    }
     
     func displayUserInfo(completion: @escaping () -> Void) {
         guard let userId = userId else { return }
@@ -85,8 +97,18 @@ class AvailableUserViewController: UIViewController {
             self.team = user.office
             self.isPublic = user.isPublic
             
-            favoriteFoodSection.detailsList = user.food
-            favoriteRestaurantsSection.detailsList = user.restaurant
+            if (user.food.isEmpty){
+                favoriteFoodSection.detailsList.append("Not Specified")
+            } else {
+                favoriteFoodSection.detailsList = user.food
+            }
+          
+            
+            if (user.restaurant.isEmpty){
+                favoriteRestaurantsSection.detailsList.append("Not Specified")
+            } else {
+                favoriteRestaurantsSection.detailsList = user.restaurant
+            }
             
             self.sections = [favoriteFoodSection, favoriteRestaurantsSection]
             
