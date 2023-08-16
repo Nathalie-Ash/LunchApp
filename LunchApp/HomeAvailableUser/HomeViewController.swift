@@ -70,8 +70,6 @@ class HomeViewController: UIViewController {
         locationPicker.layer.cornerRadius = 10
         submitButton.layer.cornerRadius = 10
         
-    
-        
         let nib = UINib(nibName: "AvaialbleUserCollectionViewCell", bundle: .main)
         
         availabilityCollectionView.register(nib, forCellWithReuseIdentifier: "AvailabilityCollectionViewCellId")
@@ -305,9 +303,8 @@ class HomeViewController: UIViewController {
                 }
             }
             userDict.removeValue(forKey: uid)
-            //availableUsersSection.detailsList = userDict
             
-            if (userDict.isEmpty){
+            if (userDict.isEmpty) {
                 self.sections[0].detailsList = ["id": "No Available Users Yet"]
             } else {
                 self.sections[0].detailsList = userDict
@@ -356,17 +353,18 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDelegate
         let name = sections[indexPath.section].detailsList[availableIds[indexPath.row]]
         cell.nameLabel.text = name
         
-        if indexPath.section == 0{
+        
+        if indexPath.section == 0 {
             cell.imageView.image = UIImage(named: "profile")
         } else {
             cell.imageView.image = UIImage(named: "food")
         }
+        
+        cell.arrowView.isHidden = (indexPath.section != 0)
 
         return cell
     }
 
-
-    
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
         if let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "availableHeaderView", for: indexPath) as? availableSectionHeaderCollectionReusableView{
@@ -401,7 +399,3 @@ struct HomeViewCollectionViewSection {
     let headerTitle: String // contains title of the sections
     var detailsList: [String : String] // contains the users who are available on this day and the  restaurants that have been chosen for today
 }
-
-
-
-

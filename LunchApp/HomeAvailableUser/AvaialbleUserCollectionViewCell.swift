@@ -13,6 +13,8 @@ class AvaialbleUserCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
     
+    @IBOutlet weak var arrowView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
      

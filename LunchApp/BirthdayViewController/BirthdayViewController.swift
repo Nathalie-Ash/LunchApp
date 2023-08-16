@@ -75,7 +75,7 @@ class BirthdayViewController: UIViewController {
             }
              // update the birthdayData array which contains all the inforamtion and sort the months in increasing order
              self.birthdayData = userBirthdayDict.map({ (key: SectionKey, value: [BirthdayUser]) in
-                 var value = value
+                 let value = value
                  let sortValue = value.sorted(by: { Date.MonthDay(date: $0.birthday)  < Date.MonthDay(date: $1.birthday)  })
                  return BirthdayData(section: key, birthdays: sortValue)
              }).sorted(by: { data1, data2 in
