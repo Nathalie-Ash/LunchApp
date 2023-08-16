@@ -18,7 +18,7 @@ class UserProfileViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var officeLabel: UITextField!
     @IBOutlet weak var foodStackView: UIStackView!
-    @IBOutlet weak var restaurantLabel: UITextField!
+
     @IBOutlet weak var publicInfoSwitch: UISwitch!
     @IBOutlet weak var profilePictureAvatar: UIImageView!
     @IBOutlet weak var signOutButton: UIButton!
@@ -38,16 +38,12 @@ class UserProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        profilePictureAvatar.roundedImage()
-        profilePictureAvatar.contentMode = .scaleToFill
-
         setUpProfilePicture()
         signOutButton.layer.cornerRadius = 10
         saveChangesButton.layer.cornerRadius = 10
         
         self.nameLabel.useUnderline()
         self.officeLabel.useUnderline()
-        self.restaurantLabel.useUnderline()
         self.foodChoice1.useUnderline()
         self.foodChoice2.useUnderline()
         self.foodChoice3.useUnderline()
@@ -161,13 +157,9 @@ class UserProfileViewController: UIViewController {
                }
                 
 
-        if publicInfoSwitch.isOn{
-            isInfoPublic = false
-        } else {
-            isInfoPublic = true
-        }
+        isInfoPublic = !publicInfoSwitch.isOn
         
-        
+        favoriteFood = []
         if let foodChoice1Text = foodChoice1.text, !foodChoice1Text.isEmpty {
             favoriteFood.append(foodChoice1Text)
         }
@@ -179,7 +171,7 @@ class UserProfileViewController: UIViewController {
         }
         
         
-        
+        favoriteRestaurants = []
         if let restaurantChoice1Text = restaurantChoice1.text, !restaurantChoice1Text.isEmpty {
             favoriteRestaurants.append(restaurantChoice1Text)
         }
@@ -244,14 +236,13 @@ class UserProfileViewController: UIViewController {
     
     func setUpProfilePicture() {
         profilePictureAvatar.isUserInteractionEnabled = true
-        profilePictureAvatar.contentMode = .scaleAspectFit
+        profilePictureAvatar.contentMode = .scaleAspectFill
+        profilePictureAvatar.roundedImage()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(presentPicker))
         profilePictureAvatar.addGestureRecognizer(tapGesture)
     }
     
     @objc func presentPicker() {
-        //        profilePictureAvatar.layer.cornerRadius = 40
-        //        profilePictureAvatar.clipsToBounds = true
         let picker = UIImagePickerController()
         picker.sourceType = .photoLibrary
         picker.allowsEditing = true
@@ -295,7 +286,7 @@ class UserProfileViewController: UIViewController {
                 profilePicRef.downloadURL { url, error in
                     // convert the URL into string
                     if let downloadURL = url?.absoluteString {
-                        self.profilePictureAvatar.roundedImage()
+
                         completion(downloadURL)
                     } else {
                         completion(nil)
@@ -319,38 +310,17 @@ extension UserProfileViewController: UIImagePickerControllerDelegate, UINavigati
         if let imageSelected = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
             image = imageSelected
             profilePictureAvatar.image = imageSelected
-            self.profilePictureAvatar.roundedImage()
           }
         
         if let imageOriginal = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             image = imageOriginal
             profilePictureAvatar.image = imageOriginal
-            self.profilePictureAvatar.roundedImage()
         }
-        
         picker.dismiss(animated: true, completion: nil)
     }
     
 }
 
 
-extension UIImageView {
-    func roundedImage() {
-        self.layer.cornerRadius = (self.frame.size.width) / 2;
-        self.clipsToBounds = true
-    }
-}
 
 
-extension UITextField {
-
-    func useUnderline() {
-        let border = CALayer()
-        let borderWidth = CGFloat(1.0)
-        border.borderColor = UIColor.lightGray.cgColor
-        border.frame = CGRect(origin: CGPoint(x: 0,y :self.frame.size.height - borderWidth), size: CGSize(width: self.frame.size.width, height: self.frame.size.height))
-        border.borderWidth = borderWidth
-        self.layer.addSublayer(border)
-        self.layer.masksToBounds = true
-    }
-}

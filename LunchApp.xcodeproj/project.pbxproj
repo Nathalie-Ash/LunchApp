@@ -16,6 +16,7 @@
 		F6394D742A8BB45D0014A38C /* ChatsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6394D732A8BB45D0014A38C /* ChatsListViewController.swift */; };
 		F63CFB342A8528E10061CD7E /* UserDetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63CFB322A8528E10061CD7E /* UserDetailsCollectionViewCell.swift */; };
 		F63CFB352A8528E10061CD7E /* UserDetailsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F63CFB332A8528E10061CD7E /* UserDetailsCollectionViewCell.xib */; };
+		F643C01B2A8CFDDC00D2FDA9 /* UIImage_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F643C01A2A8CFDDC00D2FDA9 /* UIImage_Extension.swift */; };
 		F665A5C72A83BB5F00C9E574 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F665A5C62A83BB5F00C9E574 /* ChatViewController.swift */; };
 		F665A5C92A83BBD100C9E574 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = F665A5C82A83BBD100C9E574 /* Chat.swift */; };
 		F665A5CB2A83BBDE00C9E574 /* ChatUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F665A5CA2A83BBDE00C9E574 /* ChatUser.swift */; };
@@ -78,6 +79,7 @@
 		F6394D732A8BB45D0014A38C /* ChatsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsListViewController.swift; sourceTree = "<group>"; };
 		F63CFB322A8528E10061CD7E /* UserDetailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsCollectionViewCell.swift; sourceTree = "<group>"; };
 		F63CFB332A8528E10061CD7E /* UserDetailsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserDetailsCollectionViewCell.xib; sourceTree = "<group>"; };
+		F643C01A2A8CFDDC00D2FDA9 /* UIImage_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage_Extension.swift; sourceTree = "<group>"; };
 		F665A5C62A83BB5F00C9E574 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		F665A5C82A83BBD100C9E574 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		F665A5CA2A83BBDE00C9E574 /* ChatUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUser.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				F6E306AB2A72A178004DFEAA /* LunchLocation.swift */,
 				F6E306AD2A72B5AF004DFEAA /* Restaurant.swift */,
 				F6C1E3342A86631400F9566E /* UITextField_Extension.swift */,
+				F643C01A2A8CFDDC00D2FDA9 /* UIImage_Extension.swift */,
 			);
 			path = LunchApp;
 			sourceTree = "<group>";
@@ -521,6 +524,7 @@
 				F665A5C92A83BBD100C9E574 /* Chat.swift in Sources */,
 				F677E3EC2A6EDF9E009C85C0 /* ViewController.swift in Sources */,
 				F677E4672A70FC97009C85C0 /* HomeViewController.swift in Sources */,
+				F643C01B2A8CFDDC00D2FDA9 /* UIImage_Extension.swift in Sources */,
 				F6394D6C2A8A55DB0014A38C /* AvaialbleUserCollectionViewCell.swift in Sources */,
 				F677E3E82A6EDF9E009C85C0 /* AppDelegate.swift in Sources */,
 				F6AF49422A7BAE6300FDD792 /* BirthdayTableViewCell.swift in Sources */,
