@@ -22,6 +22,7 @@ struct Restaurant {
            "Al Abdullah",
            "Malak El Tawouk",
            "Anthony's",
+           "Hammoudi",
            "No Preference"
        ]
 

@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 
-
 extension UIImageView {
     func roundedImage() {
         self.layer.cornerRadius = (self.frame.size.height) / 2;

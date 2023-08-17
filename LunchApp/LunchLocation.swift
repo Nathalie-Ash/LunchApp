@@ -17,7 +17,7 @@ import FirebaseFirestore
 
 struct LunchLocation {
     static let locations = [
-        "Ktichen Block A", "High Tables", "Outside the Office", "Kitchen Block C", "Open Space", "No Preference"
+        "Kitchen Block A", "High Tables", "Outside the Office", "Kitchen Block C", "Open Space", "No Preference"
     ]
     var locId: String
     var locName: String
