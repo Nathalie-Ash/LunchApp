@@ -10,6 +10,7 @@
 		0CA85554E5573BA31F6E223F /* Pods_LunchAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E674FD6EBD6CC249B9861566 /* Pods_LunchAppTests.framework */; };
 		2B2579E0BB8EA79153BFC911 /* Pods_LunchApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FED8962FCD8B68F0CA47A828 /* Pods_LunchApp.framework */; };
 		31814914EBDB73BFE887BB83 /* Pods_LunchApp_LunchAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D5DAECF9785F599CC4B7FE0 /* Pods_LunchApp_LunchAppUITests.framework */; };
+		5F87BB952A8E6F1300E51BA8 /* AvailableSectionFooterCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F87BB942A8E6F1300E51BA8 /* AvailableSectionFooterCollectionReusableView.swift */; };
 		F6394D6C2A8A55DB0014A38C /* AvaialbleUserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6394D6A2A8A55DB0014A38C /* AvaialbleUserCollectionViewCell.swift */; };
 		F6394D6D2A8A55DB0014A38C /* AvaialbleUserCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6394D6B2A8A55DB0014A38C /* AvaialbleUserCollectionViewCell.xib */; };
 		F6394D712A8A69BF0014A38C /* availableSectionHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6394D702A8A69BF0014A38C /* availableSectionHeaderCollectionReusableView.swift */; };
@@ -68,6 +69,7 @@
 		3B2C0B7FBC6A6584E5BBA196 /* Pods-LunchApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LunchApp.debug.xcconfig"; path = "Target Support Files/Pods-LunchApp/Pods-LunchApp.debug.xcconfig"; sourceTree = "<group>"; };
 		55DA31386712F570495F24CE /* Pods-LunchApp-LunchAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LunchApp-LunchAppUITests.release.xcconfig"; path = "Target Support Files/Pods-LunchApp-LunchAppUITests/Pods-LunchApp-LunchAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5D5DAECF9785F599CC4B7FE0 /* Pods_LunchApp_LunchAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LunchApp_LunchAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F87BB942A8E6F1300E51BA8 /* AvailableSectionFooterCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableSectionFooterCollectionReusableView.swift; sourceTree = "<group>"; };
 		70AE7FA543AD981F8518F4C1 /* Pods-LunchAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LunchAppTests.release.xcconfig"; path = "Target Support Files/Pods-LunchAppTests/Pods-LunchAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		BB372617EDF481B548817D08 /* Pods-LunchApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LunchApp.release.xcconfig"; path = "Target Support Files/Pods-LunchApp/Pods-LunchApp.release.xcconfig"; sourceTree = "<group>"; };
 		E674FD6EBD6CC249B9861566 /* Pods_LunchAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LunchAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -255,6 +257,7 @@
 				F6394D6A2A8A55DB0014A38C /* AvaialbleUserCollectionViewCell.swift */,
 				F6394D6B2A8A55DB0014A38C /* AvaialbleUserCollectionViewCell.xib */,
 				F6394D702A8A69BF0014A38C /* availableSectionHeaderCollectionReusableView.swift */,
+				5F87BB942A8E6F1300E51BA8 /* AvailableSectionFooterCollectionReusableView.swift */,
 			);
 			path = HomeAvailableUser;
 			sourceTree = "<group>";
@@ -534,6 +537,7 @@
 				F677E3EA2A6EDF9E009C85C0 /* SceneDelegate.swift in Sources */,
 				F677E41A2A6EE0C0009C85C0 /* SignUpViewController.swift in Sources */,
 				F69493CE2A8A093800C48C82 /* SectionHeader.swift in Sources */,
+				5F87BB952A8E6F1300E51BA8 /* AvailableSectionFooterCollectionReusableView.swift in Sources */,
 				F6C1E3352A86631400F9566E /* UITextField_Extension.swift in Sources */,
 				F665A5C72A83BB5F00C9E574 /* ChatViewController.swift in Sources */,
 				F6E306AC2A72A178004DFEAA /* LunchLocation.swift in Sources */,

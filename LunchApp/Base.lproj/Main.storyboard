@@ -874,7 +874,7 @@
                                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bzH-8M-vGY">
                                                             <size key="itemSize" width="170" height="50"/>
                                                             <size key="headerReferenceSize" width="50" height="50"/>
-                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                            <size key="footerReferenceSize" width="50" height="50"/>
                                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         </collectionViewFlowLayout>
                                                         <cells/>
@@ -896,6 +896,27 @@
                                                             </constraints>
                                                             <connections>
                                                                 <outlet property="titleLabel" destination="daB-09-3Dj" id="9xd-NI-CxG"/>
+                                                            </connections>
+                                                        </collectionReusableView>
+                                                        <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="availableFooterView" id="1rV-gm-Hq8" customClass="AvailableSectionFooterCollectionReusableView" customModule="LunchApp" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="50" width="357" height="50"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No available data yet" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aps-fl-Cll">
+                                                                    <rect key="frame" x="99.666666666666686" y="14.999999999999998" width="158" height="20.333333333333329"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="Aps-fl-Cll" firstAttribute="centerY" secondItem="1rV-gm-Hq8" secondAttribute="centerY" id="RHO-VN-keS"/>
+                                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Aps-fl-Cll" secondAttribute="trailing" constant="5" id="c2E-dT-us5"/>
+                                                                <constraint firstItem="Aps-fl-Cll" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1rV-gm-Hq8" secondAttribute="leadingMargin" constant="5" id="grq-QR-szg"/>
+                                                                <constraint firstItem="Aps-fl-Cll" firstAttribute="centerX" secondItem="1rV-gm-Hq8" secondAttribute="centerX" id="oay-md-BR3"/>
+                                                            </constraints>
+                                                            <connections>
+                                                                <outlet property="titleLabel" destination="Aps-fl-Cll" id="6SH-KI-WNm"/>
                                                             </connections>
                                                         </collectionReusableView>
                                                         <connections>

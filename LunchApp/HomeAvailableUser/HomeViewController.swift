@@ -52,8 +52,8 @@ class HomeViewController: UIViewController {
     var selectedRestaurantPreference: String = "No Preference"
     
     var sections: [HomeViewCollectionViewSection] = []
-    var availableRestaurantsSection = HomeViewCollectionViewSection(headerTitle: "Restaurants", detailsList: [:])
-    var availableUsersSection = HomeViewCollectionViewSection(headerTitle: "People having lunch today", detailsList: [:])
+    var availableRestaurantsSection = HomeViewCollectionViewSection(headerTitle: "Restaurants", detailsList: [])
+    var availableUsersSection = HomeViewCollectionViewSection(headerTitle: "People having lunch today", detailsList: [])
     
     
     override func viewDidLoad() {
@@ -237,12 +237,10 @@ class HomeViewController: UIViewController {
                 }
                 
                 self.availableRestaurants = newAvailableRestaurants
-                if (self.availableRestaurants.isEmpty){
-                    self.sections[1].detailsList = ["id": "No Available Restaurant Yet"]
-                } else {
-                    self.sections[1].detailsList = self.availableRestaurants
-                }
-               
+                let sortedDetails = newAvailableRestaurants.map { (key, value) in
+                    return DetailsCollection(key: key, value: value)
+                }.sorted(by: { $0.value < $1.value })
+                self.sections[1].detailsList = sortedDetails
                 self.availabilityCollectionView.reloadData()
             }
     }
@@ -286,7 +284,7 @@ class HomeViewController: UIViewController {
             return
         }
         
-        var availableUsersSection = HomeViewCollectionViewSection(headerTitle: "People having lunch today", detailsList: [:])
+        self.availableUsersSection = HomeViewCollectionViewSection(headerTitle: "People having lunch today", detailsList: [])
         
         
         let usersCollection = database.collection("users").whereField(FieldPath.documentID(), in: userIDs).addSnapshotListener { documentSnapshot, error in
@@ -304,13 +302,12 @@ class HomeViewController: UIViewController {
             }
             userDict.removeValue(forKey: uid)
             
-            if (userDict.isEmpty) {
-                self.sections[0].detailsList = ["id": "No Available Users Yet"]
-            } else {
-                self.sections[0].detailsList = userDict
-            }
-            completion(userDict)
+            let sortedDetails = userDict.map { (key, value) in
+                return DetailsCollection(key: key, value: value)
+            }.sorted(by: { $0.value < $1.value })
+            self.sections[0].detailsList = sortedDetails
             
+            completion(userDict)
         }
     }
     
@@ -321,7 +318,6 @@ class HomeViewController: UIViewController {
                     self.availabilityCollectionView.reloadData()
                 } else {
                     self.availableUsers = userDict
-                    
                     self.availabilityCollectionView.reloadData()
                 }
             }
@@ -329,8 +325,6 @@ class HomeViewController: UIViewController {
     }
     
 }
-
-
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
@@ -340,26 +334,16 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDelegate
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        self.sections[section].detailsList.keys.count
-        
-        
+        self.sections[section].detailsList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AvailabilityCollectionViewCellId", for: indexPath) as! AvaialbleUserCollectionViewCell
         
-        let availableIds = Array(sections[indexPath.section].detailsList.keys)
-
-        let name = sections[indexPath.section].detailsList[availableIds[indexPath.row]]
+        let detailItem = sections[indexPath.section].detailsList[indexPath.row]
+        let name = detailItem.value
         cell.nameLabel.text = name
-        
-        
-        if indexPath.section == 0 {
-            cell.imageView.image = UIImage(named: "profile")
-        } else {
-            cell.imageView.image = UIImage(named: "food")
-        }
-        
+        cell.imageView.image = UIImage(named: (indexPath.section == 0) ? "profile" : "food")
         cell.arrowView.isHidden = (indexPath.section != 0)
 
         return cell
@@ -367,9 +351,22 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDelegate
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
-        if let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "availableHeaderView", for: indexPath) as? availableSectionHeaderCollectionReusableView{
-            sectionHeader.titleLabel.text = sections[indexPath.section].headerTitle
-            return sectionHeader
+        switch kind {
+        case UICollectionView.elementKindSectionHeader:
+            if let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "availableHeaderView", for: indexPath) as? availableSectionHeaderCollectionReusableView {
+                sectionHeader.titleLabel.text = sections[indexPath.section].headerTitle
+                return sectionHeader
+            }
+            
+        case UICollectionView.elementKindSectionFooter:
+            let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "availableFooterView", for: indexPath) as! AvailableSectionFooterCollectionReusableView
+//            "No lunch crew today? Time for a solo munching adventure! 🚀🍔"
+            let message = (indexPath.section == 0) ? "Foodie leader needed: Hunger's uprising! 🍔🎙️" : "Picking a place? My stomach's in suspense! 🤷‍♂️🍕"
+            let isEmptySection = sections[indexPath.section].detailsList.isEmpty
+            footerView.isHidden = !isEmptySection
+            footerView.titleLabel.text = message
+            return footerView
+        default: assert(false, "Unexpected element kind")
         }
         
         return UICollectionReusableView()
@@ -377,8 +374,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section == 0 {
-            let availableIds = Array(sections[indexPath.section].detailsList.keys)
-            let userId = availableIds[indexPath.row]
+            let detailItem = sections[indexPath.section].detailsList[indexPath.row]
+            let userId = detailItem.key
             let currentUserId =  Auth.auth().currentUser?.uid
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             if let destinationViewController = storyboard.instantiateViewController(withIdentifier: "availableUser") as? AvailableUserViewController {
@@ -389,13 +386,14 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDelegate
             }
         }
     }
-    
-    
 }
-
-
 
 struct HomeViewCollectionViewSection {
     let headerTitle: String // contains title of the sections
-    var detailsList: [String : String] // contains the users who are available on this day and the  restaurants that have been chosen for today
+    var detailsList: [DetailsCollection] // contains the users who are available on this day and the  restaurants that have been chosen for today
+}
+
+struct DetailsCollection {
+    let key: String
+    let value: String
 }
