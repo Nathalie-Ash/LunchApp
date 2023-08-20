@@ -210,10 +210,15 @@ class HomeViewController: UIViewController {
     }
     
     func addPickedRestaurantsFromListener() {
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return
+        }
         let today = Date.now
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy"
         let formattedDate = dateFormatter.string(from: today)
+        
+        
         
         database.collection("userLunch").whereField("lunchDate", isEqualTo: formattedDate)
             .addSnapshotListener { querySnapshot, error in
@@ -227,10 +232,11 @@ class HomeViewController: UIViewController {
                 
                 for document in querySnapshot.documents {
                     if let data = document.data() as? [String: Any],
-                       let restaurantName = data["restoName"] as? String {
-                        let restoId = document.documentID
+                       let restaurantName = data["restoName"] as? String ,
+                        let restoId = document.documentID as? String,
+                        let availability = data["availability"] as? Bool {
                         
-                        if restaurantName != "No Preference" && !newAvailableRestaurants.values.contains(restaurantName) {
+                        if restaurantName != "No Preference" && !newAvailableRestaurants.values.contains(restaurantName) && availability == true {
                             newAvailableRestaurants[restoId] = restaurantName
                         }
                     }
