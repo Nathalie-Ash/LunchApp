@@ -20,14 +20,14 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="NX5-F7-dMX">
-                        <rect key="frame" x="15" y="5" width="40" height="40"/>
+                        <rect key="frame" x="5" y="7.6666666666666679" width="35" height="35"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="40" id="cic-Yl-7RE"/>
-                            <constraint firstAttribute="height" constant="40" id="tKv-0C-pCb"/>
+                            <constraint firstAttribute="width" constant="35" id="cic-Yl-7RE"/>
+                            <constraint firstAttribute="height" constant="35" id="tKv-0C-pCb"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="ZwB-PG-ekI">
-                        <rect key="frame" x="70" y="14.666666666666664" width="137" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Smith" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="ZwB-PG-ekI">
+                        <rect key="frame" x="45" y="14.666666666666664" width="162" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -47,9 +47,9 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstItem="ZwB-PG-ekI" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="DiU-Ft-lOb"/>
-                <constraint firstItem="ZwB-PG-ekI" firstAttribute="leading" secondItem="NX5-F7-dMX" secondAttribute="trailing" constant="15" id="LOj-yz-94V"/>
+                <constraint firstItem="ZwB-PG-ekI" firstAttribute="leading" secondItem="NX5-F7-dMX" secondAttribute="trailing" constant="5" id="LOj-yz-94V"/>
                 <constraint firstAttribute="trailing" secondItem="veD-EW-Iwi" secondAttribute="trailing" constant="5" id="Ogb-va-37b"/>
-                <constraint firstItem="NX5-F7-dMX" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="15" id="PHZ-My-hrI"/>
+                <constraint firstItem="NX5-F7-dMX" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="PHZ-My-hrI"/>
                 <constraint firstItem="veD-EW-Iwi" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="fK4-5f-sgC"/>
                 <constraint firstItem="veD-EW-Iwi" firstAttribute="leading" secondItem="ZwB-PG-ekI" secondAttribute="trailing" constant="5" id="jqW-3w-bhf"/>
                 <constraint firstItem="NX5-F7-dMX" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="wpD-W5-9FB"/>
