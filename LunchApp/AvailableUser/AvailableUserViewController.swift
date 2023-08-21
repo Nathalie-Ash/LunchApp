@@ -13,7 +13,6 @@ class AvailableUserViewController: UIViewController {
 
     @IBOutlet weak var userProfile: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
-    
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var teamLabel: UILabel!
@@ -52,8 +51,7 @@ class AvailableUserViewController: UIViewController {
     
     
     @IBAction func sendMessageButtonPressed(_ sender: UIButton) {
-        
-   
+
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let destinationViewController = storyboard.instantiateViewController(withIdentifier: "chatView") as? ChatViewController {
             destinationViewController.currentUserId = currentUserId
@@ -180,7 +178,6 @@ class AvailableUserViewController: UIViewController {
                 displayedBirthday = dateFormatter.string(from: date)
             } else {
                 displayedBirthday = "Birthday Not Available"
-                
             }
         }
         

@@ -27,15 +27,8 @@ class ChatViewController: MessagesViewController,InputBarAccessoryViewDelegate, 
     override func viewDidLoad() {
       
         super.viewDidLoad()
-        getCurrentUserName(secondUserId ?? "Current user name not available") { userName in
-            DispatchQueue.main.async {
-                self.secondUserName = userName
-                 self.title = "Chat with \(userName)"
-                print("second User's name: \(userName)")
-            }
-        }
-       
-       
+        setUpMessagesView()
+        
         print("CURRENT USER ID: \(currentUserId)")
         getCurrentUserName(currentUserId ?? "Current user name not available") { userName in
             DispatchQueue.main.async {
@@ -46,23 +39,15 @@ class ChatViewController: MessagesViewController,InputBarAccessoryViewDelegate, 
         }
 
         print("Second User Id: \(secondUserId)")
-        getCurrentUserName(secondUserId ?? "Current user name not available") { userName in
+        getCurrentUserName(secondUserId ?? "second user name not available") { userName in
             DispatchQueue.main.async {
-                self.userName = userName
+                self.secondUserName = userName
                 // Now you can use the userName as needed
                 print("second User's name: \(userName)")
             }
         }
-        navigationItem.largeTitleDisplayMode = .never
-        maintainPositionOnKeyboardFrameChanged = true
-        scrollsToLastItemOnKeyboardBeginsEditing = true
-        messageInputBar.inputTextView.tintColor = .systemBlue
-        messageInputBar.sendButton.setTitleColor(.systemTeal, for: .normal)
-        messageInputBar.delegate = self
-        messagesCollectionView.messagesDataSource = self
-        messagesCollectionView.messagesLayoutDelegate = self
-        messagesCollectionView.messagesDisplayDelegate = self
         loadChat()
+        
         
     }
     
@@ -136,7 +121,11 @@ class ChatViewController: MessagesViewController,InputBarAccessoryViewDelegate, 
     
      private func loadChat() {
          // Fetch chat document for the users
-         database.collection("Chats").whereField("users", arrayContains: currentUserId ?? "")
+         guard let currentUserId = currentUserId, let secondUserId = secondUserId else {
+             return
+         }
+         
+         database.collection("Chats").whereField("users", arrayContains: [currentUserId, secondUserId])
              .getDocuments { (querySnapshot, error) in
                  if let error = error {
                      print("Error fetching chat: \(error)")
@@ -152,7 +141,7 @@ class ChatViewController: MessagesViewController,InputBarAccessoryViewDelegate, 
              }
      }
      
-     private func loadMessages() {
+    private func loadMessages() {
          guard let docReference = docReference else {
              return
          }
@@ -190,7 +179,7 @@ class ChatViewController: MessagesViewController,InputBarAccessoryViewDelegate, 
                  return
              }
              
-             self.loadChat()
+            // self.loadChat()
          }
      }
     
@@ -276,6 +265,18 @@ class ChatViewController: MessagesViewController,InputBarAccessoryViewDelegate, 
     func messageStyle(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageStyle {
         let corner: MessageStyle.TailCorner = isFromCurrentSender(message: message) ? .bottomRight: .bottomLeft
         return .bubbleTail(corner, .curved)
+    }
+    
+    func setUpMessagesView() {
+        navigationItem.largeTitleDisplayMode = .never
+        maintainPositionOnKeyboardFrameChanged = true
+        scrollsToLastItemOnKeyboardBeginsEditing = true
+        messageInputBar.inputTextView.tintColor = .systemBlue
+        messageInputBar.sendButton.setTitleColor(.systemTeal, for: .normal)
+        messageInputBar.delegate = self
+        messagesCollectionView.messagesDataSource = self
+        messagesCollectionView.messagesLayoutDelegate = self
+        messagesCollectionView.messagesDisplayDelegate = self
     }
     
 }
