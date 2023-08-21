@@ -43,6 +43,7 @@ class ChatViewController: MessagesViewController,InputBarAccessoryViewDelegate, 
             DispatchQueue.main.async {
                 self.secondUserName = userName
                 // Now you can use the userName as needed
+                self.title = "Chat with \(userName)"
                 print("second User's name: \(userName)")
             }
         }
