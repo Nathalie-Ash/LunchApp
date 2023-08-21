@@ -347,7 +347,7 @@ extension UserProfileViewController {
         self.restaurantButtons = [self.firstRestaurantChoice, self.secondRestaurantChoice, self.thirdRestaurantChoice]
         self.restaurantChoiceLimitLabel.isHidden = true
         for button in restaurantButtons {
-            let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
+            let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(restoLongPress(_:)))
             button.addGestureRecognizer(longPressGesture)
         }
     }
@@ -360,7 +360,7 @@ extension UserProfileViewController {
         self.foodButtons = [self.firstFoodChoice, self.secondFoodChoice, self.thirdFoodChoice]
         self.foodChoiceLimitLabel.isHidden = true
         for button in foodButtons {
-            let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
+            let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(foodLongPress(_:)))
             button.addGestureRecognizer(longPressGesture)
         }
     }
@@ -413,11 +413,20 @@ extension UserProfileViewController {
         self.restaurantChoiceLimitLabel.isHidden = false
     }
     
-    @objc func handleLongPress(_ gesture: UILongPressGestureRecognizer) {
+    @objc func foodLongPress(_ gesture: UILongPressGestureRecognizer) {
         if gesture.state == .began, let button = gesture.view as? UIButton {
             wiggleButton(button) {
                 guard let index = self.foodButtons.firstIndex(where: { $0 == button }) else { return }
                 self.removeFoodChoice(at: index)
+            }
+       }
+    }
+    
+    @objc func restoLongPress(_ gesture: UILongPressGestureRecognizer) {
+        if gesture.state == .began, let button = gesture.view as? UIButton {
+            wiggleButton(button) {
+                guard let index = self.restaurantButtons.firstIndex(where: { $0 == button }) else { return }
+                self.removeRestoChoice(at: index)
             }
        }
     }

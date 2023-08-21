@@ -303,29 +303,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rin-Nd-oP0">
-                                <rect key="frame" x="152.33333333333334" y="64" width="88.666666666666657" height="20.333333333333329"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kQ4-CQ-Zsz">
-                                <rect key="frame" x="0.0" y="84.333333333333314" width="393" height="594"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="598"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="en4-pR-aTZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="385.66666666666669" height="800"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="750"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="eSI-TF-K0U">
-                                                <rect key="frame" x="106.66666666666667" y="20" width="172.33333333333331" height="172.33333333333334"/>
+                                                <rect key="frame" x="106.66666666666667" y="20" width="179.66666666666663" height="179.66666666666666"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="eSI-TF-K0U" secondAttribute="height" multiplier="1:1" id="PB7-bo-tji"/>
                                                 </constraints>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="DAK-wy-Mqq">
-                                                <rect key="frame" x="20" y="212.33333333333337" width="345.66666666666669" height="430"/>
+                                                <rect key="frame" x="20" y="219.66666666666669" width="353" height="430.00000000000006"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="VTM-Qt-PBe" userLabel="Name Stack">
-                                                        <rect key="frame" x="0.0" y="0.0" width="345.66666666666669" height="40"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="353" height="40"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WtD-Nw-bBB">
                                                                 <rect key="frame" x="0.0" y="0.0" width="117" height="40"/>
@@ -337,7 +331,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="justified" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IRB-ba-PY7">
-                                                                <rect key="frame" x="129" y="0.0" width="216.66666666666663" height="40"/>
+                                                                <rect key="frame" x="129" y="0.0" width="224" height="40"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
@@ -346,7 +340,7 @@
                                                             <constraint firstAttribute="height" constant="40" id="SYS-mF-dKc"/>
                                                         </constraints>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="auF-6Y-aKi" userLabel="Birthday Stack">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="auF-6Y-aKi" userLabel="Birthday Stack">
                                                         <rect key="frame" x="0.0" y="50" width="345.66666666666669" height="40"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Birthday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w9r-Om-7Or">
@@ -358,8 +352,9 @@
                                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <datePicker contentMode="left" contentHorizontalAlignment="leading" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="4ep-4V-Q1C">
+                                                            <datePicker contentMode="left" contentHorizontalAlignment="leading" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="4ep-4V-Q1C">
                                                                 <rect key="frame" x="126.99999999999999" y="0.0" width="218.66666666666663" height="40"/>
+                                                                <locale key="locale" localeIdentifier="en_US"/>
                                                             </datePicker>
                                                         </subviews>
                                                         <constraints>
@@ -367,7 +362,7 @@
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gTl-es-wHW" userLabel="Office Stack">
-                                                        <rect key="frame" x="0.0" y="100" width="345.66666666666669" height="40"/>
+                                                        <rect key="frame" x="0.0" y="100" width="353" height="40"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Office" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qXm-yP-OhL">
                                                                 <rect key="frame" x="0.0" y="0.0" width="117" height="40"/>
@@ -379,7 +374,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Office/Team Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bTc-ag-AmW">
-                                                                <rect key="frame" x="126.99999999999999" y="0.0" width="218.66666666666663" height="40"/>
+                                                                <rect key="frame" x="127" y="0.0" width="226" height="40"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
@@ -390,10 +385,10 @@
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="cud-6m-K4g" userLabel="Favorite Food Stack">
-                                                        <rect key="frame" x="0.0" y="150" width="345.66666666666669" height="110"/>
+                                                        <rect key="frame" x="0.0" y="150" width="353" height="110"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ccN-yY-gjI" userLabel="Food Choice Stack">
-                                                                <rect key="frame" x="0.0" y="0.0" width="345.66666666666669" height="40"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="353" height="40"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fav Food" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rsx-Ye-vOd">
                                                                         <rect key="frame" x="0.0" y="0.0" width="117" height="40"/>
@@ -405,7 +400,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add choice" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5hT-Nh-EA2" userLabel="Food Text Field">
-                                                                        <rect key="frame" x="126.99999999999999" y="0.0" width="178.66666666666663" height="40"/>
+                                                                        <rect key="frame" x="127" y="0.0" width="186" height="40"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="40" id="Zci-Vk-sXP"/>
                                                                         </constraints>
@@ -413,7 +408,7 @@
                                                                         <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                                     </textField>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kaw-gO-EEr">
-                                                                        <rect key="frame" x="315.66666666666669" y="0.0" width="30" height="40"/>
+                                                                        <rect key="frame" x="323" y="0.0" width="30" height="40"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="30" id="T9M-U9-mLq"/>
                                                                         </constraints>
@@ -436,7 +431,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xwH-Mf-Ty9">
-                                                                <rect key="frame" x="0.0" y="69.999999999999943" width="345.66666666666669" height="40"/>
+                                                                <rect key="frame" x="0.0" y="70" width="345.66666666666669" height="40"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DUD-LF-PIs">
                                                                         <rect key="frame" x="0.0" y="0.0" width="345.66666666666669" height="40"/>
@@ -446,7 +441,7 @@
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="150" id="Ppe-FX-y5t"/>
                                                                                 </constraints>
-                                                                                <color key="tintColor" name="LunchApp_Orange"/>
+                                                                                <color key="tintColor" name="LunchApp_Purple"/>
                                                                                 <state key="normal" title="Button"/>
                                                                                 <buttonConfiguration key="configuration" style="filled" title="Choice 1" cornerStyle="capsule"/>
                                                                                 <connections>
@@ -458,7 +453,7 @@
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="150" id="Dio-1s-vSG"/>
                                                                                 </constraints>
-                                                                                <color key="tintColor" name="LunchApp_Orange"/>
+                                                                                <color key="tintColor" name="LunchApp_Purple"/>
                                                                                 <buttonConfiguration key="configuration" style="filled" title="Choice 2" cornerStyle="capsule" buttonSize="medium" titleAlignment="trailing"/>
                                                                                 <connections>
                                                                                     <action selector="removeFoodChoice2:" destination="fTs-aV-HB6" eventType="touchUpInside" id="ZBp-o7-FMw"/>
@@ -470,7 +465,7 @@
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="150" id="gZY-vU-Bpa"/>
                                                                                 </constraints>
-                                                                                <color key="tintColor" name="LunchApp_Orange"/>
+                                                                                <color key="tintColor" name="LunchApp_Purple"/>
                                                                                 <state key="normal" title="Button"/>
                                                                                 <buttonConfiguration key="configuration" style="filled" title="Choice 3" cornerStyle="capsule"/>
                                                                                 <connections>
@@ -493,6 +488,9 @@
                                                                         </constraints>
                                                                     </view>
                                                                 </subviews>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="40" id="jTd-Bm-mEg"/>
+                                                                </constraints>
                                                             </stackView>
                                                         </subviews>
                                                         <constraints>
@@ -500,10 +498,10 @@
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="eyo-t5-hnN" userLabel="Favorite Restaurant Stack">
-                                                        <rect key="frame" x="0.0" y="269.99999999999994" width="345.66666666666669" height="110"/>
+                                                        <rect key="frame" x="0.0" y="269.99999999999994" width="353" height="110"/>
                                                         <subviews>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bl2-Kr-H7N" userLabel="Restaurant Choice Stack">
-                                                                <rect key="frame" x="0.0" y="0.0" width="345.66666666666669" height="40"/>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bl2-Kr-H7N" userLabel="Restaurant Choice Stack">
+                                                                <rect key="frame" x="0.0" y="0.0" width="353" height="40"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fav Restaurant" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zjA-A4-VvE" userLabel="Fav Resto">
                                                                         <rect key="frame" x="0.0" y="0.0" width="117" height="40"/>
@@ -515,7 +513,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add choice" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9jm-Jf-grX" userLabel="Restaurant Text Field">
-                                                                        <rect key="frame" x="126.99999999999999" y="0.0" width="178.66666666666663" height="40"/>
+                                                                        <rect key="frame" x="127" y="0.0" width="186" height="40"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="40" id="Wyn-18-4zH"/>
                                                                         </constraints>
@@ -523,7 +521,7 @@
                                                                         <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                                     </textField>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="clv-f9-xGd">
-                                                                        <rect key="frame" x="315.66666666666669" y="0.0" width="30" height="40"/>
+                                                                        <rect key="frame" x="323" y="0.0" width="30" height="40"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="30" id="r3D-Tr-w2n"/>
                                                                         </constraints>
@@ -546,17 +544,17 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SN3-pE-fVK">
-                                                                <rect key="frame" x="0.0" y="70" width="345.66666666666669" height="40"/>
+                                                                <rect key="frame" x="0.0" y="70" width="289" height="40"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T8O-F8-7e1">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="345.66666666666669" height="40"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="289" height="40"/>
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="63I-sl-uAg">
                                                                                 <rect key="frame" x="2" y="3" width="89" height="34.333333333333336"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="150" id="RgR-zq-tnk"/>
                                                                                 </constraints>
-                                                                                <color key="tintColor" name="LunchApp_Orange"/>
+                                                                                <color key="tintColor" name="LunchApp_Purple"/>
                                                                                 <state key="normal" title="Button"/>
                                                                                 <buttonConfiguration key="configuration" style="filled" title="Choice 1" cornerStyle="capsule"/>
                                                                                 <connections>
@@ -568,7 +566,7 @@
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="150" id="W5r-c2-8dp"/>
                                                                                 </constraints>
-                                                                                <color key="tintColor" name="LunchApp_Orange"/>
+                                                                                <color key="tintColor" name="LunchApp_Purple"/>
                                                                                 <buttonConfiguration key="configuration" style="filled" title="Choice 2" cornerStyle="capsule" buttonSize="medium" titleAlignment="trailing"/>
                                                                                 <connections>
                                                                                     <action selector="removeRestaurantChoice2:" destination="fTs-aV-HB6" eventType="touchUpInside" id="Ee2-aU-pnt"/>
@@ -580,7 +578,7 @@
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="150" id="l9v-Tj-lTo"/>
                                                                                 </constraints>
-                                                                                <color key="tintColor" name="LunchApp_Orange"/>
+                                                                                <color key="tintColor" name="LunchApp_Purple"/>
                                                                                 <state key="normal" title="Button"/>
                                                                                 <buttonConfiguration key="configuration" style="filled" title="Choice 3" cornerStyle="capsule"/>
                                                                                 <connections>
@@ -603,10 +601,14 @@
                                                                         </constraints>
                                                                     </view>
                                                                 </subviews>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="40" id="CUl-vS-pUm"/>
+                                                                </constraints>
                                                             </stackView>
                                                         </subviews>
                                                         <constraints>
-                                                            <constraint firstAttribute="trailing" secondItem="bl2-Kr-H7N" secondAttribute="trailing" id="DbY-Qp-vVg"/>
+                                                            <constraint firstItem="bl2-Kr-H7N" firstAttribute="leading" secondItem="eyo-t5-hnN" secondAttribute="leading" id="bpy-Q8-eIO"/>
+                                                            <constraint firstAttribute="trailing" secondItem="bl2-Kr-H7N" secondAttribute="trailing" id="mgi-MS-Uac"/>
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="XR6-cv-wu4" userLabel="Public Infp">
@@ -620,7 +622,7 @@
                                                             </label>
                                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="483-dF-SSA">
                                                                 <rect key="frame" x="221.66666666666666" y="0.0" width="50.999999999999972" height="40"/>
-                                                                <color key="onTintColor" red="0.53333333329999999" green="0.4941176471" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="onTintColor" name="LunchApp_Orange"/>
                                                             </switch>
                                                         </subviews>
                                                         <constraints>
@@ -629,15 +631,15 @@
                                                     </stackView>
                                                 </subviews>
                                                 <constraints>
+                                                    <constraint firstItem="eyo-t5-hnN" firstAttribute="width" secondItem="cud-6m-K4g" secondAttribute="width" id="3dn-cO-uNz"/>
                                                     <constraint firstItem="cud-6m-K4g" firstAttribute="leading" secondItem="DAK-wy-Mqq" secondAttribute="leading" id="8be-km-dch"/>
-                                                    <constraint firstAttribute="trailing" secondItem="auF-6Y-aKi" secondAttribute="trailing" id="BxI-zX-ni9"/>
                                                     <constraint firstAttribute="trailing" secondItem="VTM-Qt-PBe" secondAttribute="trailing" id="H5R-tW-d48"/>
                                                     <constraint firstAttribute="trailing" secondItem="gTl-es-wHW" secondAttribute="trailing" id="joY-lt-JCD"/>
                                                     <constraint firstAttribute="trailing" secondItem="cud-6m-K4g" secondAttribute="trailing" id="mFI-ro-VSO"/>
                                                 </constraints>
                                             </stackView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pencil.and.outline" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="3E6-56-O2V">
-                                                <rect key="frame" x="233" y="29.666666666666671" width="45" height="45"/>
+                                                <rect key="frame" x="236.66666666666663" y="29.666666666666671" width="45" height="45"/>
                                                 <color key="tintColor" name="LunchApp_Purple"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="45" id="2cZ-Nd-Trq"/>
@@ -652,17 +654,16 @@
                                             <constraint firstItem="DAK-wy-Mqq" firstAttribute="top" secondItem="eSI-TF-K0U" secondAttribute="bottom" constant="20" id="ZXW-x1-HE4"/>
                                             <constraint firstItem="3E6-56-O2V" firstAttribute="leading" secondItem="eSI-TF-K0U" secondAttribute="centerX" constant="40" id="dzG-Wz-mpQ"/>
                                             <constraint firstItem="3E6-56-O2V" firstAttribute="top" secondItem="en4-pR-aTZ" secondAttribute="top" constant="30.000000000000004" id="hVq-Mi-aNp"/>
-                                            <constraint firstAttribute="height" constant="800" id="mrX-Df-lnm"/>
+                                            <constraint firstAttribute="height" constant="750" id="mrX-Df-lnm"/>
                                             <constraint firstItem="eSI-TF-K0U" firstAttribute="leading" secondItem="en4-pR-aTZ" secondAttribute="leading" constant="106.66666666666667" id="tKz-OT-ULP"/>
                                             <constraint firstItem="eSI-TF-K0U" firstAttribute="top" secondItem="en4-pR-aTZ" secondAttribute="top" constant="20" id="vUZ-Sc-vm3"/>
                                             <constraint firstAttribute="trailing" secondItem="DAK-wy-Mqq" secondAttribute="trailing" constant="20" id="xgc-O4-c2s"/>
                                             <constraint firstItem="eSI-TF-K0U" firstAttribute="centerX" secondItem="en4-pR-aTZ" secondAttribute="centerX" id="yU9-5P-RO2"/>
-                                            <constraint firstItem="eSI-TF-K0U" firstAttribute="centerX" secondItem="en4-pR-aTZ" secondAttribute="centerX" id="zO8-sl-sfJ"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="en4-pR-aTZ" secondAttribute="bottom" id="4MA-Cn-lzc"/>
+                                    <constraint firstAttribute="bottom" secondItem="en4-pR-aTZ" secondAttribute="bottom" constant="25" id="4MA-Cn-lzc"/>
                                     <constraint firstAttribute="trailing" secondItem="en4-pR-aTZ" secondAttribute="trailing" id="Fzn-4g-OH7"/>
                                     <constraint firstItem="en4-pR-aTZ" firstAttribute="leading" secondItem="kQ4-CQ-Zsz" secondAttribute="leading" id="dcL-bG-0Dh"/>
                                     <constraint firstItem="en4-pR-aTZ" firstAttribute="top" secondItem="kQ4-CQ-Zsz" secondAttribute="top" id="jpa-ld-FNx"/>
@@ -672,11 +673,14 @@
                                 </connections>
                             </scrollView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="L3C-13-m3o">
-                                <rect key="frame" x="100" y="678.33333333333337" width="193" height="80.666666666666629"/>
+                                <rect key="frame" x="126.66666666666669" y="667" width="140" height="92"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m4b-K1-KgO">
-                                        <rect key="frame" x="0.0" y="0.0" width="193" height="34.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="140" height="40"/>
                                         <color key="backgroundColor" name="LunchApp_Orange"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="t0I-sT-cxO"/>
+                                        </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Save Changes">
                                             <fontDescription key="titleFontDescription" type="boldSystem" pointSize="17"/>
@@ -687,8 +691,11 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YnA-HQ-WcX" userLabel="Sign out">
-                                        <rect key="frame" x="0.0" y="46.333333333333258" width="193" height="34.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="52" width="140" height="40"/>
                                         <color key="backgroundColor" name="LunchApp_Orange"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="FDu-7z-fGh"/>
+                                        </constraints>
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Sign Out">
@@ -699,26 +706,26 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="Soa-Sd-qJC"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ozh-OL-NSM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="rin-Nd-oP0" firstAttribute="centerX" secondItem="88R-SL-b1C" secondAttribute="centerX" id="1ft-vd-dUl"/>
                             <constraint firstItem="ozh-OL-NSM" firstAttribute="bottom" secondItem="L3C-13-m3o" secondAttribute="bottom" constant="10" id="3gz-0y-5lT"/>
-                            <constraint firstItem="L3C-13-m3o" firstAttribute="leading" secondItem="ozh-OL-NSM" secondAttribute="leading" constant="100" id="5wO-G0-quF"/>
-                            <constraint firstItem="en4-pR-aTZ" firstAttribute="width" secondItem="88R-SL-b1C" secondAttribute="width" multiplier="0.981395" id="60c-47-iUy"/>
-                            <constraint firstItem="kQ4-CQ-Zsz" firstAttribute="top" secondItem="rin-Nd-oP0" secondAttribute="bottom" id="FmD-Do-3Yx"/>
-                            <constraint firstItem="rin-Nd-oP0" firstAttribute="top" secondItem="ozh-OL-NSM" secondAttribute="top" constant="5" id="TMi-ia-8QH"/>
-                            <constraint firstItem="ozh-OL-NSM" firstAttribute="trailing" secondItem="L3C-13-m3o" secondAttribute="trailing" constant="100" id="UEU-AD-xwO"/>
-                            <constraint firstItem="L3C-13-m3o" firstAttribute="top" secondItem="kQ4-CQ-Zsz" secondAttribute="bottom" id="exk-98-qSq"/>
+                            <constraint firstItem="en4-pR-aTZ" firstAttribute="width" secondItem="88R-SL-b1C" secondAttribute="width" id="60c-47-iUy"/>
+                            <constraint firstItem="kQ4-CQ-Zsz" firstAttribute="top" secondItem="ozh-OL-NSM" secondAttribute="top" id="FmD-Do-3Yx"/>
+                            <constraint firstItem="L3C-13-m3o" firstAttribute="top" secondItem="kQ4-CQ-Zsz" secondAttribute="bottom" constant="10" id="exk-98-qSq"/>
                             <constraint firstItem="kQ4-CQ-Zsz" firstAttribute="leading" secondItem="ozh-OL-NSM" secondAttribute="leading" id="f53-Xq-ixG"/>
-                            <constraint firstItem="kQ4-CQ-Zsz" firstAttribute="top" secondItem="rin-Nd-oP0" secondAttribute="bottom" id="o4W-K4-5J1"/>
+                            <constraint firstItem="L3C-13-m3o" firstAttribute="centerX" secondItem="88R-SL-b1C" secondAttribute="centerX" id="obX-QK-YoC"/>
                             <constraint firstItem="ozh-OL-NSM" firstAttribute="trailing" secondItem="kQ4-CQ-Zsz" secondAttribute="trailing" id="vau-wq-Y1T"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="User" id="RqY-cU-XgN">
                         <imageReference key="image" image="person.circle.fill" catalog="system" symbolScale="default"/>
+                        <color key="badgeColor" name="LunchApp_Purple"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" id="ols-wh-t5a"/>
                     <connections>
