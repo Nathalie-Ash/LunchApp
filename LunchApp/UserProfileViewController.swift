@@ -17,24 +17,53 @@ class UserProfileViewController: UIViewController {
     @IBOutlet weak var nameLabel: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var officeLabel: UITextField!
-    @IBOutlet weak var foodStackView: UIStackView!
 
     @IBOutlet weak var publicInfoSwitch: UISwitch!
     @IBOutlet weak var profilePictureAvatar: UIImageView!
     @IBOutlet weak var signOutButton: UIButton!
     @IBOutlet weak var saveChangesButton: UIButton!
     
-    @IBOutlet weak var foodChoice1: UITextField!
-    @IBOutlet weak var foodChoice2: UITextField!
-    @IBOutlet weak var foodChoice3: UITextField!
+    @IBOutlet weak var foodChoice: UITextField!
+    @IBOutlet weak var addFoodChoiceButton: UIButton!
+    
+    @IBOutlet weak var foodChoicesStack: UIStackView!
+    @IBOutlet weak var foodMessageLabel: UILabel!
+    @IBOutlet weak var firstFoodChoice: UIButton!
+    @IBOutlet weak var secondFoodChoice: UIButton!
+    @IBOutlet weak var thirdFoodChoice: UIButton!
     
     @IBOutlet weak var restaurantChoice1: UITextField!
     
-    @IBOutlet weak var restaurantChoice2: UITextField!
-    
-    @IBOutlet weak var restaurantChoice3: UITextField!
-    
     var previousProfilePictureRef: StorageReference?
+    
+    var foodChoices: [String] = []
+    var foodButtons: [UIButton] = []
+    var initialButtonCenter: CGPoint = .zero
+    
+    @IBAction func addFoodChoice(_ sender: Any) {
+        if let text = foodChoice.text, !text.isEmpty {
+            if self.foodChoices.count < 3 {
+                foodChoices.append(text)
+                self.foodChoice.text = ""
+                reloadFoodChoices()
+            } else {
+                self.foodMessageLabel.text = "You can only add 3 choices"
+                self.foodMessageLabel.isHidden = false
+            }
+        }
+    }
+    
+    @IBAction func removeFoodChoice1(_ sender: Any) {
+        self.removeFoodChoice(at: 0)
+    }
+    
+    @IBAction func removeFoodChoice2(_ sender: Any) {
+        self.removeFoodChoice(at: 1)
+    }
+    
+    @IBAction func removeFoodChoice3(_ sender: Any) {
+        self.removeFoodChoice(at: 2)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,14 +73,7 @@ class UserProfileViewController: UIViewController {
         
         self.nameLabel.useUnderline()
         self.officeLabel.useUnderline()
-        self.foodChoice1.useUnderline()
-        self.foodChoice2.useUnderline()
-        self.foodChoice3.useUnderline()
-        
         self.restaurantChoice1.useUnderline()
-        self.restaurantChoice2.useUnderline()
-        self.restaurantChoice3.useUnderline()
-        
         
         guard let uid = Auth.auth().currentUser?.uid else { return }
         let usersCollection = Firestore.firestore().collection("users").document(uid).addSnapshotListener { documentSnapshot, error in
@@ -65,24 +87,11 @@ class UserProfileViewController: UIViewController {
                 self.officeLabel.text = user.office
                 
                 if user.food.count > 0, !user.food[0].isEmpty {
-                         self.foodChoice1.text = user.food[0]
+                         self.foodChoice.text = user.food[0]
                      }
-                     if user.food.count > 1, !user.food[1].isEmpty {
-                         self.foodChoice2.text = user.food[1]
-                     }
-                     if user.food.count > 2, !user.food[2].isEmpty {
-                         self.foodChoice3.text = user.food[2]
-                     }
-                
                 
                 if user.restaurant.count > 0, !user.restaurant[0].isEmpty {
                          self.restaurantChoice1.text = user.restaurant[0]
-                     }
-                     if user.restaurant.count > 1, !user.restaurant[1].isEmpty {
-                         self.restaurantChoice2.text = user.restaurant[1]
-                     }
-                     if user.restaurant.count > 2, !user.restaurant[2].isEmpty {
-                         self.restaurantChoice3.text = user.restaurant[2]
                      }
                 
                 let dateFormatter = DateFormatter()
@@ -160,28 +169,14 @@ class UserProfileViewController: UIViewController {
         isInfoPublic = !publicInfoSwitch.isOn
         
         favoriteFood = []
-        if let foodChoice1Text = foodChoice1.text, !foodChoice1Text.isEmpty {
-            favoriteFood.append(foodChoice1Text)
+        if let foodChoiceText = foodChoice.text, !foodChoiceText.isEmpty {
+            favoriteFood.append(foodChoiceText)
         }
-        if let foodChoice2Text = foodChoice2.text, !foodChoice2Text.isEmpty {
-            favoriteFood.append(foodChoice2Text)
-        }
-        if let foodChoice3Text = foodChoice3.text, !foodChoice3Text.isEmpty {
-            favoriteFood.append(foodChoice3Text)
-        }
-        
         
         favoriteRestaurants = []
         if let restaurantChoice1Text = restaurantChoice1.text, !restaurantChoice1Text.isEmpty {
             favoriteRestaurants.append(restaurantChoice1Text)
         }
-        if let restaurantChoice2Text = restaurantChoice2.text, !restaurantChoice2Text.isEmpty {
-            favoriteRestaurants.append(restaurantChoice2Text)
-        }
-        if let restaurantChoice3Text = restaurantChoice3.text, !restaurantChoice3Text.isEmpty {
-            favoriteRestaurants.append(restaurantChoice3Text)
-        }
-        
         
         var user = User(
             userId: uid,
@@ -321,6 +316,61 @@ extension UserProfileViewController: UIImagePickerControllerDelegate, UINavigati
     
 }
 
-
-
-
+//MARK: - Favorite Food
+extension UserProfileViewController {
+    
+    func setupFavFood() {
+        self.foodChoice.useUnderline()
+        self.firstFoodChoice.isHidden = true
+        self.secondFoodChoice.isHidden = true
+        self.thirdFoodChoice.isHidden = true
+        self.foodButtons = [self.firstFoodChoice, self.secondFoodChoice, self.thirdFoodChoice]
+        self.foodMessageLabel.isHidden = true
+        for button in foodButtons {
+            let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
+            button.addGestureRecognizer(longPressGesture)
+        }
+    }
+    
+    func removeFoodChoice(at index: Int) {
+        self.foodChoices.remove(at: index)
+        self.reloadFoodChoices()
+    }
+    
+    func reloadFoodChoices() {
+        for (index, item) in foodChoices.enumerated() {
+            let button = self.foodButtons[index]
+            button.setTitle(item, for: .normal)
+            button.isHidden = false
+        }
+        self.firstFoodChoice.isHidden = self.foodChoices.count == 0
+        self.secondFoodChoice.isHidden = self.foodChoices.count < 2
+        self.thirdFoodChoice.isHidden = self.foodChoices.count < 3
+        self.foodChoicesStack.isHidden = self.firstFoodChoice.isHidden && self.secondFoodChoice.isHidden && self.thirdFoodChoice.isHidden
+        self.foodMessageLabel.isHidden = true
+    }
+    
+    @objc func handleLongPress(_ gesture: UILongPressGestureRecognizer) {
+        if gesture.state == .began, let button = gesture.view as? UIButton {
+            wiggleButton(button) {
+                guard let index = self.foodButtons.firstIndex(where: { $0 == button }) else { return }
+                self.removeFoodChoice(at: index)
+            }
+       }
+    }
+    
+    func wiggleButton(_ button: UIButton, completion: @escaping () -> Void) {
+            let animation = CABasicAnimation(keyPath: "position")
+            animation.duration = 0.08
+            animation.repeatCount = 3
+            animation.autoreverses = true
+            animation.fromValue = NSValue(cgPoint: CGPoint(x: button.center.x - 10, y: button.center.y))
+            animation.toValue = NSValue(cgPoint: CGPoint(x: button.center.x + 10, y: button.center.y))
+            
+            button.layer.add(animation, forKey: "wiggle")
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + animation.duration * Double(animation.repeatCount)) {
+                completion()
+            }
+        }
+}

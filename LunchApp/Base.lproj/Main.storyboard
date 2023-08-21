@@ -321,8 +321,8 @@
                                                     <constraint firstAttribute="width" secondItem="eSI-TF-K0U" secondAttribute="height" multiplier="1:1" id="PB7-bo-tji"/>
                                                 </constraints>
                                             </imageView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="DAK-wy-Mqq">
-                                                <rect key="frame" x="20" y="212.33333333333334" width="345.66666666666669" height="470.33333333333326"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="DAK-wy-Mqq">
+                                                <rect key="frame" x="20" y="212.33333333333337" width="345.66666666666669" height="360"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="VTM-Qt-PBe" userLabel="Name Stack">
                                                         <rect key="frame" x="0.0" y="0.0" width="345.66666666666669" height="40"/>
@@ -347,7 +347,7 @@
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="auF-6Y-aKi" userLabel="Birthday Stack">
-                                                        <rect key="frame" x="0.0" y="45" width="345.66666666666669" height="40"/>
+                                                        <rect key="frame" x="0.0" y="50" width="345.66666666666669" height="40"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Birthday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w9r-Om-7Or">
                                                                 <rect key="frame" x="0.0" y="0.0" width="117" height="40"/>
@@ -367,7 +367,7 @@
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gTl-es-wHW" userLabel="Office Stack">
-                                                        <rect key="frame" x="0.0" y="90" width="345.66666666666669" height="40"/>
+                                                        <rect key="frame" x="0.0" y="100" width="345.66666666666669" height="40"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Office" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qXm-yP-OhL">
                                                                 <rect key="frame" x="0.0" y="0.0" width="117" height="40"/>
@@ -389,60 +389,121 @@
                                                             <constraint firstAttribute="trailing" secondItem="bTc-ag-AmW" secondAttribute="trailing" id="uef-4q-IR4"/>
                                                         </constraints>
                                                     </stackView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add up to 3 choices" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jj1-Do-0RW">
-                                                        <rect key="frame" x="0.0" y="135" width="345.66666666666669" height="20.333333333333343"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ccN-yY-gjI" userLabel="Food Stack">
-                                                        <rect key="frame" x="0.0" y="160.33333333333331" width="345.66666666666669" height="130"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="cud-6m-K4g">
+                                                        <rect key="frame" x="0.0" y="150" width="345.66666666666669" height="110"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fav Food" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rsx-Ye-vOd">
-                                                                <rect key="frame" x="0.0" y="0.0" width="117" height="20.333333333333332"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="117" id="mhi-cB-Rwv"/>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="SPo-FI-jqx">
-                                                                <rect key="frame" x="126.99999999999999" y="0.0" width="218.66666666666663" height="130"/>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ccN-yY-gjI" userLabel="Food Stack">
+                                                                <rect key="frame" x="0.0" y="0.0" width="345.66666666666669" height="40"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Choice 1" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5hT-Nh-EA2" userLabel="Food Text Field">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="218.66666666666666" height="40"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fav Food" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rsx-Ye-vOd">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="117" height="40"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="117" id="mhi-cB-Rwv"/>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add choice" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5hT-Nh-EA2" userLabel="Food Text Field">
+                                                                        <rect key="frame" x="126.99999999999999" y="0.0" width="178.66666666666663" height="40"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="40" id="Zci-Vk-sXP"/>
                                                                         </constraints>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                                     </textField>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Choice 2" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rCU-wr-P6J" userLabel="Food Text Field">
-                                                                        <rect key="frame" x="0.0" y="45" width="218.66666666666666" height="40"/>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kaw-gO-EEr">
+                                                                        <rect key="frame" x="315.66666666666669" y="0.0" width="30" height="40"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="height" constant="40" id="NUi-Mn-Lq5"/>
+                                                                            <constraint firstAttribute="width" constant="30" id="T9M-U9-mLq"/>
                                                                         </constraints>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits"/>
-                                                                    </textField>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Choice 3" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7i2-Xn-z7c" userLabel="Food Text Field">
-                                                                        <rect key="frame" x="0.0" y="90" width="218.66666666666666" height="40"/>
+                                                                        <color key="tintColor" name="LunchApp_Orange"/>
+                                                                        <state key="normal" title="Button"/>
+                                                                        <buttonConfiguration key="configuration" style="plain" image="plus.circle.fill" catalog="system"/>
+                                                                        <connections>
+                                                                            <action selector="addFoodChoice:" destination="fTs-aV-HB6" eventType="touchUpInside" id="olP-ls-aa8"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                </subviews>
+                                                            </stackView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add up to 3 choices" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jj1-Do-0RW">
+                                                                <rect key="frame" x="0.0" y="45" width="125" height="20"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="20" id="Mwb-G2-Pvc"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                                                <color key="textColor" red="0.84705877299999999" green="0.20784312490000001" blue="0.1647058874" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xwH-Mf-Ty9">
+                                                                <rect key="frame" x="0.0" y="69.999999999999943" width="345.66666666666669" height="40"/>
+                                                                <subviews>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DUD-LF-PIs">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="345.66666666666669" height="40"/>
+                                                                        <subviews>
+                                                                            <button opaque="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IPe-Hj-2fd">
+                                                                                <rect key="frame" x="2" y="3" width="89" height="34.333333333333336"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="150" id="Ppe-FX-y5t"/>
+                                                                                </constraints>
+                                                                                <color key="tintColor" name="LunchApp_Orange"/>
+                                                                                <state key="normal" title="Button"/>
+                                                                                <buttonConfiguration key="configuration" style="filled" title="Choice 1" cornerStyle="capsule"/>
+                                                                                <connections>
+                                                                                    <action selector="removeFoodChoice1:" destination="fTs-aV-HB6" eventType="touchUpInside" id="NbN-NZ-d2Z"/>
+                                                                                </connections>
+                                                                            </button>
+                                                                            <button opaque="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hPj-gx-a6O">
+                                                                                <rect key="frame" x="96" y="3" width="91.333333333333314" height="34.333333333333336"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="150" id="Dio-1s-vSG"/>
+                                                                                </constraints>
+                                                                                <color key="tintColor" name="LunchApp_Orange"/>
+                                                                                <buttonConfiguration key="configuration" style="filled" title="Choice 2" cornerStyle="capsule" buttonSize="medium" titleAlignment="trailing"/>
+                                                                                <connections>
+                                                                                    <action selector="removeFoodChoice2:" destination="fTs-aV-HB6" eventType="touchUpInside" id="ZBp-o7-FMw"/>
+                                                                                </connections>
+                                                                            </button>
+                                                                            <button opaque="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="anC-c4-9dq">
+                                                                                <rect key="frame" x="192.33333333333334" y="3" width="91.666666666666657" height="34.333333333333336"/>
+                                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="150" id="gZY-vU-Bpa"/>
+                                                                                </constraints>
+                                                                                <color key="tintColor" name="LunchApp_Orange"/>
+                                                                                <state key="normal" title="Button"/>
+                                                                                <buttonConfiguration key="configuration" style="filled" title="Choice 3" cornerStyle="capsule"/>
+                                                                                <connections>
+                                                                                    <action selector="removeFoodChoice3:" destination="fTs-aV-HB6" eventType="touchUpInside" id="9c5-2d-2E9"/>
+                                                                                </connections>
+                                                                            </button>
+                                                                        </subviews>
+                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="height" constant="40" id="2i3-if-eMf"/>
+                                                                            <constraint firstItem="hPj-gx-a6O" firstAttribute="centerY" secondItem="DUD-LF-PIs" secondAttribute="centerY" id="0Hy-Kk-rJA"/>
+                                                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="anC-c4-9dq" secondAttribute="trailing" constant="5" id="DZa-3D-Mkm"/>
+                                                                            <constraint firstItem="anC-c4-9dq" firstAttribute="leading" secondItem="hPj-gx-a6O" secondAttribute="trailing" constant="5" id="EZa-Bf-zjS"/>
+                                                                            <constraint firstItem="anC-c4-9dq" firstAttribute="centerY" secondItem="DUD-LF-PIs" secondAttribute="centerY" id="UX3-NO-HO1"/>
+                                                                            <constraint firstItem="hPj-gx-a6O" firstAttribute="leading" secondItem="IPe-Hj-2fd" secondAttribute="trailing" constant="5" id="VH4-AB-dm3"/>
+                                                                            <constraint firstItem="IPe-Hj-2fd" firstAttribute="centerY" secondItem="DUD-LF-PIs" secondAttribute="centerY" id="ZfZ-vJ-fmr"/>
+                                                                            <constraint firstItem="anC-c4-9dq" firstAttribute="leading" secondItem="hPj-gx-a6O" secondAttribute="trailing" constant="5" id="hXz-JY-Uej"/>
+                                                                            <constraint firstItem="hPj-gx-a6O" firstAttribute="leading" secondItem="IPe-Hj-2fd" secondAttribute="trailing" constant="5" id="lDd-Sj-AjO"/>
+                                                                            <constraint firstAttribute="height" constant="40" id="pxR-8a-yFm"/>
+                                                                            <constraint firstItem="IPe-Hj-2fd" firstAttribute="leading" secondItem="DUD-LF-PIs" secondAttribute="leading" constant="2" id="rxk-YY-Bjm"/>
                                                                         </constraints>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits"/>
-                                                                    </textField>
+                                                                    </view>
                                                                 </subviews>
                                                             </stackView>
                                                         </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="ccN-yY-gjI" secondAttribute="trailing" id="BXi-G7-JpX"/>
+                                                        </constraints>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4ZK-An-X9U" userLabel="Rest Stack">
-                                                        <rect key="frame" x="0.0" y="295.33333333333331" width="345.66666666666669" height="130"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4ZK-An-X9U" userLabel="Rest Stack">
+                                                        <rect key="frame" x="0.0" y="269.99999999999994" width="345.66666666666669" height="40"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fav Restaurant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b2Q-8l-Szf">
-                                                                <rect key="frame" x="0.0" y="0.0" width="117" height="20.333333333333332"/>
+                                                                <rect key="frame" x="0.0" y="9.9999999999999982" width="117" height="20.333333333333329"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="117" id="fFs-Yu-VGS"/>
                                                                 </constraints>
@@ -451,7 +512,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="1Ne-MS-Zc1">
-                                                                <rect key="frame" x="126.99999999999999" y="0.0" width="218.66666666666663" height="130"/>
+                                                                <rect key="frame" x="126.99999999999999" y="0.0" width="218.66666666666663" height="40"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Choice 1" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6bz-Gi-u1F">
                                                                         <rect key="frame" x="0.0" y="0.0" width="218.66666666666666" height="40"/>
@@ -461,28 +522,12 @@
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Choice 2" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zNp-GE-Zah">
-                                                                        <rect key="frame" x="0.0" y="45" width="218.66666666666666" height="40"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="height" constant="40" id="z6d-NN-IDh"/>
-                                                                        </constraints>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits"/>
-                                                                    </textField>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Choice 3" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PcZ-SK-qWj">
-                                                                        <rect key="frame" x="0.0" y="90" width="218.66666666666666" height="40"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="height" constant="40" id="Gnf-rJ-mQb"/>
-                                                                        </constraints>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits"/>
-                                                                    </textField>
                                                                 </subviews>
                                                             </stackView>
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="XR6-cv-wu4" userLabel="Public Infp">
-                                                        <rect key="frame" x="0.0" y="430.33333333333331" width="270.66666666666669" height="40"/>
+                                                        <rect key="frame" x="0.0" y="319.99999999999994" width="270.66666666666669" height="40"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hide Birthday From Public" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lxr-qy-jdP">
                                                                 <rect key="frame" x="0.0" y="0.0" width="211.66666666666666" height="40"/>
@@ -501,13 +546,12 @@
                                                     </stackView>
                                                 </subviews>
                                                 <constraints>
+                                                    <constraint firstItem="cud-6m-K4g" firstAttribute="leading" secondItem="DAK-wy-Mqq" secondAttribute="leading" id="8be-km-dch"/>
                                                     <constraint firstAttribute="trailing" secondItem="auF-6Y-aKi" secondAttribute="trailing" id="BxI-zX-ni9"/>
                                                     <constraint firstAttribute="trailing" secondItem="VTM-Qt-PBe" secondAttribute="trailing" id="H5R-tW-d48"/>
-                                                    <constraint firstAttribute="trailing" secondItem="ccN-yY-gjI" secondAttribute="trailing" id="R8L-jv-imy"/>
-                                                    <constraint firstItem="jj1-Do-0RW" firstAttribute="leading" secondItem="DAK-wy-Mqq" secondAttribute="leading" id="aTI-mn-4Bf"/>
                                                     <constraint firstAttribute="trailing" secondItem="4ZK-An-X9U" secondAttribute="trailing" id="fgi-fV-gxg"/>
                                                     <constraint firstAttribute="trailing" secondItem="gTl-es-wHW" secondAttribute="trailing" id="joY-lt-JCD"/>
-                                                    <constraint firstAttribute="trailing" secondItem="jj1-Do-0RW" secondAttribute="trailing" id="lpk-YQ-cRf"/>
+                                                    <constraint firstAttribute="trailing" secondItem="cud-6m-K4g" secondAttribute="trailing" id="mFI-ro-VSO"/>
                                                 </constraints>
                                             </stackView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pencil.and.outline" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="3E6-56-O2V">
@@ -596,20 +640,21 @@
                     </tabBarItem>
                     <navigationItem key="navigationItem" id="ols-wh-t5a"/>
                     <connections>
+                        <outlet property="addFoodChoiceButton" destination="Kaw-gO-EEr" id="Tjy-HA-hD3"/>
                         <outlet property="datePicker" destination="4ep-4V-Q1C" id="aYr-GX-5Ar"/>
-                        <outlet property="foodChoice1" destination="5hT-Nh-EA2" id="Sej-aS-kkz"/>
-                        <outlet property="foodChoice2" destination="rCU-wr-P6J" id="67q-i7-ghd"/>
-                        <outlet property="foodChoice3" destination="7i2-Xn-z7c" id="qWW-5N-9ts"/>
-                        <outlet property="foodStackView" destination="SPo-FI-jqx" id="F2p-rB-24v"/>
+                        <outlet property="firstFoodChoice" destination="IPe-Hj-2fd" id="L8o-uG-S4a"/>
+                        <outlet property="foodChoice" destination="5hT-Nh-EA2" id="iNZ-vh-lKU"/>
+                        <outlet property="foodChoicesStack" destination="xwH-Mf-Ty9" id="P8O-Fx-59g"/>
+                        <outlet property="foodMessageLabel" destination="jj1-Do-0RW" id="ltd-9X-Jus"/>
                         <outlet property="nameLabel" destination="IRB-ba-PY7" id="NBW-VD-e1f"/>
                         <outlet property="officeLabel" destination="bTc-ag-AmW" id="wNc-yx-lhZ"/>
                         <outlet property="profilePictureAvatar" destination="eSI-TF-K0U" id="QiR-gu-P31"/>
                         <outlet property="publicInfoSwitch" destination="483-dF-SSA" id="hVH-JK-sEs"/>
                         <outlet property="restaurantChoice1" destination="6bz-Gi-u1F" id="a4i-oS-hDP"/>
-                        <outlet property="restaurantChoice2" destination="zNp-GE-Zah" id="5EQ-pi-Bd5"/>
-                        <outlet property="restaurantChoice3" destination="PcZ-SK-qWj" id="vm5-MZ-UH3"/>
                         <outlet property="saveChangesButton" destination="m4b-K1-KgO" id="pxz-e0-jZr"/>
+                        <outlet property="secondFoodChoice" destination="hPj-gx-a6O" id="Etd-zn-gQq"/>
                         <outlet property="signOutButton" destination="YnA-HQ-WcX" id="wbw-Fb-UVw"/>
+                        <outlet property="thirdFoodChoice" destination="anC-c4-9dq" id="i1G-rz-L0m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cg7-G4-zsD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1209,6 +1254,7 @@
         <image name="pencil.and.outline" catalog="system" width="128" height="128"/>
         <image name="person.circle.fill" catalog="system" width="128" height="123"/>
         <image name="pickedResto" width="354" height="102"/>
+        <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
         <image name="profile" width="40" height="40"/>
         <namedColor name="LunchApp_Orange">
             <color red="0.99215686274509807" green="0.53333333333333333" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
