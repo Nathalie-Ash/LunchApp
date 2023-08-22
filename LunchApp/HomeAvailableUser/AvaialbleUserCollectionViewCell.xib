@@ -33,13 +33,13 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="veD-EW-Iwi">
-                        <rect key="frame" x="212" y="15" width="15" height="20"/>
+                        <rect key="frame" x="212" y="16.333333333333329" width="15" height="18.333333333333357"/>
                         <color key="tintColor" name="LunchApp_Purple"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="15" id="EVV-0e-ltB"/>
-                            <constraint firstAttribute="height" constant="20" id="icR-3R-Nwv"/>
+                            <constraint firstAttribute="width" constant="15" id="Wts-fL-2Gs"/>
+                            <constraint firstAttribute="height" constant="25" id="rf7-Qc-yJc"/>
                         </constraints>
-                        <imageReference key="image" image="arrow.right" symbolScale="small" variableValue="1"/>
+                        <imageReference key="image" image="chevron.forward" catalog="system" symbolScale="small" variableValue="1"/>
                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
                     </imageView>
                 </subviews>
@@ -64,7 +64,7 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="arrow.right" width="10" height="15"/>
+        <image name="chevron.forward" catalog="system" width="97" height="128"/>
         <image name="profile" width="40" height="40"/>
         <namedColor name="LunchApp_Purple">
             <color red="0.53333333333333333" green="0.49411764705882355" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
