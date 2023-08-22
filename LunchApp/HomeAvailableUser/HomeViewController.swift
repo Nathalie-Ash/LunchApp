@@ -65,7 +65,6 @@ class HomeViewController: UIViewController {
         addPickedRestaurantsFromListener()
         getUserName()
         lunchView.layer.cornerRadius = 10
-        restaurantDropDownMenu.layer.cornerRadius = 10
         locationView.layer.cornerRadius = 10
         locationPicker.layer.cornerRadius = 10
         submitButton.layer.cornerRadius = 10
@@ -121,12 +120,12 @@ class HomeViewController: UIViewController {
     }
     
     func setupRestaurantDropDownMenu() {
-        
+        restaurantDropDownMenu.layer.cornerRadius = 10
         restaurantDropDown.anchorView = restaurantDropDownMenu
-        restaurantDropDown.dataSource = Restaurant.restaurants
+        restaurantDropDown.dataSource = Restaurant.restaurants.sorted()
+        restaurantDropDown.dataSource.append("No Preference")
         restaurantDropDown.selectionAction = { [unowned self] (index: Int, item: String) in
             self.restaurantLabel.text = item
-            //            self.restaurantDropDownMenu.setTitle(item, for: .normal)
             self.selectedRestaurantPreference = item
         }
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.restaurantDropDownMenuTapped))

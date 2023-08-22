@@ -23,7 +23,7 @@ struct Restaurant {
            "Malak El Tawouk",
            "Anthony's",
            "Hammoudi",
-           "No Preference"
+           "Abou Jihad"
        ]
 
     var dictionary: [String: Any] {
