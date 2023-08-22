@@ -23,6 +23,7 @@ class UserProfileViewController: UIViewController, UINavigationControllerDelegat
     var initialButtonCenter: CGPoint = .zero
     var isInfoPublic : Bool = true
     var image: UIImage? = nil
+    var defaultPhoto: Bool = true
     
     //MARK: - IBOutlets
     @IBOutlet weak var nameLabel: UITextField!
@@ -209,11 +210,13 @@ extension UserProfileViewController: UIImagePickerControllerDelegate {
         if let imageSelected = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
             image = imageSelected
             profilePictureAvatar.image = imageSelected
+            defaultPhoto = false
           }
         
         if let imageOriginal = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             image = imageOriginal
             profilePictureAvatar.image = imageOriginal
+            defaultPhoto = false
         }
         picker.dismiss(animated: true, completion: nil)
     }
@@ -293,8 +296,15 @@ extension UserProfileViewController {
         var user = User(userId: uid, name: name, birthday: formattedBirthday, office: office, food: self.allFoodChoices, restaurant: self.allRestaurantChoices, isPublic: isInfoPublic, profilePictureURL: "")
         
         if let image = profilePictureAvatar.image {
-            self.uploadProfilePicture(image) { url in
-                user.profilePictureURL = url ?? ""
+            if !defaultPhoto {
+                self.uploadProfilePicture(image) { url in
+                    user.profilePictureURL = url ?? ""
+                    let collection = Firestore.firestore().collection("users")
+                    collection.document(uid).setData(user.dictionary, merge: true) { error in
+                        print(error)
+                    }
+                }
+            } else {
                 let collection = Firestore.firestore().collection("users")
                 collection.document(uid).setData(user.dictionary, merge: true) { error in
                     print(error)
