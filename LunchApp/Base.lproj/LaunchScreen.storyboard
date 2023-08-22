@@ -3,7 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -18,27 +18,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GATHER N EAT " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zZ6-GM-LOQ">
+                                <rect key="frame" x="96.666666666666686" y="527" width="200" height="33.666666666666629"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                <color key="textColor" name="LunchApp_Purple"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="6eB-Rn-qgI">
-                                <rect key="frame" x="96.666666666666686" y="301" width="200" height="250"/>
+                                <rect key="frame" x="96.666666666666686" y="267" width="200" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="XE5-93-O3r"/>
                                     <constraint firstAttribute="width" constant="200" id="lGg-DD-imU"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GATHER N EAT " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zZ6-GM-LOQ">
-                                <rect key="frame" x="97" y="277.33333333333331" width="199" height="33.666666666666686"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
-                                <color key="textColor" name="LunchApp_Purple"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6eB-Rn-qgI" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="SQS-ba-LOs"/>
+                            <constraint firstItem="6eB-Rn-qgI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="208" id="XIC-Ix-Gnn"/>
+                            <constraint firstItem="6eB-Rn-qgI" firstAttribute="trailing" secondItem="zZ6-GM-LOQ" secondAttribute="trailing" id="bEG-Vt-uIT"/>
                             <constraint firstItem="zZ6-GM-LOQ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="c2J-ek-9ND"/>
-                            <constraint firstItem="zZ6-GM-LOQ" firstAttribute="bottom" secondItem="6eB-Rn-qgI" secondAttribute="top" constant="10" id="eiE-zH-gVb"/>
-                            <constraint firstItem="6eB-Rn-qgI" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="fO8-54-NJZ"/>
+                            <constraint firstItem="zZ6-GM-LOQ" firstAttribute="top" secondItem="6eB-Rn-qgI" secondAttribute="bottom" constant="10" id="eiE-zH-gVb"/>
                         </constraints>
                     </view>
                 </viewController>
