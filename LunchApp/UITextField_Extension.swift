@@ -42,4 +42,9 @@ extension UITextField {
         self.layer.addSublayer(border)
         self.layer.masksToBounds = true
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
