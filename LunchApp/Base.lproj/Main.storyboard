@@ -3,7 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -288,7 +288,6 @@
                         <segue destination="fTs-aV-HB6" kind="relationship" relationship="viewControllers" id="k1Y-9J-o1b"/>
                         <segue destination="gLG-8z-ikd" kind="relationship" relationship="viewControllers" id="Nh4-aG-dQV"/>
                         <segue destination="G9t-Vs-tDg" kind="relationship" relationship="viewControllers" id="nKI-DJ-cPo"/>
-                        <segue destination="Car-kQ-oxR" kind="relationship" relationship="viewControllers" id="eZH-rx-mLj"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zZM-Ft-MDE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1117,22 +1116,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2YH-dr-m31" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1694" y="717"/>
-        </scene>
-        <!--Item-->
-        <scene sceneID="w0p-Mc-NBf">
-            <objects>
-                <viewController id="Car-kQ-oxR" customClass="ChatsListViewController" customModule="LunchApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="SBv-wR-0eQ" customClass="Ch">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="o8c-95-2z6"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="3o5-MX-mIk" customClass="ch"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sa3-JM-Bca" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2494" y="954"/>
         </scene>
         <!--Available User View Controller-->
         <scene sceneID="TOi-lG-PJv">
