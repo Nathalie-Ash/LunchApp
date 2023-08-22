@@ -50,6 +50,7 @@ class HomeViewController: UIViewController {
     var availableUsers: [String: String] = [:]
     var availableRestaurants: [String: String] = [:]
     var selectedRestaurantPreference: String = "No Preference"
+    var selectedLocationPreference: String = "Not Specified"
     
     var sections: [HomeViewCollectionViewSection] = []
     var availableRestaurantsSection = HomeViewCollectionViewSection(headerTitle: "Restaurants", detailsList: [])
@@ -139,6 +140,7 @@ class HomeViewController: UIViewController {
         
         locationDropDown.selectionAction = { [unowned self] (index: Int, item: String) in
             self.locationLabel.text = item
+            self.selectedLocationPreference = item
         }
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.locationDropDownTapped))
         self.locationView.addGestureRecognizer(tapGesture)
@@ -161,7 +163,7 @@ class HomeViewController: UIViewController {
         let availability = availabilitySwitch.isOn
         let restoName = self.selectedRestaurantPreference
         let lunchTime = timePicker.date
-        let location = locationPicker.titleLabel?.text ?? "Not Specified"
+        let location = self.selectedLocationPreference
         let currentDate = Date.now
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy"

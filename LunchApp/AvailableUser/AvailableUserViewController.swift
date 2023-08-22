@@ -17,10 +17,12 @@ class AvailableUserViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var teamLabel: UILabel!
     @IBOutlet weak var birthdayLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var pickedRestaurantViewContainer: UIView!
     @IBOutlet weak var pickedRestaurantLabel: UILabel!
     @IBOutlet weak var userDetailsCollectionView: UICollectionView!
     
+
     var userId: String?
     var currentUserId: String? 
     let database = Firestore.firestore()
@@ -192,6 +194,7 @@ class AvailableUserViewController: UIViewController {
         self.userNameLabel.text = name
         self.birthdayLabel.text = displayedBirthday
         self.teamLabel.text = team
+        self.locationLabel.text = "Location: \(lunchLocation ?? "Not Specified")"
         self.timeLabel.text = displayedTime
         self.pickedRestaurantLabel.text = restaurantName
         self.nameLabel.text = "\(name) Lunch Time"
