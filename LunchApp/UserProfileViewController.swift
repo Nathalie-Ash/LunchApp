@@ -112,7 +112,7 @@ class UserProfileViewController: UIViewController, UINavigationControllerDelegat
     
     @IBAction func savePressed(_ sender: UIButton) {
         self.saveDataToDB()
-        self.tabBarController?.selectedIndex = 1
+      //  self.tabBarController?.selectedIndex = 1
     }
         
     @IBAction func signOutButtonPressed(_ sender: UIButton) {
@@ -211,12 +211,12 @@ extension UserProfileViewController: UIImagePickerControllerDelegate {
             image = imageSelected
             profilePictureAvatar.image = imageSelected
             defaultPhoto = false
-          }
-        
-        if let imageOriginal = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            profilePictureAvatar.roundedImage()
+          } else if let imageOriginal = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             image = imageOriginal
             profilePictureAvatar.image = imageOriginal
             defaultPhoto = false
+              profilePictureAvatar.roundedImage()
         }
         picker.dismiss(animated: true, completion: nil)
     }
