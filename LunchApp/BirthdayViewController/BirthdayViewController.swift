@@ -22,7 +22,11 @@ class BirthdayViewController: UIViewController {
         let nib = UINib(nibName: "BirthdayTableViewCell", bundle: .main)
         self.birthdaysTableView.register(nib, forCellReuseIdentifier: "BirthdayTableViewCellId")
         self.birthdaysTableView.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: "UITableViewHeaderFooterViewId")
-        fetchBirthdays()
+        self.fetchBirthdays()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.fetchBirthdays()
     }
     
     func fetchBirthdays() {
@@ -53,7 +57,7 @@ class BirthdayViewController: UIViewController {
                         let dateComponents = calendar.dateComponents([.year, .month, .day], from: date)
                         // get the month component from the users birthdays
                         let month = dateComponents.month ?? 1
-                        if (isPublic == true){
+                        if isPublic {
                             // if the months that were found are in the next upcoming 3 months
                             if targetMonths.contains(month) {
                                 // set the key of the dictionary to that month
@@ -137,6 +141,7 @@ extension BirthdayViewController: UITableViewDelegate, UITableViewDataSource {
         let data = birthdayData[indexPath.section].birthdays[indexPath.row]
         cell.nameLabel.text =  data.name
         cell.birthdayLabel.text = data.getBirthdayFormatted()
+        cell.userProfileImageView.image = UIImage(named: "bday-boy")
         
         let profilePictureURLString = data.imageURL
         let profilePictureURL = URL(string: profilePictureURLString)
@@ -149,8 +154,10 @@ extension BirthdayViewController: UITableViewDelegate, UITableViewDataSource {
                         return
                     }
                     if let imageData = data, let image = UIImage(data: imageData) {
+                        //TODO: fix flow to fetch images before
                         DispatchQueue.main.async {
                             cell.userProfileImageView.image = image
+                            cell.userProfileImageView.roundedImage()
                         }
                     }
                 }
@@ -203,8 +210,6 @@ struct SectionKey: Equatable, Hashable {
       let month: Int
     
 }
-
-
 
 extension Date {
     struct MonthDay: Comparable {

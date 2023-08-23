@@ -210,13 +210,13 @@ extension UserProfileViewController: UIImagePickerControllerDelegate {
         if let imageSelected = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
             image = imageSelected
             profilePictureAvatar.image = imageSelected
-            defaultPhoto = false
             profilePictureAvatar.roundedImage()
-          } else if let imageOriginal = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            defaultPhoto = false
+        } else if let imageOriginal = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             image = imageOriginal
             profilePictureAvatar.image = imageOriginal
+            profilePictureAvatar.roundedImage()
             defaultPhoto = false
-              profilePictureAvatar.roundedImage()
         }
         picker.dismiss(animated: true, completion: nil)
     }
@@ -268,6 +268,7 @@ extension UserProfileViewController {
                         if let imageData = data, let image = UIImage(data: imageData) {
                             DispatchQueue.main.async {
                                 self.profilePictureAvatar.image = image
+                                self.profilePictureAvatar.roundedImage()
                             }
                         }
                     }
@@ -294,27 +295,20 @@ extension UserProfileViewController {
         isInfoPublic = !publicInfoSwitch.isOn
         
         var user = User(userId: uid, name: name, birthday: formattedBirthday, office: office, food: self.allFoodChoices, restaurant: self.allRestaurantChoices, isPublic: isInfoPublic, profilePictureURL: "")
-        
+        let collection = Firestore.firestore().collection("users")
         if let image = profilePictureAvatar.image {
             if !defaultPhoto {
                 self.uploadProfilePicture(image) { url in
                     user.profilePictureURL = url ?? ""
-                    let collection = Firestore.firestore().collection("users")
                     collection.document(uid).setData(user.dictionary, merge: true) { error in
                         print(error)
                     }
                 }
-            } else {
-                let collection = Firestore.firestore().collection("users")
-                collection.document(uid).setData(user.dictionary, merge: true) { error in
-                    print(error)
-                }
             }
-        } else {
-            let collection = Firestore.firestore().collection("users")
-            collection.document(uid).setData(user.dictionary, merge: true) { error in
-                print(error)
-            }
+              
+        }
+        collection.document(uid).setData(user.dictionary, merge: true) { error in
+            print(error)
         }
     }
 }
