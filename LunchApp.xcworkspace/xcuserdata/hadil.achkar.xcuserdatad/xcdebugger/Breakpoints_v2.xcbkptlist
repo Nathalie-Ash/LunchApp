@@ -7,223 +7,127 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "725D5B7D-AEE2-40BC-81B6-1E4D9D71A677"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LunchApp/UserProfileViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "299"
-            endingLineNumber = "299"
-            landmarkName = "saveDataToDB()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "725D5B7D-AEE2-40BC-81B6-1E4D9D71A677 - 11849e45c7a35a48"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "LunchApp.UserProfileViewController.saveDataToDB() -&gt; ()"
-                  moduleName = "LunchApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hadil.achkar/Documents/Intern/LunchApp/LunchApp/UserProfileViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "299"
-                  endingLineNumber = "299"
-                  offsetFromSymbolStart = "1948">
-               </Location>
-               <Location
-                  uuid = "725D5B7D-AEE2-40BC-81B6-1E4D9D71A677 - 11849e45c7a35a48"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "LunchApp.UserProfileViewController.saveDataToDB() -&gt; ()"
-                  moduleName = "LunchApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hadil.achkar/Documents/Intern/LunchApp/LunchApp/UserProfileViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "299"
-                  endingLineNumber = "299"
-                  offsetFromSymbolStart = "2156">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C48744B1-44A0-4215-B2A6-FEEADB249CA6"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LunchApp/UserProfileViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "302"
-            endingLineNumber = "302"
-            landmarkName = "saveDataToDB()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "C48744B1-44A0-4215-B2A6-FEEADB249CA6 - 71cd4a9ba9d612d5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Swift.String&gt;) -&gt; () in LunchApp.UserProfileViewController.saveDataToDB() -&gt; ()"
-                  moduleName = "LunchApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hadil.achkar/Documents/Intern/LunchApp/LunchApp/UserProfileViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "302"
-                  endingLineNumber = "302"
-                  offsetFromSymbolStart = "56">
-               </Location>
-               <Location
-                  uuid = "C48744B1-44A0-4215-B2A6-FEEADB249CA6 - 71cd4a9ba9d612d5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Swift.String&gt;) -&gt; () in LunchApp.UserProfileViewController.saveDataToDB() -&gt; ()"
-                  moduleName = "LunchApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hadil.achkar/Documents/Intern/LunchApp/LunchApp/UserProfileViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "302"
-                  endingLineNumber = "302"
-                  offsetFromSymbolStart = "96">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "985A0293-B598-4568-8715-FDE7174B198B"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LunchApp/UserProfileViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "310"
-            endingLineNumber = "310"
-            landmarkName = "saveDataToDB()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "985A0293-B598-4568-8715-FDE7174B198B - 11849e45c7a358dd"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "LunchApp.UserProfileViewController.saveDataToDB() -&gt; ()"
-                  moduleName = "LunchApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hadil.achkar/Documents/Intern/LunchApp/LunchApp/UserProfileViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "310"
-                  endingLineNumber = "310"
-                  offsetFromSymbolStart = "2388">
-               </Location>
-               <Location
-                  uuid = "985A0293-B598-4568-8715-FDE7174B198B - 5c985d3d26577418"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in LunchApp.UserProfileViewController.saveDataToDB() -&gt; ()"
-                  moduleName = "LunchApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hadil.achkar/Documents/Intern/LunchApp/LunchApp/UserProfileViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "311"
-                  endingLineNumber = "311"
-                  offsetFromSymbolStart = "48">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A3188D00-AB29-466D-A92B-487BBEDFC83D"
+            uuid = "897446E7-2166-4C39-B5BA-2AE174686546"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LunchApp/BirthdayViewController/BirthdayViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "160"
-            endingLineNumber = "160"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "1012AF4C-27A5-44F9-BC91-3DE2E759DE67"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LunchApp/BirthdayViewController/BirthdayViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "168"
-            endingLineNumber = "168"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D74E23A8-A96C-4258-B9B4-124616CDBC3F"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LunchApp/BirthdayViewController/BirthdayViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "BirthdayViewController"
+            landmarkType = "3">
             <Locations>
                <Location
-                  uuid = "D74E23A8-A96C-4258-B9B4-124616CDBC3F - b7f03bf58c1f1e66"
+                  uuid = "897446E7-2166-4C39-B5BA-2AE174686546 - 7b30c4a5a6070735"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "LunchApp.BirthdayViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  symbolName = "LunchApp.BirthdayViewController.updateBirthData(for: Swift.Dictionary&lt;LunchApp.SectionKey, Swift.Array&lt;LunchApp.BirthdayUser&gt;&gt;) -&gt; ()"
                   moduleName = "LunchApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/hadil.achkar/Documents/Intern/LunchApp/LunchApp/BirthdayViewController/BirthdayViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "143"
-                  endingLineNumber = "143"
-                  offsetFromSymbolStart = "1592">
+                  startingLineNumber = "119"
+                  endingLineNumber = "119"
+                  offsetFromSymbolStart = "88">
                </Location>
                <Location
-                  uuid = "D74E23A8-A96C-4258-B9B4-124616CDBC3F - b7f03bf58c1f1e66"
+                  uuid = "897446E7-2166-4C39-B5BA-2AE174686546 - b13e5b541be6d5e8"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "LunchApp.BirthdayViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  symbolName = "closure #1 (LunchApp.SectionKey, Swift.Array&lt;LunchApp.BirthdayUser&gt;) -&gt; LunchApp.BirthdayData in LunchApp.BirthdayViewController.updateBirthData(for: Swift.Dictionary&lt;LunchApp.SectionKey, Swift.Array&lt;LunchApp.BirthdayUser&gt;&gt;) -&gt; ()"
                   moduleName = "LunchApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/hadil.achkar/Documents/Intern/LunchApp/LunchApp/BirthdayViewController/BirthdayViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "143"
-                  endingLineNumber = "143"
-                  offsetFromSymbolStart = "1884">
+                  startingLineNumber = "120"
+                  endingLineNumber = "120"
+                  offsetFromSymbolStart = "72">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2B9AFB96-A289-4DBE-85D4-708BE63E47CA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LunchApp/BirthdayViewController/BirthdayViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "179"
+            endingLineNumber = "179"
+            landmarkName = "tableView(_:viewForHeaderInSection:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "739AD2C1-2EC9-41CB-89F8-7C6F026F0FFD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LunchApp/UserProfileViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "304"
+            endingLineNumber = "304"
+            landmarkName = "saveDataToDB()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1099035A-FAA4-4B90-8FF5-8C8A17B3742E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LunchApp/BirthdayViewController/BirthdayViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1099035A-FAA4-4B90-8FF5-8C8A17B3742E - 7bd3627c2b479138"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in LunchApp.BirthdayViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "LunchApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hadil.achkar/Documents/Intern/LunchApp/LunchApp/BirthdayViewController/BirthdayViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "153"
+                  endingLineNumber = "153"
+                  offsetFromSymbolStart = "80">
+               </Location>
+               <Location
+                  uuid = "1099035A-FAA4-4B90-8FF5-8C8A17B3742E - 6f6cae53e70993a9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in LunchApp.BirthdayViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "LunchApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hadil.achkar/Documents/Intern/LunchApp/LunchApp/BirthdayViewController/BirthdayViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "153"
+                  endingLineNumber = "153"
+                  offsetFromSymbolStart = "396">
                </Location>
             </Locations>
          </BreakpointContent>

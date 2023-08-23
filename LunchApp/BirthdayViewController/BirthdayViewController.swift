@@ -172,8 +172,8 @@ extension BirthdayViewController: UITableViewDelegate, UITableViewDataSource {
         let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "UITableViewHeaderFooterViewId")
         headerView?.textLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         headerView?.textLabel?.text = monthName(from: birthdayData[section].section.month)
-        headerView?.contentView.backgroundColor = .white
-        headerView?.backgroundView?.backgroundColor = .white
+        headerView?.contentView.backgroundColor = .clear
+        headerView?.backgroundView?.backgroundColor = .clear
         headerView?.textLabel?.textColor = UIColor(red: 253.0/255.0, green: 136.0/255.0, blue: 71.0/255.0, alpha: 1.0)
         return headerView
     }

@@ -909,7 +909,7 @@
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mLe-hA-BOp">
                                                         <rect key="frame" x="305" y="6.6666666666666288" width="47" height="47"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="47" id="cWV-nV-g6u"/>
                                                             <constraint firstAttribute="width" constant="47" id="zaE-hy-eFD"/>
@@ -947,7 +947,7 @@
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SEO-NH-HnT">
                                                         <rect key="frame" x="305" y="6.6666666666666288" width="47" height="47"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="47" id="GSf-VC-1gJ"/>
                                                             <constraint firstAttribute="height" constant="47" id="MjN-bw-ubW"/>
