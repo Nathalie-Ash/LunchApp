@@ -307,7 +307,7 @@ class HomeViewController: UIViewController {
                     userDict[userId] = username
                 }
             }
-            userDict.removeValue(forKey: uid)
+          userDict.removeValue(forKey: uid)
             
             let sortedDetails = userDict.map { (key, value) in
                 return DetailsCollection(key: key, value: value)

@@ -70,15 +70,11 @@ class LogInViewController: UIViewController {
     func logIn() {
         let userEmail = email.text!
         let userPassword = password.text!
-        
         //check if the user is in the firebase authentication
-        // it fetches the user by their email
         Auth.auth().fetchSignInMethods(forEmail: userEmail) { [weak self] signInMethods, error in
             guard let strongSelf = self else {
                 return
             }
-            
-            // check if there was an error while fetching the user
             if let error = error {
                 self?.errorLabel.isHidden = false
                 self?.errorLabel.text = "Error fetching sign-in methods: \(error.localizedDescription)"
@@ -88,8 +84,6 @@ class LogInViewController: UIViewController {
             
             //checks if the sign in method contaings the emailPasswordAuthSignInMethod
             if let signInMethods = signInMethods, signInMethods.contains(EmailPasswordAuthSignInMethod) {
-                // attempt to log in the user using the email and password
-                // if the user exists 
                 Auth.auth().signIn(withEmail: userEmail, password: userPassword) { authResult, error in
                     if let error = error {
                         self?.errorLabel.isHidden = false
@@ -147,8 +141,6 @@ class LogInViewController: UIViewController {
             guard let vc = storyboard.instantiateViewController(identifier: "signUp") as? UITabBarController else {
                 return
             }
-            
-           
             
             vc.modalPresentationStyle = .overFullScreen
             vc.selectedIndex = 1

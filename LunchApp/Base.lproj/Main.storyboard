@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina6_12" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -1314,6 +1314,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="RestoImage" destination="GSh-hs-Swt" id="XBu-C9-0Vb"/>
                         <outlet property="birthdayLabel" destination="4jn-CI-qA0" id="Bs9-h8-9dJ"/>
                         <outlet property="locationLabel" destination="5DQ-ow-Uou" id="3Js-Pb-LFM"/>
                         <outlet property="nameLabel" destination="QMl-hJ-OgW" id="AhC-o3-Lmo"/>
@@ -1361,9 +1362,9 @@
         <image name="message.fill" catalog="system" width="128" height="114"/>
         <image name="pencil.and.outline" catalog="system" width="128" height="128"/>
         <image name="person.circle.fill" catalog="system" width="128" height="123"/>
-        <image name="pickedResto" width="354" height="102"/>
+        <image name="pickedResto" width="329" height="101.33333587646484"/>
         <image name="pin.circle.fill" catalog="system" width="128" height="123"/>
-        <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="plus.circle.fill" catalog="system" width="32" height="32"/>
         <image name="profile" width="40" height="40"/>
         <namedColor name="LunchApp_Orange">
             <color red="0.99215686274509807" green="0.53333333333333333" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

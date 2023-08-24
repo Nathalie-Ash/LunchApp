@@ -63,9 +63,11 @@ class SignUpViewController: UIViewController {
         present(vc, animated: true)
     }
     
+    
     func signUp(){
 
-        Auth.auth().createUser(withEmail: email.text!, password: password.text!) { [self] (authResult, error) in
+        Auth.auth().createUser(withEmail: email.text!, password: password.text!) {
+            [self] (authResult, error) in
             guard let user = authResult?.user, error == nil else {
                 Auth.auth().currentUser?.updateEmail(to: email.text!)
                 Auth.auth().currentUser?.updatePassword(to: password.text!)

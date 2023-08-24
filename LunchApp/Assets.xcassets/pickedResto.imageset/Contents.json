@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Picked Restaurant Banner.jpg",
+      "filename" : "Picked Restaurant Banner.jpeg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Picked Restaurant Banner@2x.jpg",
+      "filename" : "Picked Restaurant Banner@2x.jpeg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Picked Restaurant Banner@3x.jpg",
+      "filename" : "Picked Restaurant Banner@3x.jpeg",
       "idiom" : "universal",
       "scale" : "3x"
     }

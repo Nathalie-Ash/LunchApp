@@ -22,7 +22,8 @@ class AvailableUserViewController: UIViewController {
     @IBOutlet weak var pickedRestaurantLabel: UILabel!
     @IBOutlet weak var userDetailsCollectionView: UICollectionView!
     
-
+    @IBOutlet weak var RestoImage: UIImageView!
+    
     var userId: String?
     var currentUserId: String? 
     let database = Firestore.firestore()
@@ -43,6 +44,7 @@ class AvailableUserViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         userProfile.roundedImage()
+        RestoImage.layer.cornerRadius = 10
         userProfile.contentMode = .scaleToFill
         let nib = UINib(nibName: "UserDetailsCollectionViewCell", bundle: .main)
         userDetailsCollectionView.register(nib, forCellWithReuseIdentifier: "UserDetailsCollectionViewCellId")
