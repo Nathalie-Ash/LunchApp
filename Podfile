@@ -11,6 +11,7 @@ target 'LunchApp' do
 	pod 'Firebase/Auth'
 	pod 'Firebase/Firestore'
 	pod 'Firebase/Storage'
+    pod 'FirebaseStorageUI'
   pod 'DropDown'
 	pod 'MessageKit'
 	pod 'SDWebImage'

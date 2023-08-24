@@ -8,6 +8,8 @@
 import UIKit
 import Firebase
 import FirebaseStorage
+import SDWebImage
+import FirebaseStorageUI
 
 class BirthdayViewController: UIViewController {
     
@@ -141,29 +143,18 @@ extension BirthdayViewController: UITableViewDelegate, UITableViewDataSource {
         let data = birthdayData[indexPath.section].birthdays[indexPath.row]
         cell.nameLabel.text =  data.name
         cell.birthdayLabel.text = data.getBirthdayFormatted()
-        cell.userProfileImageView.image = UIImage(named: "bday-boy")
         
         let profilePictureURLString = data.imageURL
         let profilePictureURL = URL(string: profilePictureURLString)
-        if let profilePictureURL = profilePictureURL {
+        if let profilePictureURL = profilePictureURL, !profilePictureURL.absoluteString.isEmpty {
             do {
                 let storageReference = try Storage.storage().reference(for: profilePictureURL)
-                storageReference.getData(maxSize: 10 * 1024 * 1024) { data, error in
-                    if let error = error {
-                        print("Error fetching image data")
-                        return
-                    }
-                    if let imageData = data, let image = UIImage(data: imageData) {
-                        //TODO: fix flow to fetch images before
-                        DispatchQueue.main.async {
-                            cell.userProfileImageView.image = image
-                            cell.userProfileImageView.roundedImage()
-                        }
-                    }
-                }
+                cell.userProfileImageView.sd_setImage(with: storageReference, placeholderImage: UIImage(named: "bday-boy"))
             } catch {
                 print(error)
             }
+        } else {
+            cell.userProfileImageView.image = UIImage(named: "bday-boy")
         }
         return cell
     }
